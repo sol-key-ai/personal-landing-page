@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solomon Key - Data Architect & Innovator (Dark Theme)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background: linear-gradient(120deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: -20%;
+            left: -20%;
+            width: 140vw;
+            height: 140vh;
+            background: radial-gradient(circle at 60% 40%, rgba(14,165,233,0.10) 0%, rgba(139,92,246,0.10) 40%, transparent 80%);
+            z-index: 0;
+            pointer-events: none;
+            animation: bgMove 18s linear infinite alternate;
+        }
+        @keyframes bgMove {
+            0% { transform: translate(0,0) scale(1);}
+            100% { transform: translate(10vw, 10vh) scale(1.05);}
+        }
+        .electric-gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #0ea5e9, #8b5cf6, #ec4899, #22d3ee);
+            background-size: 200% 100%;
+            animation: none; /* Remove animation for a cleaner look */
+        }
+        /* Refined Glow Effects */
+        .electric-glow-primary { /* Sky blue based */
+            box-shadow: 0 0 24px 4px rgba(14, 165, 233, 0.45), 0 0 8px 2px rgba(236, 72, 153, 0.18);
+        }
+        .electric-glow-secondary { /* Violet based */
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.3), 0 0 5px rgba(139, 92, 246, 0.15);
+        }
+
+        .section-transition {
+            transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1);
+        }
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .section-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title-accent {
+            display: block;
+            margin: 0.5rem auto 2.5rem auto;
+            width: 80px;
+            height: 4px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #ec4899, #22d3ee);
+            background-size: 200% 100%;
+            animation: accentMove 3s linear infinite alternate;
+        }
+        @keyframes accentMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Refined Button Styles v2 */
+        .btn-primary-dark { /* e.g. Get In Touch */
+            @apply text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105;
+            background: #0ea5e9; /* Solid color for buttons */
+            border-color: #0ea5e9;
+        }
+        .btn-primary-dark:hover {
+            background: #0284c7; /* Slightly darker on hover */
+            transform: scale(1.01); /* Subtle scaling */
+            box-shadow: 0 4px 16px rgba(14, 165, 233, 0.15); /* Softer shadow */
+        }
+        .btn-secondary-dark { /* Used for project links e.g. View Dashboard */
+            @apply text-sky-300 font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 text-sm;
+            background: #1e293b; /* Solid dark background */
+            border-color: #1e293b;
+        }
+        .btn-secondary-dark:hover {
+            background: #334155; /* Slightly lighter on hover */
+            transform: scale(1.01); /* Subtle scaling */
+            box-shadow: 0 4px 16px rgba(14, 165, 233, 0.15); /* Softer shadow */
+        }
+        .btn-outline-electric { /* e.g. Explore My Experience */
+            @apply bg-transparent border-2 border-sky-500 text-sky-400 hover:bg-sky-500 hover:text-slate-900 font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105;
+        }
+        /* Community Initiatives Button - specific style for its unique color */
+        .btn-community {
+             @apply inline-block font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 opacity-75 cursor-not-allowed bg-violet-600 hover:bg-violet-700 text-white border-2 border-violet-400 hover:border-violet-300;
+        }
+
+
+        .bg-slate-800,
+        .bg-slate-900 {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 32px 0 rgba(14,165,233,0.07), 0 1.5px 8px 0 rgba(139,92,246,0.09);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .bg-slate-800:hover,
+        .bg-slate-900:hover {
+            transform: scale(1.01); /* Subtle scaling */
+            box-shadow: 0 6px 24px rgba(14, 165, 233, 0.12); /* Softer shadow */
+        }
+
+        nav {
+            background-color: rgba(15, 23, 42, 0.8); /* slate-900 with opacity */
+        }
+        nav a {
+            @apply hover:text-sky-400 transition-colors duration-300;
+        }
+        .font-tech {
+            font-family: 'Roboto Mono', monospace;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; } /* slate-800 */
+        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; } /* sky-400 */
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; } /* sky-500 */
+
+        .experience-card {
+            @apply bg-slate-800 p-6 md:p-8 rounded-xl shadow-xl border border-slate-700 hover:border-sky-500 transition-all duration-300 transform hover:scale-[1.01];
+            margin-bottom: 2rem;
+        }
+        .experience-card:last-child {
+            margin-bottom: 0;
+        }
+        .experience-title {
+            @apply text-2xl font-semibold text-sky-400 mb-1;
+        }
+        .experience-subtitle {
+            @apply text-lg font-medium text-slate-300 mb-1;
+        }
+        .experience-dates {
+            @apply font-tech text-sm text-slate-500 mb-4;
+        }
+        .experience-details ul {
+            list-style-type: disc; /* Use standard bullet points */
+            padding-left: 1.5rem; /* Add padding for better alignment */
+            @apply text-slate-400 space-y-2 text-sm;
+        }
+
+        section {
+            padding-top: 4rem; /* Increase padding for more whitespace */
+            padding-bottom: 4rem;
+        }
+
+        .container {
+            max-width: 1200px; /* Ensure consistent width for content */
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 antialiased">
+
+    <nav class="backdrop-blur-md shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold electric-gradient-text">solkey.ai</a>
+            <div class="space-x-3 md:space-x-6 text-sm md:text-base">
+                <a href="#about" class="text-slate-300">About</a>
+                <a href="#experience" class="text-slate-300">Experience</a>
+                <a href="#expertise" class="text-slate-300">Expertise</a>
+                <a href="#projects" class="text-slate-300">Projects</a>
+                <a href="#initiatives" class="text-slate-300">Initiatives</a>
+                <a href="#contact" class="text-slate-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-900 flex items-center min-h-screen border-b border-slate-700">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <img src="https://ui-avatars.com/api/?name=Solomon+Key&size=150&background=0ea5e9&color=ffffff&font-size=0.4" alt="Solomon Key" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 shadow-2xl border-4 border-slate-700 electric-glow-primary">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-slate-50">
+                    Solomon Key
+                </h1>
+                <p class="text-xl md:text-2xl electric-gradient-text mb-8 font-semibold">
+                    Principal Data Architect & Engineering Leader
+                </p>
+                <p class="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
+                    Transforming complex data landscapes into strategic assets. With over 19 years of experience, I specialize in designing, building, and leading high-impact data solutions from enterprise warehousing to modern cloud pipelines and intuitive analytics.
+                </p>
+                <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="btn-primary-dark electric-glow-primary inline-block">Get In Touch</a>
+                    <a href="#experience" class="btn-outline-electric inline-block">Explore My Experience</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-16 md:py-24 bg-slate-800 section-transition section-hidden border-b border-slate-700">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-100 electric-gradient-text">About Solomon</h2>
+            <span class="section-title-accent"></span>
+            <div class="max-w-3xl mx-auto bg-slate-900 p-8 md:p-10 rounded-xl shadow-2xl">
+                <p class="text-lg text-slate-300 mb-4">
+                    My journey in technology began with a Bachelor of Science in Computer Science from the University of Georgia (4.0 GPA, Presidential Scholar). This foundation fueled a career dedicated to unraveling data complexities and harnessing its power for innovation.
+                </p>
+                <p class="text-lg text-slate-300 mb-4">
+                    With nearly two decades of hands-on experience, from Systems Analyst to a seasoned Data Architect, I've led significant data initiatives at the University System of Georgia and now at the Georgia Data Analytics Center (GDAC). My expertise spans the full data lifecycle: architecting data warehouses, automated ETL pipelines, and user-centric BI solutions.
+                </p>
+                <p class="text-lg text-slate-300 mb-4">
+                    I thrive on challenges requiring deep technical knowledge and strategic vision—modernizing legacy systems, ensuring data governance, or pioneering new data interaction methods.
+                </p>
+                 <p class="text-lg text-slate-300">
+                    Beyond the technical, I'm exploring front-end development and AI/LLMs to revolutionize data interaction, and I'm committed to community building for collaborative learning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 md:py-24 bg-slate-900 section-transition section-hidden border-b border-slate-700">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-100 electric-gradient-text">Professional Journey & Key Contributions</h2>
+            <span class="section-title-accent"></span>
+            <div class="max-w-3xl mx-auto">
+                <div class="experience-card">
+                    <h3 class="experience-title">Data Architect</h3>
+                    <p class="experience-subtitle">Georgia Data Analytics Center (GDAC) - Governor's Office of Planning and Budget</p>
+                    <p class="experience-dates">2022 – Present</p>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Spearheading cloud data architecture initiatives on AWS, focusing on secure and scalable solutions for state agency data.</li>
+                            <li>Designing and implementing robust data models and transformation processes to integrate diverse datasets (healthcare, education, finance).</li>
+                            <li>Leading the development and management of automated data pipelines, ensuring efficient data ingestion, validation, and delivery.</li>
+                            <li>Collaborating with stakeholders to define requirements and deliver high-impact BI solutions using Tableau, PowerBI, and AWS Quicksight.</li>
+                            <li>Driving data quality assurance, metadata management, and documentation best practices across projects.</li>
+                            <li>Expertise in ETL processes, SQL, Redshift, and managing S3 security and data inventories.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <h3 class="experience-title">Data Architect</h3>
+                    <p class="experience-subtitle">Information Technology Services - University System of Georgia</p>
+                    <p class="experience-dates">2010 – 2022</p>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Led the architecture, development, and maintenance of the USG Data Warehouse and enterprise BI platforms.</li>
+                            <li>Engineered efficient, automated data pipelines for system-wide data collections and reporting.</li>
+                            <li>Directed the modernization and integration of complex legacy data systems into a cohesive architecture.</li>
+                            <li>Served as Lead Cognos BI Architect and data modeler, utilizing Framework Manager, Report Studio, and Cognos Analytics.</li>
+                            <li>Pioneered an industry-leading in-house Data Element Dictionary (DED) and comprehensive metadata systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card">
+                    <h3 class="experience-title">Systems Analyst</h3>
+                    <p class="experience-subtitle">Data Services - University System of Georgia</p>
+                    <p class="experience-dates">2006 – 2010</p>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Built a foundational Data Element Dictionary and metadata management platform.</li>
+                            <li>Developed advanced reports and metadata using Cognos, Oracle OBIEE, Crystal Enterprise, and SQL.</li>
+                            <li>Key architect in implementing the USG Cognos Analytics platform and Operational Data Store (ODS).</li>
+                            <li>Ensured data integrity and performance through continuous QA and analysis.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <div class="experience-card">
+                    <h3 class="experience-title">Early Career: Application Development & Design</h3>
+                    <p class="experience-subtitle">Apollo Sci-Tech (Programmer/Consultant) & Babb Technologies, Inc. (Web Designer)</p>
+                    <p class="experience-dates">2000 – 2006</p>
+                    <div class="experience-details">
+                        <ul>
+                            <li>At Apollo Sci-Tech: Engineered custom software for scientific instrument control, including the development of complete UI and data charting interfaces from scratch using Visual Studio.</li>
+                            <li>At Babb Technologies: Served as principal graphic artist and UI designer; designed and coded websites using HTML & CSS, establishing foundational skills in front-end development.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="py-16 md:py-24 bg-slate-800 section-transition section-hidden border-b border-slate-700">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-100 electric-gradient-text">Areas of Expertise</h2>
+            <span class="section-title-accent"></span>
+            <div id="expertise-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 md:py-24 bg-slate-900 section-transition section-hidden border-b border-slate-700">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-100 electric-gradient-text">Showcase: Dashboards & Projects</h2>
+            <span class="section-title-accent"></span>
+            <div id="project-cards-container" class="max-w-4xl mx-auto space-y-10">
+                </div>
+        </div>
+    </section>
+
+    <section id="initiatives" class="py-16 md:py-24 bg-slate-800 section-transition section-hidden border-b border-slate-700">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-100 electric-gradient-text">Community & Collaboration</h2>
+            <span class="section-title-accent"></span>
+            <div class="max-w-3xl mx-auto bg-slate-900 p-8 md:p-10 rounded-xl shadow-2xl text-center border border-slate-700 hover:border-violet-500">
+                <div class="text-violet-500 mb-4">
+                    <i class="fas fa-users fa-3x"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-3 text-slate-100">Fostering Local Innovation</h3>
+                <p class="text-lg text-slate-300 mb-4">
+                    Passionate about creating spaces for collaborative learning and hands-on creation. Organizing local build events for all ages to explore robotics, art, music, and code.
+                </p>
+                <p class="text-lg text-slate-400">
+                    Vision: Cultivate a vibrant community where curiosity thrives and innovative ideas come to life. Details on upcoming events soon!
+                </p>
+                <div class="mt-6">
+                     <a href="[Link to Your Collaboration Events Page/Info]" 
+                       class="btn-community electric-glow-secondary" 
+                       aria-disabled="true" title="Coming Soon">Learn More (Coming Soon)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-slate-900 section-transition section-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-100 electric-gradient-text">Let's Connect</h2>
+            <span class="section-title-accent"></span>
+            <div class="max-w-xl mx-auto text-center bg-slate-800 p-8 md:p-10 rounded-xl shadow-2xl border border-slate-700">
+                <p class="text-lg text-slate-300 mb-8">
+                    Interested in discussing innovative data challenges, potential collaborations, or sharing insights? Feel free to reach out.
+                </p>
+                <div class="mb-8">
+                    <a href="mailto:sol.key@gmail.com" class="text-xl text-sky-400 hover:text-sky-300 underline font-tech">
+                        sol.key@gmail.com
+                    </a>
+                </div>
+                <div class="flex justify-center space-x-6">
+                    <a href="[Your LinkedIn URL]" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-sky-400 transition-colors duration-300">
+                        <i class="fab fa-linkedin fa-3x"></i>
+                    </a>
+                    <a href="[Your GitHub URL]" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-lime-400 transition-colors duration-300">
+                        <i class="fab fa-github fa-3x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-400 py-8 text-center border-t border-slate-700">
+        <div class="container mx-auto px-6">
+            <p class="font-tech">&copy; <span id="currentYear"></span> Solomon Key. All rights reserved.</p>
+            <p class="text-sm electric-gradient-text">Powered by solkey.ai</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Data for dynamic sections
+        const skillsData = [
+            { icon: "fas fa-sitemap", title: "Cloud Data Architecture (AWS)", color: "text-sky-400", description: "AWS Services (Glue, S3, Athena, Redshift, Lambda), Secure & Scalable Solutions, Data Modeling, Governance." },
+            { icon: "fas fa-cogs", title: "Data Engineering & Pipelines", color: "text-lime-400", description: "ETL/ELT Development, Automation, Data Integration, SQL, Python, Snowflake, Data Validation." },
+            { icon: "fas fa-chart-line", title: "BI & Data Visualization", color: "text-fuchsia-500", description: "Tableau, PowerBI, AWS Quicksight, Dashboard Design, Self-Service Analytics, IBM Cognos Suite." },
+            { icon: "fas fa-shield-alt", title: "Data Security & Compliance", color: "text-red-500", description: "HIPAA/Medicaid Data Contexts, S3 Security, Data Governance Frameworks, Access Control." },
+            { icon: "fas fa-laptop-code", title: "Front-End & Application Dev", color: "text-cyan-400", description: "HTML, CSS, JavaScript, React (Exploring), UI/UX for Data, Visual Studio, Custom Application Interfaces." },
+            { icon: "fas fa-brain", title: "AI & Emerging Technologies", color: "text-violet-500", description: "AI/LLM Exploration (Amazon Bedrock, SageMaker), Innovative Data Solutions, Continuous Learning." }
+        ];
+
+        const projectsData = [
+            { 
+                title: "Accountability Dashboard (SCSC)", 
+                description: "Digital version of the Comprehensive Performance Framework for Georgia's State Charter Schools Commission, providing school performance data from 2019-2020 onwards.", 
+                tags: ["Tableau", "Public Sector", "Education", "Data Visualization"], 
+                color: "border-sky-500", 
+                link: "https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y",
+                linkText: "View Dashboard"
+            },
+            { 
+                title: "Graduate Medical Education Match Results", 
+                description: "Summarizes GME and medical student graduate match results for the State of Georgia, offering insights into physician placement.", 
+                tags: ["Tableau", "Healthcare", "Workforce", "Analytics"], 
+                color: "border-lime-500", 
+                link: "https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y",
+                linkText: "View Dashboard"
+            },
+            { 
+                title: "Consolidated Healthcare Workforce Dashboard", 
+                description: "Provides a consolidated view of Georgia's actively licensed healthcare workforce including physicians, PAs, nurses, dentists, and dental hygienists.", 
+                tags: ["Tableau", "Healthcare", "Workforce Planning", "State Data"], 
+                color: "border-fuchsia-500", 
+                link: "https://prod.insights.georgia.gov/views/GeorgiaHealthcareWorkforce/ConsolidatedHealthcareWorkforce?%3Aembed=y&%3AisGuestRedirectFromVizportal=y",
+                linkText: "View Dashboard" 
+            },
+            { 
+                title: "Zippy Data Explorer", 
+                description: "An innovative tool simplifying data exploration. Leverages modern front-end (React) with backend data sources for an intuitive user interface.", 
+                tags: ["React", "AWS", "Data Visualization", "UI/UX"], 
+                color: "border-pink-500", 
+                github: "[Your GitHub Link for Zippy Data Explorer]",
+                linkText: "View on GitHub"
+            },
+            { 
+                title: "Statewide Data Integration & Analytics Platforms", 
+                description: "Architected and contributed to secure, scalable data platforms for Georgia state agencies, integrating diverse data sources to empower data-driven decision-making using AWS, data warehousing, and BI dashboards.", 
+                tags: ["AWS Cloud", "Data Warehousing", "BI Dashboards", "ETL"], 
+                color: "border-cyan-500", 
+                link: null 
+            },
+            { 
+                title: "Enterprise Data Warehouse & BI Modernization (USG)", 
+                description: "Pivotal in architecting USG's enterprise data warehouse and BI platforms. Led Cognos teams, developed data models, and established robust data quality and metadata systems (in-house Data Element Dictionary).", 
+                tags: ["IBM Cognos", "Metadata Mgmt", "Data Quality", "ETL"], 
+                color: "border-violet-500", 
+                link: null
+            }
+        ];
+
+        function renderSkillCards() {
+            const container = document.getElementById('expertise-cards-container');
+            if (!container) return;
+            container.innerHTML = skillsData.map(skill => `
+                <div class="bg-slate-900 p-6 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-slate-700 hover:border-sky-500 transform hover:scale-105">
+                    <div class="${skill.color} mb-3 text-2xl"><i class="${skill.icon} fa-fw"></i></div>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-100">${skill.title}</h3>
+                    <p class="text-slate-400 text-sm">${skill.description}</p>
+                </div>`).join('');
+        }
+
+        function renderProjectCards() {
+            const container = document.getElementById('project-cards-container');
+            if (!container) return;
+            container.innerHTML = projectsData.map(project => {
+                const tagsHtml = project.tags.map(tag => `<span class="font-tech inline-block bg-slate-700 text-sky-300 text-xs font-semibold mr-2 mb-2 px-2.5 py-1 rounded-full">${tag}</span>`).join('');
+                let linkHtml = '';
+                // Apply electric-glow-secondary to project link buttons
+                if (project.link) {
+                    linkHtml = `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn-secondary-dark electric-glow-secondary inline-block mt-3">${project.linkText || 'View Project'} <i class="fas fa-external-link-alt fa-xs ml-1"></i></a>`;
+                } else if (project.github) {
+                     const githubText = project.github === "[Your GitHub Link for Zippy Data Explorer]" ? "View on GitHub (Placeholder)" : "View on GitHub";
+                    linkHtml = `<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn-secondary-dark electric-glow-secondary inline-block mt-3">${githubText} <i class="fab fa-github fa-xs ml-1"></i></a>`;
+                }
+                
+                return `
+                <div class="bg-slate-800 p-6 md:p-8 rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border ${project.color} transform hover:scale-[1.01]">
+                    <h3 class="text-2xl font-semibold mb-2 text-sky-400">${project.title}</h3>
+                    <p class="text-slate-300 mb-4 text-sm">${project.description}</p>
+                    <div class="flex flex-wrap mb-1">
+                        ${tagsHtml}
+                    </div>
+                    ${linkHtml}
+                </div>`;
+            }).join('');
+        }
+
+        const sections = document.querySelectorAll('.section-transition');
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.05 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('section-hidden');
+                    entry.target.classList.add('section-visible');
+                }
+            });
+        }, observerOptions);
+        sections.forEach(section => {
+            section.classList.add('section-hidden');
+            observer.observe(section);
+        });
+
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSkillCards();
+            renderProjectCards();
+        });
+    </script>
+
+</body>
+</html>
