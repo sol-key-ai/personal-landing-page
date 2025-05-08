@@ -42,6 +42,31 @@
         .electric-shimmer::after {
             display: none;
         }
+        .nav-title {
+            position: relative;
+            background: linear-gradient(90deg, #ec4899, #8b5cf6, #0ea5e9, #ec4899);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 4s linear infinite;
+            text-shadow: 0 2px 8px rgba(14,165,233,0.10);
+        }
+        .subtitle-finesse {
+            background: linear-gradient(90deg, #38bdf8 0%, #8b5cf6 60%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 8px rgba(14,165,233,0.08);
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
         @media (max-width: 640px) {
             .section { padding: 2rem 0; }
             .container { padding: 0 0.5rem; }
@@ -95,7 +120,7 @@
         <div class="absolute inset-0 w-full h-full bg-slate-900 bg-opacity-70"></div>
         <div class="container relative z-10">
             <h1 class="text-5xl font-bold mb-3 text-slate-50">Solomon Key</h1>
-            <p class="text-2xl text-sky-400 font-semibold mb-3">Principal Data Architect & AI Innovator</p>
+            <p class="text-2xl text-sky-400 font-semibold mb-3 subtitle-finesse">Data Architect & AI Innovator</p>
             <p class="text-base text-slate-400 max-w-2xl mx-auto mb-6 font-medium">
                 Cloud Data Architecture &nbsp;|&nbsp; Data Engineering &nbsp;|&nbsp; BI & Analytics &nbsp;|&nbsp; AI Innovation
             </p>
