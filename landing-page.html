@@ -25,6 +25,23 @@
             background-clip: text;
             color: transparent;
         }
+        .electric-shimmer {
+            position: relative;
+            z-index: 1;
+        }
+        .electric-shimmer::before {
+            content: '';
+            position: absolute;
+            top: -6px; left: -6px; right: -6px; bottom: -6px;
+            border-radius: 50%;
+            background: none;
+            border: 2px solid rgba(255,255,255,0.5);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .electric-shimmer::after {
+            display: none;
+        }
         @media (max-width: 640px) {
             .section { padding: 2rem 0; }
             .container { padding: 0 0.5rem; }
@@ -41,6 +58,15 @@
         @media (max-width: 400px) {
             h1, .text-5xl { font-size: 1.1rem !important; }
             .nav-title { font-size: 0.9rem !important; }
+        }
+        header.section.text-center.bg-slate-900.relative.overflow-hidden {
+            min-height: 640px;
+            height: auto;
+        }
+        @media (max-width: 900px) {
+            header.section.text-center.bg-slate-900.relative.overflow-hidden {
+                min-height: 400px;
+            }
         }
     </style>
 </head>
@@ -62,9 +88,12 @@
         </div>
     </nav>
     <div style="height:5.5rem;"></div>
-    <header class="section text-center bg-slate-900" style="padding-top:5rem; padding-bottom:5rem;">
-        <div class="container">
-            <img src="https://ui-avatars.com/api/?name=Solomon+Key&size=140&background=0ea5e9&color=ffffff&font-size=0.4" alt="Solomon Key" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg border-4 border-slate-800">
+    <header class="section text-center bg-slate-900 relative overflow-hidden" style="padding-top:7.5rem; padding-bottom:5rem;">
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+             style="background-image: url('top-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 640px; height: 100%;">
+        </div>
+        <div class="absolute inset-0 w-full h-full bg-slate-900 bg-opacity-70"></div>
+        <div class="container relative z-10">
             <h1 class="text-5xl font-bold mb-3 text-slate-50">Solomon Key</h1>
             <p class="text-2xl text-sky-400 font-semibold mb-3">Principal Data Architect & AI Innovator</p>
             <p class="text-base text-slate-400 max-w-2xl mx-auto mb-6 font-medium">
@@ -77,11 +106,11 @@
             <a href="#contact" class="btn">Contact Me</a>
         </div>
     </header>
-    <section class="section bg-slate-800" id="about">
+    <section class="section" id="about">
         <div class="container">
             <h2 class="text-2xl font-bold text-center text-slate-100">About</h2>
             <div class="accent"></div>
-            <div class="card text-slate-200 text-lg">
+            <div class="card text-slate-200 text-lg" style="background:transparent;box-shadow:none;">
                 <p>Hi, I’m Solomon Key — a data architect and analytics expert with 17+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
                 <p class="mt-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
                 <p class="mt-4">Outside of work, I’m a father, a builder of things both digital and physical, and a lifelong learner who’s just as curious about gardening and human behavior as I am about metadata standards and machine learning. I believe that clarity, adaptability, and compassion are as important in technical work as they are in life.</p>
