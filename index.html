@@ -9,15 +9,127 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e2e8f0; }
-        .section { padding: 4rem 0; }
+        /* Frosted glass background for the whole page */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: url('top-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(1.18) contrast(1.22) saturate(1.1);
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            background: rgba(15,23,42,0.32);
+        }
+        .section, .card {
+            position: relative;
+            z-index: 2;
+        }
+        .section {
+            /* Frosted glass effect for sections */
+            background: rgba(15,23,42,0.32);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+            border-radius: 1.2rem;
+            margin-bottom: 2.5rem;
+            padding: 2.5rem 1.5rem;
+        }
+        .card {
+            /* Frosted glass effect for cards */
+            background: rgba(30,41,59,0.55);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.10);
+            border-radius: 1rem;
+            padding: 2rem 1.5rem;
+        }
+        /* Ensure Experience and Let's Connect sections have glass effect */
+        #experience.section,
+        #contact.section {
+            background: rgba(15,23,42,0.32) !important;
+            backdrop-filter: blur(4px) !important;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
+            border-radius: 1.2rem !important;
+            padding: 2.5rem 1.5rem !important;
+        }
+        #experience .container,
+        #contact .container {
+            padding: 0 !important;
+        }
+        /* Remove inline style overrides for card backgrounds */
+        .card[style*="background:transparent"] {
+            background: rgba(30,41,59,0.55) !important;
+            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.10) !important;
+        }
+        header.section {
+            background: none;
+            backdrop-filter: none;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 340px;
+            height: auto;
+            padding-top: 7.5rem;
+            padding-bottom: 5rem;
+        }
+        header.section .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        header.section .max-w-3xl {
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 1.2rem;
+            background: rgba(15,23,42,0.32);
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
+            backdrop-filter: blur(4px);
+            padding: 2.5rem 2rem 2.5rem 2rem;
+        }
+        @media (max-width: 900px) {
+            header.section .container,
+            header.section .max-w-3xl {
+                max-width: 98vw;
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 640px) {
+            header.section {
+                min-height: 200px;
+                padding-top: 5.5rem;
+                padding-bottom: 2.5rem;
+            }
+            header.section .container,
+            header.section .max-w-3xl {
+                max-width: 98vw;
+                padding: 1rem;
+            }
+        }
+        /* Remove header's background image and overlays */
+        header.section .absolute.inset-x-0,
+        header.section .absolute.inset-0 {
+            display: none !important;
+        }
         .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
         .accent { background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 60%, #0ea5e9 100%); height: 2px; width: 80px; border-radius: 1px; margin: 1.5rem auto 2.5rem auto; }
-        .card { background: rgba(30,41,59,0.95); border-radius: 1rem; box-shadow: 0 2px 16px 0 rgba(14,165,233,0.08); padding: 2rem; margin-bottom: 2rem; }
         .btn { display: inline-block; background: #0ea5e9; color: #fff; font-weight: 600; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; transition: background 0.2s; border: none; }
         .btn:hover { background: #8b5cf6; }
         .icon { color: #8b5cf6; margin-right: 0.5rem; }
         .tag { display: inline-block; background: #1e293b; color: #38bdf8; font-size: 0.85rem; border-radius: 0.5rem; padding: 0.25rem 0.75rem; margin: 0.25rem 0.25rem 0 0; }
-        .electric-gradient-text { background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .electric-gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
         .electric-ombre-text {
             background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 60%, #0ea5e9 100%);
             -webkit-background-clip: text;
@@ -93,6 +205,27 @@
                 min-height: 400px;
             }
         }
+        @media (max-width: 640px) {
+            #experience .grid.md\:grid-cols-\[160px_1fr\] { grid-template-columns: 100px 1fr !important; }
+            #experience .absolute.left-\[160px\] { left: 100px !important; }
+            #experience .pr-4 { padding-right: 0.5rem !important; }
+            #experience .pl-8 { padding-left: 1rem !important; }
+            #experience .text-xl { font-size: 1rem !important; }
+            #experience .font-bold { font-size: 1rem !important; }
+            #experience .w-2\.5, #experience .h-2\.5 { width: 0.7rem !important; height: 0.7rem !important; }
+            #experience .flex.items-center.gap-2 { gap: 0.3rem !important; }
+            #experience .w-\[160px\], #experience .md\:w-\[160px\] { width: 100px !important; }
+            #experience .absolute.right-0.top-\[2\.2rem\] { top: 2.2rem !important; right: 0 !important; }
+            #experience .font-bold[style*='max-width:120px'] { max-width: 80px !important; font-size: 0.95rem !important; }
+            #experience .text-2xl { font-size: 1.1rem !important; }
+        }
+        nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
+            background: rgba(15,23,42,0.55) !important;
+            backdrop-filter: blur(8px) !important;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
+            border-bottom-left-radius: 1.2rem;
+            border-bottom-right-radius: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -113,31 +246,29 @@
         </div>
     </nav>
     <div style="height:5.5rem;"></div>
-    <header class="section text-center bg-slate-900 relative overflow-hidden" style="padding-top:7.5rem; padding-bottom:5rem;">
-        <div class="absolute inset-0 w-full h-full bg-cover bg-center"
-             style="background-image: url('top-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 640px; height: 100%;">
-        </div>
-        <div class="absolute inset-0 w-full h-full bg-slate-900 bg-opacity-70"></div>
+    <header class="section text-center bg-slate-900 relative overflow-hidden">
         <div class="container relative z-10">
-            <h1 class="text-5xl font-bold mb-3 text-slate-50">Solomon Key</h1>
-            <p class="text-2xl text-sky-400 font-semibold mb-3 subtitle-finesse">Data Architect & AI Innovator</p>
-            <p class="text-base text-slate-400 max-w-2xl mx-auto mb-6 font-medium">
-                Cloud Data Architecture &nbsp;|&nbsp; Data Engineering &nbsp;|&nbsp; BI & Analytics &nbsp;|&nbsp; AI Innovation
-            </p>
-            <div class="flex justify-center space-x-4 mb-6">
-                <a href="mailto:sol.key@gmail.com" class="text-slate-300 hover:text-sky-400 text-2xl" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-300 hover:text-sky-400 text-2xl" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <div class="max-w-3xl mx-auto px-4 py-6 rounded-xl">
+                <h1 class="text-5xl font-bold mb-3 text-slate-50 drop-shadow-xl">Solomon Key</h1>
+                <p class="text-2xl text-sky-400 font-semibold mb-3 subtitle-finesse drop-shadow-xl">Data Architect & AI Innovator</p>
+                <p class="text-base text-slate-400 max-w-2xl mx-auto mb-6 font-medium drop-shadow-xl">
+                    Cloud Data Architecture &nbsp;|&nbsp; Data Engineering &nbsp;|&nbsp; BI & Analytics &nbsp;|&nbsp; AI Innovation
+                </p>
+                <div class="flex justify-center space-x-4 mb-6">
+                    <a href="mailto:sol.key@gmail.com" class="text-slate-300 hover:text-sky-400 text-2xl" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-300 hover:text-sky-400 text-2xl" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="#contact" class="btn">Contact Me</a>
             </div>
-            <a href="#contact" class="btn">Contact Me</a>
         </div>
     </header>
     <section class="section" id="about">
         <div class="container">
             <h2 class="text-2xl font-bold text-center text-slate-100">About</h2>
             <div class="accent"></div>
-            <div class="card text-slate-200 text-lg" style="background:transparent;box-shadow:none;">
+            <div class="card text-slate-200 text-lg">
                 <div class="mt-8">
-                    <p class="text-slate-200 text-lg mb-4">Hi, I’m Solomon Key — a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
+                    <p class="text-slate-200 text-lg mb-4">Hi, I’m Solomon —  a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
                     <p class="text-slate-200 text-lg mb-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
                     <p class="text-slate-200 text-lg mb-4">Outside of work, I’m a father, a builder of things both digital and physical, and a lifelong learner who’s just as curious about gardening and human behavior as I am about metadata standards and machine learning. I believe that clarity, adaptability, and compassion are as important in technical work as they are in life.</p>
                     <p class="text-slate-200 text-lg">Whether I’m designing a data product, exploring a new technology, or mentoring a junior analyst, I bring a grounded, collaborative mindset to everything I do.</p>
@@ -204,59 +335,77 @@
         <div class="container">
             <h2 class="text-2xl font-bold text-center text-slate-100">Experience Highlights</h2>
             <div class="accent"></div>
-            <div class="relative">
-                <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400 via-fuchsia-500 to-rose-500 opacity-60"></div>
-                <div class="space-y-12 pl-12">
-                    <!-- Timeline Item: Data Architect (2022–2024) -->
-                    <div class="flex items-start">
-                        <div class="w-40 flex-shrink-0 text-right pr-6">
-                            <div class="text-slate-300 font-semibold">2022–2024</div>
-                            <div class="text-pink-400 font-bold">Data Architect</div>
-                        </div>
-                        <div class="relative flex-1 pl-8">
-                            <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-pink-500 border-4 border-slate-800"></div>
-                            <div class="text-slate-200 font-semibold mb-1">Georgia Data Analytics Center (GDAC), Governor's Office of Planning and Budget</div>
-                            <ul class="list-disc pl-5 text-slate-300 text-base">
-                                <li>Built and maintained automated data pipelines using AWS Cloud (Glue, S3, Redshift, Lambda).</li>
-                                <li>Integrated and managed data from multiple state agencies (healthcare, education, finance).</li>
-                                <li>Developed and published dashboards with Tableau, PowerBI, and AWS Quicksight.</li>
-                                <li>Led data validation, quality assurance, and documentation best practices.</li>
-                            </ul>
-                        </div>
+            <div class="grid md:grid-cols-[160px_1fr] gap-2 relative">
+                <div class="absolute left-[160px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-500 via-fuchsia-500 to-sky-400 opacity-60 z-0"></div>
+                <!-- Timeline Item: Data Architect (2022–Current) -->
+                <div class="flex flex-col items-end pr-4 z-10 relative">
+                    <div class="text-slate-300 font-semibold">2022–Current</div>
+                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
+                        <span class="text-rose-400 text-2xl mb-1"><i class="fas fa-database"></i></span>
+                        <span class="font-bold text-rose-400 text-right break-words leading-tight" style="max-width:120px;">Data Architect</span>
                     </div>
-                    <!-- Timeline Item: Data Architect (2010–2022) -->
-                    <div class="flex items-start">
-                        <div class="w-40 flex-shrink-0 text-right pr-6">
-                            <div class="text-slate-300 font-semibold">2010–2022</div>
-                            <div class="text-fuchsia-400 font-bold">Data Architect</div>
-                        </div>
-                        <div class="relative flex-1 pl-8">
-                            <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-fuchsia-500 border-4 border-slate-800"></div>
-                            <div class="text-slate-200 font-semibold mb-1">Information Technology Services, University System of Georgia</div>
-                            <ul class="list-disc pl-5 text-slate-300 text-base">
-                                <li>Designed and built automated data pipelines and the USG Data Warehouse & BI platforms.</li>
-                                <li>Modernized and integrated complex legacy data systems into a unified architecture.</li>
-                                <li>Led Cognos analytics teams and architected enterprise BI solutions.</li>
-                                <li>Developed in-house Data Element Dictionary (DED) and metadata systems.</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="flex flex-col pl-8 z-10">
+                    <div class="text-xl font-bold text-slate-100">Georgia Data Analytics Center</div>
+                    <div class="text-base text-slate-400 font-medium italic mb-1">Governor's Office of Planning and Budget</div>
+                    <ul class="list-disc pl-5 text-slate-300 text-base">
+                        <li>Build and maintain automated data pipelines using AWS Cloud (Glue, S3, Redshift, Lambda).</li>
+                        <li>Integrate and manage data from multiple state agencies (healthcare, education, finance).</li>
+                        <li>Develop and publish dashboards with Tableau, PowerBI, and AWS Quicksight.</li>
+                        <li>Lead data validation, quality assurance, and documentation best practices.</li>
+                    </ul>
+                </div>
+                <!-- Timeline Item: Business Intelligence Architect (2010–2022) -->
+                <div class="flex flex-col items-end pr-4 z-10 relative">
+                    <div class="text-slate-300 font-semibold">2010–2022</div>
+                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
+                        <span class="text-fuchsia-400 text-2xl mb-1"><i class="fas fa-chart-bar"></i></span>
+                        <span class="font-bold text-fuchsia-400 text-right break-words leading-tight" style="max-width:120px;">Business Intelligence Architect</span>
                     </div>
-                    <!-- Timeline Item: Data Analyst (2004–2010) -->
-                    <div class="flex items-start">
-                        <div class="w-40 flex-shrink-0 text-right pr-6">
-                            <div class="text-slate-300 font-semibold">2004–2010</div>
-                            <div class="text-sky-400 font-bold">Data Analyst</div>
-                        </div>
-                        <div class="relative flex-1 pl-8">
-                            <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-sky-400 border-4 border-slate-800"></div>
-                            <div class="text-slate-200 font-semibold mb-1">University System of Georgia – Data Services</div>
-                            <ul class="list-disc pl-5 text-slate-300 text-base">
-                                <li>Developed foundational data dictionaries and metadata management platforms.</li>
-                                <li>Created advanced reports and dashboards using Cognos, Oracle OBIEE, and SQL.</li>
-                                <li>Ensured data integrity and performance through continuous QA and analysis.</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="flex flex-col pl-8 z-10">
+                    <div class="text-xl font-bold text-slate-100">Information Technology Services</div>
+                    <div class="text-base text-slate-400 font-medium italic mb-1">University System of Georgia</div>
+                    <ul class="list-disc pl-5 text-slate-300 text-base">
+                        <li>Designed and built automated data pipelines and the USG Data Warehouse & BI platforms.</li>
+                        <li>Modernized and integrated complex legacy data systems into a unified architecture.</li>
+                        <li>Led Cognos analytics teams and architected enterprise BI solutions.</li>
+                        <li>Developed in-house Data Element Dictionary (DED) and metadata systems.</li>
+                    </ul>
+                </div>
+                <!-- Timeline Item: Systems Analyst (2004–2010) -->
+                <div class="flex flex-col items-end pr-4 z-10 relative">
+                    <div class="text-slate-300 font-semibold">2004–2010</div>
+                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
+                        <span class="text-sky-400 text-2xl mb-1"><i class="fas fa-cogs"></i></span>
+                        <span class="font-bold text-sky-400 text-right break-words leading-tight" style="max-width:120px;">Systems Analyst</span>
                     </div>
+                </div>
+                <div class="flex flex-col pl-8 z-10">
+                    <div class="text-xl font-bold text-slate-100">Data Services</div>
+                    <div class="text-base text-slate-400 font-medium italic mb-1">University System of Georgia</div>
+                    <ul class="list-disc pl-5 text-slate-300 text-base">
+                        <li>Developed foundational data dictionaries and metadata management platforms.</li>
+                        <li>Created advanced reports and dashboards using Cognos, Oracle OBIEE, and SQL.</li>
+                        <li>Ensured data integrity and performance through continuous QA and analysis.</li>
+                    </ul>
+                </div>
+                <!-- Timeline Item: Education (2002–2006) -->
+                <div class="flex flex-col items-end pr-4 z-10 relative">
+                    <div class="text-slate-300 font-semibold">2002–2006</div>
+                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
+                        <span class="text-emerald-400 text-2xl mb-1"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="font-bold text-emerald-400 text-right break-words leading-tight" style="max-width:120px;">B.S. Computer Science</span>
+                    </div>
+                </div>
+                <div class="flex flex-col pl-8 z-10">
+                    <div class="text-xl font-bold text-slate-100">University of Georgia</div>
+                    <div class="text-base text-slate-400 font-medium italic mb-1">Bachelor of Science in Computer Science</div>
+                    <ul class="list-disc pl-5 text-slate-300 text-base">
+                        <li>Graduated with 4.0 GPA; Presidential Scholar</li>
+                        <li>Completed advanced coursework in algorithms, data structures, and software engineering</li>
+                        <li>Developed strong foundation in programming, databases, and systems design</li>
+                    </ul>
                 </div>
             </div>
         </div>
