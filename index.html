@@ -43,11 +43,15 @@
         }
         .card {
             /* Frosted glass effect for cards */
-            background: rgba(30,41,59,0.55);
-            backdrop-filter: blur(6px);
-            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.10);
+            background: rgba(30,41,59,0.72) !important;
+            backdrop-filter: blur(10px) !important;
+            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.12);
             border-radius: 1rem;
             padding: 2rem 1.5rem;
+        }
+        /* Remove glow, use shadow for depth on about and expertise cards */
+        #about .card, #expertise .card {
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
         }
         /* Ensure Experience and Let's Connect sections have glass effect */
         #experience.section,
@@ -64,8 +68,8 @@
         }
         /* Remove inline style overrides for card backgrounds */
         .card[style*="background:transparent"] {
-            background: rgba(30,41,59,0.55) !important;
-            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.10) !important;
+            background: rgba(30,41,59,0.72) !important;
+            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.12) !important;
         }
         header.section {
             background: none;
@@ -225,6 +229,14 @@
             box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
             border-bottom-left-radius: 1.2rem;
             border-bottom-right-radius: 1.2rem;
+        }
+        /* Add spacing between project cards */
+        #projects .card + .card {
+            margin-top: 2rem;
+        }
+        /* Remove glow, use shadow for depth on current projects cards */
+        #projects .card {
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
         }
     </style>
 </head>
@@ -412,22 +424,40 @@
     </section>
     <section class="section" id="projects">
         <div class="container">
-            <h2 class="text-2xl font-bold text-center text-slate-100">Project Showcase</h2>
+            <h2 class="text-2xl font-bold text-center text-slate-100">Current Projects</h2>
             <div class="accent"></div>
-            <div class="card">
-                <b>Accountability Dashboard (SCSC)</b>
-                <div class="text-slate-400 text-base mb-2">Digital performance framework for Georgia's State Charter Schools Commission. <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline ml-2">View Dashboard</a></div>
-                <span class="tag">Tableau</span><span class="tag">Education</span><span class="tag">Data Visualization</span>
+            <div class="card flex items-start gap-4">
+                <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-sky-400 text-2xl" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
+                <div class="flex-1">
+                    <b>Accountability Dashboard (SCSC)</b>
+                    <div class="text-slate-400 text-base mb-2">Digital performance framework for Georgia's State Charter Schools Commission.</div>
+                    <div class="mb-2">
+                        <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                    </div>
+                    <span class="tag">Tableau</span><span class="tag">Education</span><span class="tag">Data Visualization</span>
+                </div>
             </div>
-            <div class="card">
-                <b>Healthcare Workforce Dashboard</b>
-                <div class="text-slate-400 text-base mb-2">Consolidated view of Georgia's licensed healthcare workforce. <a href="https://prod.insights.georgia.gov/views/GeorgiaHealthcareWorkforce/ConsolidatedHealthcareWorkforce?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline ml-2">View Dashboard</a></div>
-                <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Workforce</span>
+            <div class="card flex items-start gap-4">
+                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="mt-1 text-emerald-400 text-2xl" title="Healthcare Analytics Dashboard"><i class="fas fa-user-md"></i></a>
+                <div class="flex-1">
+                    <b>Healthcare Workforce Dashboard</b>
+                    <div class="text-slate-400 text-base mb-2">Consolidated view of Georgia's licensed healthcare workforce.</div>
+                    <div class="mb-2">
+                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-sky-400 underline flex items-center gap-2"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                    </div>
+                    <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Workforce</span>
+                </div>
             </div>
-            <div class="card">
-                <b>Graduate Medical Education Match Results</b>
-                <div class="text-slate-400 text-base mb-2">Summarizes GME and medical student graduate match results for Georgia. <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline ml-2">View Dashboard</a></div>
-                <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Analytics</span>
+            <div class="card flex items-start gap-4">
+                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-fuchsia-400 text-2xl" title="GME Analytics Dashboard"><i class="fas fa-user-graduate"></i></a>
+                <div class="flex-1">
+                    <b>Graduate Medical Education Match Results</b>
+                    <div class="text-slate-400 text-base mb-2">Summarizes GME and medical student graduate match results for Georgia.</div>
+                    <div class="mb-2">
+                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                    </div>
+                    <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Analytics</span>
+                </div>
             </div>
         </div>
     </section>
