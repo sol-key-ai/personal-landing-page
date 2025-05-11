@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        html {
+            scroll-padding-top: 6.5rem;
+        }
         body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e2e8f0; }
         /* Frosted glass background for the whole page */
         body::before {
@@ -42,12 +45,23 @@
             padding: 2.5rem 1.5rem;
         }
         .card {
-            /* Frosted glass effect for cards */
-            background: rgba(30,41,59,0.72) !important;
-            backdrop-filter: blur(10px) !important;
+            /* Slightly less transparent and more blurred glass effect for cards */
+            background: rgba(15,23,42,0.78) !important; /* Slightly more transparent than before */
+            backdrop-filter: blur(14px) !important;
             box-shadow: 0 2px 16px 0 rgba(14,165,233,0.12);
             border-radius: 1rem;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1.5rem; /* Reduced vertical and horizontal padding */
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+        /* For smaller screens, allow cards to be more fluid */
+        @media (max-width: 900px) {
+            .card {
+                max-width: 98vw;
+                padding: 1.25rem 0.75rem;
+            }
         }
         /* Remove glow, use shadow for depth on about and expertise cards */
         #about .card, #expertise .card {
@@ -68,7 +82,7 @@
         }
         /* Remove inline style overrides for card backgrounds */
         .card[style*="background:transparent"] {
-            background: rgba(30,41,59,0.72) !important;
+            background: rgba(30,41,59,0.85) !important;
             box-shadow: 0 2px 16px 0 rgba(14,165,233,0.12) !important;
         }
         header.section {
@@ -84,18 +98,20 @@
             padding-bottom: 5rem;
         }
         header.section .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 0;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1.5rem;
         }
         header.section .max-w-3xl {
+            /* More pronounced glass effect for the title card */
+            background: rgba(15,23,42,0.5); /* Opacity set to 0.5 */
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
+            backdrop-filter: blur(4px); /* Blur set to 7px */
+            padding: 3.5rem 2.5rem; /* Increased vertical and horizontal padding for title card */
             max-width: 700px;
             margin: 0 auto;
             border-radius: 1.2rem;
-            background: rgba(15,23,42,0.32);
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
-            backdrop-filter: blur(4px);
-            padding: 2.5rem 2rem 2.5rem 2rem;
         }
         @media (max-width: 900px) {
             header.section .container,
@@ -121,8 +137,36 @@
         header.section .absolute.inset-0 {
             display: none !important;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-        .accent { background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 60%, #0ea5e9 100%); height: 2px; width: 80px; border-radius: 1px; margin: 1.5rem auto 2.5rem auto; }
+        .container {
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1.5rem;
+        }
+        nav .container {
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1.5rem;
+        }
+        /* For smaller screens, allow containers to be more fluid */
+        @media (max-width: 900px) {
+            .container,
+            nav .container,
+            header.section .container {
+                max-width: 98vw;
+                padding: 0 0.5rem;
+            }
+        }
+        .accent {
+            background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%);
+            height: 1px;
+            width: 100%;
+            max-width: 720px;
+            border-radius: 1px;
+            margin: 1.5rem auto 2.5rem auto;
+            display: block;
+        }
         .btn { display: inline-block; background: #0ea5e9; color: #fff; font-weight: 600; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; transition: background 0.2s; border: none; }
         .btn:hover { background: #8b5cf6; }
         .icon { color: #8b5cf6; margin-right: 0.5rem; }
@@ -135,7 +179,7 @@
             color: transparent;
         }
         .electric-ombre-text {
-            background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 60%, #0ea5e9 100%);
+            background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -238,6 +282,25 @@
         #projects .card {
             box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
         }
+        /* Remove glow, use shadow for depth on journey card */
+        #journey .card, .journey-card {
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
+        }
+        /* Ensure grid content in expertise and experience sections is centered and does not stretch full width */
+        #expertise .grid,
+        #experience .grid {
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+        /* Responsive for smaller screens */
+        @media (max-width: 900px) {
+            #expertise .grid,
+            #experience .grid {
+                max-width: 98vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -276,36 +339,21 @@
     </header>
     <section class="section" id="about">
         <div class="container">
-            <h2 class="text-2xl font-bold text-center text-slate-100">About</h2>
+            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">About</h2>
             <div class="accent"></div>
-            <div class="card text-slate-200 text-lg">
-                <div class="mt-8">
+            <div class="card text-slate-200 text-lg mt-2">
+                <div class="mt-2">
                     <p class="text-slate-200 text-lg mb-4">Hi, I’m Solomon —  a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
                     <p class="text-slate-200 text-lg mb-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
                     <p class="text-slate-200 text-lg mb-4">Outside of work, I’m a father, a builder of things both digital and physical, and a lifelong learner who’s just as curious about gardening and human behavior as I am about metadata standards and machine learning. I believe that clarity, adaptability, and compassion are as important in technical work as they are in life.</p>
                     <p class="text-slate-200 text-lg">Whether I’m designing a data product, exploring a new technology, or mentoring a junior analyst, I bring a grounded, collaborative mindset to everything I do.</p>
-                </div>
-                <div class="mt-12">
-                    <h3 class="text-center text-2xl font-bold text-sky-400 mb-6 tracking-wide" style="letter-spacing:0.04em;">A Journey Begins: Curiosity, Ethics, and AI</h3>
-                    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                        <div class="w-full md:w-1/3 flex-shrink-0 flex flex-col items-center">
-                            <a href="4th-grade.jpeg" target="_blank" title="Click to view full image">
-                                <img src="4th-grade.jpeg" alt="4th grade AI project photo" class="rounded-lg shadow-lg mb-2 w-full object-cover" style="max-width:260px; cursor: zoom-in;" />
-                            </a>
-                            <div class="text-xs text-slate-400 text-center mt-1">Solomon Key - 1995 - "How Should Artificial Intelligence Be Used to Enhance Our Society"</div>
-                        </div>
-                        <div class="flex-1">
-                            <p class="text-slate-400 text-lg md:text-base leading-relaxed">In 1995, as a 4th grader, I presented a project titled <b>"How Should Artificial Intelligence Be Used to Enhance Our Society?"</b> The display included data analytics charts printed on a dot matrix printer and, at its center, an illustration of a computer plugged into a human brain—a visual metaphor for the theme "brain power comes first."</p>
-                            <p class="text-slate-400 text-lg md:text-base leading-relaxed mt-3">Even then, the project explored how technology and human intelligence might work together to benefit society, with a focus on ethics and impact. Interest in this intersection has been a thread throughout my life.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
     <section class="section" id="expertise">
         <div class="container">
-            <h2 class="text-2xl font-bold text-center text-slate-100">Expertise</h2>
+            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Expertise</h2>
             <div class="accent"></div>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="card">
@@ -345,10 +393,10 @@
     </section>
     <section class="section bg-slate-800" id="experience">
         <div class="container">
-            <h2 class="text-2xl font-bold text-center text-slate-100">Experience Highlights</h2>
+            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Experience Highlights</h2>
             <div class="accent"></div>
             <div class="grid md:grid-cols-[160px_1fr] gap-2 relative">
-                <div class="absolute left-[160px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-500 via-fuchsia-500 to-sky-400 opacity-60 z-0"></div>
+                <div class="absolute left-[160px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-500 via-fuchsia-500 via-[#8b5cf6] via-sky-400 to-emerald-400 opacity-60 z-0"></div>
                 <!-- Timeline Item: Data Architect (2022–Current) -->
                 <div class="flex flex-col items-end pr-4 z-10 relative">
                     <div class="text-slate-300 font-semibold">2022–Current</div>
@@ -371,8 +419,8 @@
                 <div class="flex flex-col items-end pr-4 z-10 relative">
                     <div class="text-slate-300 font-semibold">2010–2022</div>
                     <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
-                        <span class="text-fuchsia-400 text-2xl mb-1"><i class="fas fa-chart-bar"></i></span>
-                        <span class="font-bold text-fuchsia-400 text-right break-words leading-tight" style="max-width:120px;">Business Intelligence Architect</span>
+                        <span class="text-[#8b5cf6] text-2xl mb-1"><i class="fas fa-chart-line"></i></span>
+                        <span class="font-bold text-[#8b5cf6] text-right break-words leading-tight" style="max-width:120px;">Business Intelligence Architect</span>
                     </div>
                 </div>
                 <div class="flex flex-col pl-8 z-10">
@@ -422,9 +470,28 @@
             </div>
         </div>
     </section>
+    <section class="section" id="journey">
+        <div class="container">
+            <div class="card journey-card">
+                <h3 class="text-center text-2xl font-extrabold electric-ombre-text mb-6 tracking-wide drop-shadow-lg" style="letter-spacing:0.04em;">A Journey Begins: Curiosity, Ethics, and AI</h3>
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                    <div class="w-full md:w-1/3 flex-shrink-0 flex flex-col items-center">
+                        <a href="4th-grade.jpeg" target="_blank" title="Click to view full image">
+                            <img src="4th-grade.jpeg" alt="4th grade AI project photo" class="rounded-lg shadow-lg mb-2 w-full object-cover" style="max-width:260px; cursor: zoom-in;" />
+                        </a>
+                        <div class="text-xs text-slate-400 text-center mt-1">A proud moment - Celibrated in peak 90's fashion</div>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-slate-400 text-lg md:text-base leading-relaxed">This is me, in 1995, standing proudly in front of my 4th grade social scient project  "How Should Artificial Intelligence Be Used to Enhance Our Society?" Complete with dot-matrix printed visualizations (created in Lotus notes on Windows 3.1). A desktop computer glowing at the center, physically plugged into a hand drawn computer brain. A little metaphor for the project's main theme "Brain power comes first."</p>
+                        <p class="text-slate-400 text-lg md:text-base leading-relaxed mt-3">This project explored how technology and human intelligence might work together to benefit society, exploring the ethics, impact, and dangers. I couldn't have dreamed how relevant this topic would be 30 years later.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="section" id="projects">
         <div class="container">
-            <h2 class="text-2xl font-bold text-center text-slate-100">Current Projects</h2>
+            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Current Projects</h2>
             <div class="accent"></div>
             <div class="card flex items-start gap-4">
                 <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-sky-400 text-2xl" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
@@ -463,15 +530,25 @@
     </section>
     <section class="section bg-slate-800" id="contact">
         <div class="container text-center">
-            <h2 class="text-2xl font-bold text-slate-100">Let's Connect</h2>
+            <h2 class="text-3xl font-extrabold electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Let's Connect</h2>
             <div class="accent"></div>
             <p class="text-lg text-slate-300 mb-6">Interested in collaborating, discussing data challenges, or learning more? Reach out via email or LinkedIn.</p>
             <a href="mailto:sol.key@gmail.com" class="btn mr-4"><i class="fas fa-envelope mr-2"></i>Email</a>
             <a href="https://www.linkedin.com/in/skey" target="_blank" class="btn bg-slate-700 hover:bg-slate-600"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
         </div>
     </section>
-    <footer class="py-6 text-center text-slate-500 text-sm bg-slate-950">
-        &copy; 2025 Solomon Key. All rights reserved.
+    <footer class="w-full bg-slate-900 bg-opacity-80 py-6 mt-10 border-t border-slate-800 text-center text-slate-400 text-sm relative z-20">
+        <div class="container flex flex-col md:flex-row items-center justify-between mx-auto px-4">
+            <div class="mb-2 md:mb-0">
+                &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
+            </div>
+            <div class="flex items-center justify-center space-x-4">
+                <a href="mailto:sol.key@gmail.com" class="hover:text-sky-400" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/skey" target="_blank" class="hover:text-sky-400" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#about" class="hover:text-sky-400" title="About">About</a>
+                <a href="#projects" class="hover:text-sky-400" title="Projects">Projects</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
