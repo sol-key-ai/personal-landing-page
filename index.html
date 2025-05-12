@@ -228,7 +228,7 @@
             .text-5xl { font-size: 1.5rem !important; }
             nav .container { flex-direction: column; align-items: flex-start; }
             nav .space-x-6 { margin-top: 0.5rem; }
-            .flex { flex-direction: column; gap: 0.5rem; }
+            nav .flex { flex-direction: column; gap: 0.5rem; } /* Only affect nav */
             .nav-title { font-size: 1.1rem !important; }
         }
         @media (max-width: 400px) {
@@ -484,35 +484,35 @@
         <div class="container">
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Current Projects</h2>
             <div class="accent"></div>
-            <div class="card flex items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
-                <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-sky-400 text-2xl" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
+            <div class="card flex flex-row items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
+                <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-sky-400 text-2xl flex-shrink-0" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
                 <div class="flex-1">
                     <b>Accountability Dashboard (SCSC)</b>
                     <div class="text-slate-400 text-base mb-2">Digital performance framework for Georgia's State Charter Schools Commission.</div>
-                    <div class="mb-2">
-                        <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                    <div class="mb-2 text-left">
+                        <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
                     </div>
                     <span class="tag">Tableau</span><span class="tag">Education</span><span class="tag">Data Visualization</span>
                 </div>
             </div>
-            <div class="card flex items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
-                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="mt-1 text-emerald-400 text-2xl" title="Healthcare Analytics Dashboard"><i class="fas fa-user-md"></i></a>
+            <div class="card flex flex-row items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
+                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="mt-1 text-emerald-400 text-2xl flex-shrink-0" title="Healthcare Analytics Dashboard"><i class="fas fa-user-md"></i></a>
                 <div class="flex-1">
                     <b>Healthcare Workforce Dashboard</b>
                     <div class="text-slate-400 text-base mb-2">Consolidated view of Georgia's licensed healthcare workforce.</div>
-                    <div class="mb-2">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-sky-400 underline flex items-center gap-2"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                    <div class="mb-2 text-left">
+                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
                     </div>
                     <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Workforce</span>
                 </div>
             </div>
-            <div class="card flex items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
-                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-fuchsia-400 text-2xl" title="GME Analytics Dashboard"><i class="fas fa-user-graduate"></i></a>
+            <div class="card flex flex-row items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
+                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-fuchsia-400 text-2xl flex-shrink-0" title="GME Analytics Dashboard"><i class="fas fa-user-graduate"></i></a>
                 <div class="flex-1">
                     <b>Graduate Medical Education Match Results</b>
                     <div class="text-slate-400 text-base mb-2">Summarizes GME and medical student graduate match results for Georgia.</div>
-                    <div class="mb-2">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                    <div class="mb-2 text-left">
+                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
                     </div>
                     <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Analytics</span>
                 </div>
@@ -532,6 +532,7 @@
         <div class="container flex flex-col md:flex-row items-center justify-between mx-auto px-4">
             <div class="mb-2 md:mb-0">
                 &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
+                <span class="ml-2 text-xs text-slate-500">v2025.05.12</span>
             </div>
             <div class="flex items-center justify-center space-x-4">
                 <a href="mailto:sol.key@gmail.com" class="hover:text-sky-400" title="Email"><i class="fas fa-envelope"></i></a>
