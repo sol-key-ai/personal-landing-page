@@ -312,8 +312,39 @@
         }
         /* ---- END CONSOLIDATED MOBILE OVERRIDES ---- */
 
-        /* Remove/disable all mobile overrides for .section, .container, .card, .grid, etc. outside header/nav. */
-        /* All sections except header/nav will always use desktop layout. */
+        /* Responsive container and card for mobile */
+        @media (max-width: 768px) {
+            .container,
+            #expertise .grid,
+            #experience .grid {
+                max-width: 100vw !important;
+                width: 100vw !important;
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+            .card {
+                max-width: 100vw !important;
+                width: 100vw !important;
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            .section {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .container,
+            #expertise .grid,
+            #experience .grid,
+            .card,
+            .section {
+                max-width: 100vw !important;
+                width: 100vw !important;
+                padding-left: 0.25rem !important;
+                padding-right: 0.25rem !important;
+            }
+        }
     </style>
 </head>
 <body>
