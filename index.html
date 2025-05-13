@@ -219,16 +219,17 @@
             100% { background-position: 200% 50%; }
         }
         @media (max-width: 640px) {
-            .section { padding: 2rem 0; }
-            .container { padding: 0 0.5rem; }
-            .card { padding: 1rem; }
-            h1 { font-size: 1.5rem !important; }
-            h2 { font-size: 1.1rem !important; }
-            .text-2xl { font-size: 1rem !important; }
-            .text-5xl { font-size: 1.5rem !important; }
+            .section { padding: 0.5rem 0; max-width: 100vw; }
+            .container { padding: 0 0.5rem; max-width: 100vw; }
+            .card { padding: 0.5rem; width: 100vw !important; max-width: 100vw !important; margin-left: -0.5rem; margin-right: -0.5rem; }
+            h1 { font-size: 2rem !important; }
+            h2 { font-size: 1.3rem !important; }
+            .text-2xl { font-size: 1.1rem !important; }
+            .text-5xl { font-size: 2rem !important; }
+            body, .text-base, .text-lg { font-size: 1.05rem !important; }
             nav .container { flex-direction: column; align-items: flex-start; }
             nav .space-x-6 { margin-top: 0.5rem; }
-            nav .flex { flex-direction: column; gap: 0.5rem; } /* Only affect nav */
+            nav .flex { flex-direction: column; gap: 0.5rem; }
             .nav-title { font-size: 1.1rem !important; }
         }
         @media (max-width: 400px) {
@@ -532,7 +533,7 @@
         <div class="container flex flex-col md:flex-row items-center justify-between mx-auto px-4">
             <div class="mb-2 md:mb-0">
                 &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
-                <span class="ml-2 text-xs text-slate-500">v2025.05.12</span>
+                <span class="ml-2 text-xs text-slate-500">v2025.05.12.2</span>
             </div>
             <div class="flex items-center justify-center space-x-4">
                 <a href="mailto:sol.key@gmail.com" class="hover:text-sky-400" title="Email"><i class="fas fa-envelope"></i></a>
