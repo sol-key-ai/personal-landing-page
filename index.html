@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solomon Key - Data Architect & AI Innovator</title>
+    <title>Solomon Key - Unlock Your Data's Potential</title>
     <link href="output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <style>
         html {
             scroll-padding-top: 6.5rem;
         }
         body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e2e8f0; }
-        /* Frosted glass background for the whole page */
         body::before {
             content: '';
             position: fixed;
@@ -32,568 +29,60 @@
             z-index: 1;
             background: rgba(15,23,42,0.32);
         }
-        .section, .card {
-            position: relative;
-            z-index: 2;
-        }
-        .section {
-            /* Frosted glass effect for sections */
-            background: rgba(15,23,42,0.32);
-            backdrop-filter: blur(4px);
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
-            border-radius: 1.2rem;
-            margin-bottom: 2.5rem;
-            padding: 2.5rem 1.5rem;
-        }
-        .card {
-            /* Slightly less transparent and more blurred glass effect for cards */
-            background: rgba(15,23,42,0.78) !important;
-            backdrop-filter: blur(14px) !important;
-            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.12);
-            border-radius: 1rem;
-            /* width, max-width, margin, and padding removed for Tailwind control */
-        }
-        /* For smaller screens, allow cards to be more fluid */
-        
-        /* Remove glow, use shadow for depth on about and expertise cards */
-        #about .card, #expertise .card {
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
-        }
-        /* Ensure Experience and Let's Connect sections have glass effect */
-        #experience.section,
-        #contact.section {
-            background: rgba(15,23,42,0.32) !important;
-            backdrop-filter: blur(4px) !important;
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
-            border-radius: 1.2rem !important;
-            padding: 2.5rem 1.5rem !important;
-        }
-        #experience .container,
-        #contact .container {
-            padding: 0 !important;
-        }
-        /* Remove inline style overrides for card backgrounds */
-        .card[style*="background:transparent"] {
-            background: rgba(30,41,59,0.85) !important;
-            box-shadow: 0 2px 16px 0 rgba(14,165,233,0.12) !important;
-        }
-        header.section {
-            background: none;
-            backdrop-filter: none;
-            box-shadow: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 340px;
-            height: auto;
-            padding-top: 7.5rem;
-            padding-bottom: 5rem;
-        }
-        header.section .container {
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 1.5rem;
-        }
-        header.section .max-w-3xl {
-            /* More pronounced glass effect for the title card */
-            background: rgba(15,23,42,0.5); /* Opacity set to 0.5 */
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25);
-            backdrop-filter: blur(4px); /* Blur set to 7px */
-            padding: 3.5rem 2.5rem; /* Increased vertical and horizontal padding for title card */
-            max-width: 700px;
-            margin: 0 auto;
-            border-radius: 1.2rem;
-        }
-        @media (max-width: 900px) {
-            header.section .container,
-            header.section .max-w-3xl {
-                max-width: 98vw;
-                padding: 1rem;
-            }
-        }
-        @media (max-width: 768px) {
-            html {
-                font-size: 19px !important;
-            }
-            .section, .container {
-                padding: 0 !important;
-                max-width: 100vw !important;
-            }
-            .card {
-                width: 95vw !important;
-                max-width: 720px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                padding: 1.1rem !important;
-            }
-            .card p {
-                font-size: 1.08rem !important;
-                line-height: 1.65 !important;
-            }
-            nav a {
-                font-size: 1.18rem !important;
-                padding: 0.6rem 0 !important;
-            }
-            h1 { font-size: 2.4rem !important; }
-            h2 { font-size: 1.55rem !important; }
-            .text-2xl { font-size: 1.28rem !important; }
-            .text-5xl { font-size: 2.4rem !important; }
-            body, .text-base, .text-lg { font-size: 1.18rem !important; }
-            nav .container { flex-direction: column; align-items: flex-start; }
-            nav .space-x-6 { margin-top: 0.5rem; }
-            nav .flex { flex-direction: column; gap: 0.5rem; }
-            .nav-title { font-size: 1.28rem !important; }
-        }
-        @media (max-width: 640px) {
-            header.section {
-                min-height: 200px;
-                padding-top: 5.5rem;
-                padding-bottom: 2.5rem;
-            }
-            header.section .container,
-            header.section .max-w-3xl {
-                max-width: 98vw;
-                padding: 1rem;
-            }
-        }
-        /* Remove header's background image and overlays */
-        header.section .absolute.inset-x-0,
-        header.section .absolute.inset-0 {
-            display: none !important;
-        }
-        .container {
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 1.5rem;
-        }
-        nav .container {
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 1.5rem;
-        }
-        /* For smaller screens, allow containers to be more fluid */
-        @media (max-width: 900px) {
-            .container,
-            nav .container,
-            header.section .container {
-                max-width: 98vw;
-                padding: 0 0.5rem;
-            }
-        }
-        .accent {
-            background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%);
-            height: 1px;
-            width: 100%;
-            max-width: 720px;
-            border-radius: 1px;
-            margin: 1.5rem auto 2.5rem auto;
-            display: block;
-        }
-        .btn { display: inline-block; background: #0ea5e9; color: #fff; font-weight: 600; padding: 0.75rem 2rem; border-radius: 0.5rem; text-decoration: none; transition: background 0.2s; border: none; }
-        .btn:hover { background: #8b5cf6; }
-        .icon { color: #8b5cf6; margin-right: 0.5rem; }
-        .tag { display: inline-block; background: #1e293b; color: #38bdf8; font-size: 0.85rem; border-radius: 0.5rem; padding: 0.25rem 0.75rem; margin: 0.25rem 0.25rem 0 0; }
-        .electric-gradient-text {
-            background: linear-gradient(90deg, #0ea5e9, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-        }
-        .electric-ombre-text {
-            background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-        }
-        .electric-shimmer {
-            position: relative;
-            z-index: 1;
-        }
-        .electric-shimmer::before {
-            content: '';
-            position: absolute;
-            top: -6px; left: -6px; right: -6px; bottom: -6px;
-            border-radius: 50%;
-            background: none;
-            border: 2px solid rgba(255,255,255,0.5);
-            z-index: -1;
-            pointer-events: none;
-        }
-        .electric-shimmer::after {
-            display: none;
-        }
-        .nav-title {
-            position: relative;
-            background: linear-gradient(90deg, #ec4899, #8b5cf6, #0ea5e9, #ec4899);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            animation: shimmer 4s linear infinite;
-            text-shadow: 0 2px 8px rgba(14,165,233,0.10);
-        }
-        .subtitle-finesse {
-            background: linear-gradient(90deg, #38bdf8 0%, #8b5cf6 60%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 8px rgba(14,165,233,0.08);
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
-        }
-        @media (max-width: 640px) {
-            html {
-                font-size: 19px !important;
-            }
-            .section, .container {
-                padding: 0 !important;
-                max-width: 100vw !important;
-            }
-            .card {
-                width: 100vw !important;
-                max-width: 100vw !important;
-                margin: 0 !important;
-                padding: 1.1rem !important;
-            }
-            .card p {
-                font-size: 1.08rem !important;
-                line-height: 1.65 !important;
-            }
-            nav a {
-                font-size: 1.18rem !important;
-                padding: 0.6rem 0 !important;
-            }
-            h1 { font-size: 2.4rem !important; }
-            h2 { font-size: 1.55rem !important; }
-            .text-2xl { font-size: 1.28rem !important; }
-            .text-5xl { font-size: 2.4rem !important; }
-            body, .text-base, .text-lg { font-size: 1.18rem !important; }
-            nav .container { flex-direction: column; align-items: flex-start; }
-            nav .space-x-6 { margin-top: 0.5rem; }
-            nav .flex { flex-direction: column; gap: 0.5rem; }
-            .nav-title { font-size: 1.28rem !important; }
-        }
-        @media (max-width: 400px) {
-            h1, .text-5xl { font-size: 1.1rem !important; }
-            .nav-title { font-size: 0.9rem !important; }
-        }
-        header.section.text-center.bg-slate-900.relative.overflow-hidden {
-            min-height: 640px;
-            height: auto;
-        }
-        @media (max-width: 900px) {
-            header.section.text-center.bg-slate-900.relative.overflow-hidden {
-                min-height: 400px;
-            }
-        }
-        @media (max-width: 640px) {
-            #experience .grid.md\:grid-cols-\[160px_1fr\] { grid-template-columns: 100px 1fr !important; }
-            #experience .absolute.left-\[160px\] { left: 100px !important; }
-            #experience .pr-4 { padding-right: 0.5rem !important; }
-            #experience .pl-8 { padding-left: 1rem !important; }
-            #experience .text-xl { font-size: 1rem !important; }
-            #experience .font-bold { font-size: 1rem !important; }
-            #experience .w-2\.5, #experience .h-2\.5 { width: 0.7rem !important; height: 0.7rem !important; }
-            #experience .flex.items-center.gap-2 { gap: 0.3rem !important; }
-            #experience .w-\[160px\], #experience .md\:w-\[160px\] { width: 100px !important; }
-            #experience .absolute.right-0.top-\[2\.2rem\] { top: 2.2rem !important; right: 0 !important; }
-            #experience .font-bold[style*='max-width:120px'] { max-width: 80px !important; font-size: 0.95rem !important; }
-            #experience .text-2xl { font-size: 1.1rem !important; }
-        }
-        nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
-            background: rgba(15,23,42,0.55) !important;
-            backdrop-filter: blur(8px) !important;
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
-            border-bottom-left-radius: 1.2rem;
-            border-bottom-right-radius: 1.2rem;
-        }
-        /* Add spacing between project cards */
-        #projects .card + .card {
-            margin-top: 2rem;
-        }
-        /* Remove glow, use shadow for depth on current projects cards */
-        #projects .card {
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
-        }
-        /* Remove glow, use shadow for depth on journey card */
-        #journey .card, .journey-card {
-            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
-        }
-        /* Ensure grid content in expertise and experience sections is centered and does not stretch full width */
-        #expertise .grid,
-        #experience .grid {
-            max-width: 720px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
-        /* Responsive for smaller screens */
-        @media (max-width: 900px) {
-            #expertise .grid,
-            #experience .grid {
-                max-width: 98vw;
-            }
-        }
     </style>
 </head>
 <body>
-    <nav class="w-full py-4 bg-slate-900 shadow-md fixed top-0 left-0 z-50">
-        <div class="container flex flex-col sm:flex-row justify-between items-center">
-            <div class="flex items-center space-x-4 mb-2 sm:mb-0">
-                <span class="block nav-title text-xl font-bold electric-ombre-text">solkey.ai</span>
-            </div>
-            <div class="flex flex-wrap items-center justify-center space-x-4 sm:space-x-6 text-base mt-2 sm:mt-0">
-                <a href="#about" class="text-slate-300 hover:text-sky-400">About</a>
-                <a href="#expertise" class="text-slate-300 hover:text-sky-400">Expertise</a>
-                <a href="#experience" class="text-slate-300 hover:text-sky-400">Experience</a>
-                <a href="#projects" class="text-slate-300 hover:text-sky-400">Projects</a>
-                <a href="#contact" class="text-slate-300 hover:text-sky-400">Contact</a>
-                <a href="mailto:sol.key@gmail.com" class="ml-2 text-slate-400 hover:text-sky-400 text-xl align-middle" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/skey" target="_blank" class="ml-2 text-slate-400 hover:text-sky-400 text-xl align-middle" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </nav>
-    <div style="height:5.5rem;"></div>
-    <header class="section text-center bg-slate-900 relative overflow-hidden">
-        <div class="container relative z-10">
-            <div class="max-w-3xl mx-auto px-4 py-6 rounded-xl">
-                <h1 class="text-5xl font-bold mb-3 text-slate-50 drop-shadow-xl">Solomon Key</h1>
-                <p class="text-2xl text-sky-400 font-semibold mb-3 subtitle-finesse drop-shadow-xl">Data Architect & AI Innovator</p>
-                <p class="text-base text-slate-400 max-w-2xl mx-auto mb-6 font-medium drop-shadow-xl">
-                    Cloud Data Architecture &nbsp;|&nbsp; Data Engineering &nbsp;|&nbsp; BI & Analytics &nbsp;|&nbsp; AI Innovation
-                </p>
-                <div class="flex justify-center space-x-4 mb-6">
-                    <a href="mailto:sol.key@gmail.com" class="text-slate-300 hover:text-sky-400 text-2xl" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-300 hover:text-sky-400 text-2xl" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                </div>
-                <a href="#contact" class="btn">Contact Me</a>
-            </div>
-        </div>
-    </header>
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">About</h2>
-            <div class="accent"></div>
-            <div class="card w-[95vw] max-w-[720px] mx-auto p-4 md:p-6 text-slate-200 text-lg mt-2">
-                <div class="mt-2">
-                    <p class="text-slate-200 text-lg mb-4">Hi, I’m Solomon —  a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
-                    <p class="text-slate-200 text-lg mb-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
-                    <p class="text-slate-200 text-lg mb-4">Outside of work, I’m a father, a builder of things both digital and physical, and a lifelong learner who’s just as curious about gardening and human behavior as I am about metadata standards and machine learning. I believe that clarity, adaptability, and compassion are as important in technical work as they are in life.</p>
-                    <p class="text-slate-200 text-lg">Whether I’m designing a data product, exploring a new technology, or mentoring a junior analyst, I bring a grounded, collaborative mindset to everything I do.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section" id="expertise">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Expertise</h2>
-            <div class="accent"></div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#0ea5e9"><i class="fas fa-cloud"></i></span><b>Cloud Data Architecture (AWS)</b>
-                    <div class="text-slate-400 text-base mt-2">Expertise in AWS (Glue, S3, Athena, Redshift, Lambda) for secure, scalable, high-performance data lakes & platforms. Designing for cost-optimization and resilience.</div>
-                </div>
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#38bdf8"><i class="fas fa-project-diagram"></i></span><b>Data Engineering & Pipelines</b>
-                    <div class="text-slate-400 text-base mt-2">Mastery in designing and implementing robust ETL/ELT processes, complex data integration, automation, SQL, Python, and Snowflake. Focus on data lineage and observability.</div>
-                </div>
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#8b5cf6"><i class="fas fa-chart-line"></i></span><b>BI & Advanced Analytics</b>
-                    <div class="text-slate-400 text-base mt-2">Tableau, PowerBI, AWS Quicksight expert. Crafting compelling dashboards, enabling self-service analytics, and translating data into strategic business intelligence.</div>
-                </div>
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#f59e42"><i class="fas fa-database"></i></span><b>Data Modeling & Warehousing</b>
-                    <div class="text-slate-400 text-base mt-2">Proficient in conceptual, logical, and physical data modeling (dimensional, relational). Building and optimizing data warehouses (e.g., Redshift) for analytical workloads.</div>
-                </div>
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#ef4444"><i class="fas fa-shield-alt"></i></span><b>Data Governance & Security</b>
-                    <div class="text-slate-400 text-base mt-2">Implementing comprehensive data governance frameworks, ensuring data quality, S3 security, managing sensitive data (HIPAA/Medicaid contexts), and robust metadata management.</div>
-                </div>
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#ec4899"><i class="fas fa-robot"></i></span><b>AI/ML & Emerging Tech</b>
-                    <div class="text-slate-400 text-base mt-2">Exploring and applying AI/LLMs (Amazon Bedrock, SageMaker), developing innovative data solutions, and committed to continuous learning in cutting-edge technologies like GenAI.</div>
-                </div>
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#22d3ee"><i class="fas fa-users-cog"></i></span><b>Stakeholder & Technical Leadership</b>
-                    <div class="text-slate-400 text-base mt-2">Excels in requirements elicitation, cross-functional team leadership, clear technical documentation, and building strong partnerships to drive complex project success.</div>
-                </div>
-                <div class="card max-w-[720px] p-4 md:p-6">
-                    <span class="icon" style="color:#10b981"><i class="fas fa-layer-group"></i></span><b>Full-Stack & System Design</b>
-                    <div class="text-slate-400 text-base mt-2">Experience with front-end (HTML, CSS, JS) and application development (Visual Studio), providing a holistic view for designing end-to-end data-driven applications.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section bg-slate-800" id="experience">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Experience Highlights</h2>
-            <div class="accent"></div>
-            <div class="grid md:grid-cols-[160px_1fr] gap-2 relative">
-                <div class="absolute left-[160px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-500 via-fuchsia-500 via-[#8b5cf6] via-sky-400 to-emerald-400 opacity-60 z-0"></div>
-                <!-- Timeline Item: Data Architect (2022–Current) -->
-                <div class="flex flex-col items-end pr-4 z-10 relative">
-                    <div class="text-slate-300 font-semibold">2022–Current</div>
-                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
-                        <span class="text-rose-400 text-2xl mb-1"><i class="fas fa-database"></i></span>
-                        <span class="font-bold text-rose-400 text-right break-words leading-tight" style="max-width:120px;">Data Architect</span>
-                    </div>
-                </div>
-                <div class="flex flex-col pl-8 z-10">
-                    <div class="text-xl font-bold text-slate-100">Georgia Data Analytics Center</div>
-                    <div class="text-base text-slate-400 font-medium italic mb-1">Governor's Office of Planning and Budget</div>
-                    <ul class="list-disc pl-5 text-slate-300 text-base">
-                        <li>Build and maintain automated data pipelines using AWS Cloud (Glue, S3, Redshift, Lambda).</li>
-                        <li>Integrate and manage data from multiple state agencies (healthcare, education, finance).</li>
-                        <li>Develop and publish dashboards with Tableau, PowerBI, and AWS Quicksight.</li>
-                        <li>Lead data validation, quality assurance, and documentation best practices.</li>
-                    </ul>
-                </div>
-                <!-- Timeline Item: Business Intelligence Architect (2010–2022) -->
-                <div class="flex flex-col items-end pr-4 z-10 relative">
-                    <div class="text-slate-300 font-semibold">2010–2022</div>
-                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
-                        <span class="text-[#8b5cf6] text-2xl mb-1"><i class="fas fa-chart-line"></i></span>
-                        <span class="font-bold text-[#8b5cf6] text-right break-words leading-tight" style="max-width:120px;">Business Intelligence Architect</span>
-                    </div>
-                </div>
-                <div class="flex flex-col pl-8 z-10">
-                    <div class="text-xl font-bold text-slate-100">Information Technology Services</div>
-                    <div class="text-base text-slate-400 font-medium italic mb-1">University System of Georgia</div>
-                    <ul class="list-disc pl-5 text-slate-300 text-base">
-                        <li>Designed and built automated data pipelines and the USG Data Warehouse & BI platforms.</li>
-                        <li>Modernized and integrated complex legacy data systems into a unified architecture.</li>
-                        <li>Led Cognos analytics teams and architected enterprise BI solutions.</li>
-                        <li>Developed in-house Data Element Dictionary (DED) and metadata systems.</li>
-                    </ul>
-                </div>
-                <!-- Timeline Item: Systems Analyst (2004–2010) -->
-                <div class="flex flex-col items-end pr-4 z-10 relative">
-                    <div class="text-slate-300 font-semibold">2004–2010</div>
-                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
-                        <span class="text-sky-400 text-2xl mb-1"><i class="fas fa-cogs"></i></span>
-                        <span class="font-bold text-sky-400 text-right break-words leading-tight" style="max-width:120px;">Systems Analyst</span>
-                    </div>
-                </div>
-                <div class="flex flex-col pl-8 z-10">
-                    <div class="text-xl font-bold text-slate-100">Data Services</div>
-                    <div class="text-base text-slate-400 font-medium italic mb-1">University System of Georgia</div>
-                    <ul class="list-disc pl-5 text-slate-300 text-base">
-                        <li>Developed foundational data dictionaries and metadata management platforms.</li>
-                        <li>Created advanced reports and dashboards using Cognos, Oracle OBIEE, and SQL.</li>
-                        <li>Ensured data integrity and performance through continuous QA and analysis.</li>
-                    </ul>
-                </div>
-                <!-- Timeline Item: Education (2002–2006) -->
-                <div class="flex flex-col items-end pr-4 z-10 relative">
-                    <div class="text-slate-300 font-semibold">2002–2006</div>
-                    <div class="flex flex-col items-end w-[160px] md:w-[160px] mt-1" style="padding-right:0;">
-                        <span class="text-emerald-400 text-2xl mb-1"><i class="fas fa-graduation-cap"></i></span>
-                        <span class="font-bold text-emerald-400 text-right break-words leading-tight" style="max-width:120px;">B.S. Computer Science</span>
-                    </div>
-                </div>
-                <div class="flex flex-col pl-8 z-10">
-                    <div class="text-xl font-bold text-slate-100">University of Georgia</div>
-                    <div class="text-base text-slate-400 font-medium italic mb-1">Bachelor of Science in Computer Science</div>
-                    <ul class="list-disc pl-5 text-slate-300 text-base">
-                        <li>Graduated with 4.0 GPA; Presidential Scholar</li>
-                        <li>Completed advanced coursework in algorithms, data structures, and software engineering</li>
-                        <li>Developed strong foundation in programming, databases, and systems design</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section" id="journey">
-        <div class="container">
-            <div class="card journey-card w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
-                <h3 class="text-center text-2xl font-extrabold electric-ombre-text mb-6 tracking-wide drop-shadow-lg" style="letter-spacing:0.04em;">A Journey Begins: Curiosity, Ethics, and AI</h3>
-                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    <div class="w-full md:w-1/3 flex-shrink-0 flex flex-col items-center">
-                        <a href="4th-grade.jpeg" target="_blank" title="Click to view full image">
-                            <img src="4th-grade.jpeg" alt="4th grade AI project photo" class="rounded-lg shadow-lg mb-2 w-full object-cover" style="max-width:260px; cursor: zoom-in;" />
-                        </a>
-                        <div class="text-xs text-slate-400 text-center mt-1">A proud moment - Celibrated in peak 90's fashion</div>
-                    </div>
-                    <div class="flex-1">
-                        <p class="text-slate-400 text-lg md:text-base leading-relaxed">This is me, in 1995, standing proudly in front of my 4th grade social scient project  "How Should Artificial Intelligence Be Used to Enhance Our Society?" Complete with dot-matrix printed visualizations (created in Lotus notes on Windows 3.1). A desktop computer glowing at the center, physically plugged into a hand drawn computer brain. A little metaphor for the project's main theme "Brain power comes first."</p>
-                        <p class="text-slate-400 text-lg md:text-base leading-relaxed mt-3">This project explored how technology and human intelligence might work together to benefit society, exploring the ethics, impact, and dangers. I couldn't have dreamed how relevant this topic would be 30 years later.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section" id="projects">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Current Projects</h2>
-            <div class="accent"></div>
-            <div class="card flex flex-row items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
-                <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-sky-400 text-2xl flex-shrink-0" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
-                <div class="flex-1">
-                    <b>Accountability Dashboard (SCSC)</b>
-                    <div class="text-slate-400 text-base mb-2">Digital performance framework for Georgia's State Charter Schools Commission.</div>
-                    <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
-                    </div>
-                    <span class="tag">Tableau</span><span class="tag">Education</span><span class="tag">Data Visualization</span>
-                </div>
-            </div>
-            <div class="card flex flex-row items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
-                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="mt-1 text-emerald-400 text-2xl flex-shrink-0" title="Healthcare Analytics Dashboard"><i class="fas fa-user-md"></i></a>
-                <div class="flex-1">
-                    <b>Healthcare Workforce Dashboard</b>
-                    <div class="text-slate-400 text-base mb-2">Consolidated view of Georgia's licensed healthcare workforce.</div>
-                    <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
-                    </div>
-                    <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Workforce</span>
-                </div>
-            </div>
-            <div class="card flex flex-row items-start gap-4 w-[95vw] max-w-[720px] mx-auto p-4 md:p-6">
-                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-fuchsia-400 text-2xl flex-shrink-0" title="GME Analytics Dashboard"><i class="fas fa-user-graduate"></i></a>
-                <div class="flex-1">
-                    <b>Graduate Medical Education Match Results</b>
-                    <div class="text-slate-400 text-base mb-2">Summarizes GME and medical student graduate match results for Georgia.</div>
-                    <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
-                    </div>
-                    <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Analytics</span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section bg-slate-800" id="contact">
-        <div class="container text-center">
-            <h2 class="text-3xl font-extrabold electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Let's Connect</h2>
-            <div class="accent"></div>
-            <p class="text-lg text-slate-300 mb-6">Interested in collaborating, discussing data challenges, or learning more? Reach out via email or LinkedIn.</p>
-            <a href="mailto:sol.key@gmail.com" class="btn mr-4"><i class="fas fa-envelope mr-2"></i>Email</a>
-            <a href="https://www.linkedin.com/in/skey" target="_blank" class="btn bg-slate-700 hover:bg-slate-600"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
-        </div>
-    </section>
-    <footer class="w-full bg-slate-900 bg-opacity-80 py-6 mt-10 border-t border-slate-800 text-center text-slate-400 text-sm relative z-20">
-        <div class="container flex flex-col md:flex-row items-center justify-between mx-auto px-4">
-            <div class="mb-2 md:mb-0">
-                &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
-                <span class="ml-2 text-xs text-slate-500">v2025.05.12.4</span>
-            </div>
-            <div class="flex items-center justify-center space-x-4">
-                <a href="mailto:sol.key@gmail.com" class="hover:text-sky-400" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/skey" target="_blank" class="hover:text-sky-400" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#about" class="hover:text-sky-400" title="About">About</a>
-                <a href="#projects" class="hover:text-sky-400" title="Projects">Projects</a>
-            </div>
-        </div>
-    </footer>
+    <!-- Unlock overlay: covers everything except background -->
+    <div id="unlock-overlay" class="fixed inset-0 z-[10000] bg-transparent flex items-center justify-center cursor-pointer transition-all duration-600">
+      <span id="unlock-instruction" class="text-slate-200 text-xl font-bold tracking-wide drop-shadow-lg select-none pointer-events-none mt-2 block">Let's unlock your data's potential.</span>
+      <span id="ripple-effect" class="absolute pointer-events-none"></span>
+    </div>
+    <script>
+    // Unlock overlay ripple and navigation logic
+    const overlay = document.getElementById('unlock-overlay');
+    const ripple = document.getElementById('ripple-effect');
+    let unlocked = false;
+    function showRipple(x, y) {
+      ripple.innerHTML = '';
+      const circle = document.createElement('span');
+      circle.style.position = 'fixed';
+      circle.style.left = (x - 200) + 'px';
+      circle.style.top = (y - 200) + 'px';
+      circle.style.width = '400px';
+      circle.style.height = '400px';
+      circle.style.borderRadius = '50%';
+      circle.style.background = 'radial-gradient(circle, #8b5cf6 0%, #0ea5e9 40%, transparent 80%)';
+      circle.style.opacity = '0.85';
+      circle.style.boxShadow = '0 0 64px 32px #8b5cf6, 0 0 128px 64px #0ea5e9, 0 0 0 0 #ec4899';
+      circle.style.transform = 'scale(0.1)';
+      circle.style.transition = 'transform 0.7s cubic-bezier(.4,0,.2,1), opacity 0.7s cubic-bezier(.4,0,.2,1)';
+      ripple.appendChild(circle);
+      setTimeout(() => {
+        circle.style.transform = 'scale(2.5)';
+        circle.style.opacity = '0';
+      }, 10);
+      setTimeout(() => {
+        ripple.innerHTML = '';
+      }, 800);
+    }
+    overlay.addEventListener('click', function(e) {
+      if (unlocked) return;
+      unlocked = true;
+      const x = e.clientX;
+      const y = e.clientY;
+      showRipple(x, y);
+      overlay.style.background = 'rgba(15,23,42,0.01)';
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        overlay.style.transition = 'opacity 0.7s cubic-bezier(.4,0,.2,1)';
+        overlay.style.opacity = '0';
+      }, 400);
+      setTimeout(() => {
+        window.location.href = 'test.html';
+      }, 900);
+    });
+    // Prevent scrolling while locked
+    document.body.style.overflow = 'hidden';
+    </script>
 </body>
 </html>
