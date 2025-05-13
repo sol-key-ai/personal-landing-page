@@ -1,8 +1,6 @@
 # Node
 node_modules/
 
-# Build outputs
-output.css
 
 # System
 .DS_Store
