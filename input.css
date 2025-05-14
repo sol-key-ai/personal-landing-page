@@ -307,6 +307,9 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
 }
 /* Responsive overrides */
 @media (max-width: 900px) {
+  html {
+    font-size: 19px !important;
+  }
   .container,
   nav .container,
   header.section .container,
@@ -322,7 +325,7 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
 }
 @media (max-width: 768px) {
   html {
-    font-size: 19px !important;
+    font-size: 18px !important;
   }
   nav .container {
     flex-direction: row !important;
@@ -362,7 +365,7 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
 }
 @media (max-width: 639px) {
   html {
-    font-size: 18px !important;
+    font-size: 17px !important;
   }
   nav a, #mobile-nav-links a {
     font-size: 1.08rem !important;
@@ -402,7 +405,7 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
 }
 @media (max-width: 480px) {
   html {
-    font-size: 17px !important;
+    font-size: 16px !important;
   }
   nav a, #mobile-nav-links a {
     font-size: 1.1rem !important;
