@@ -361,6 +361,12 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
   }
 }
 @media (max-width: 639px) {
+  html {
+    font-size: 18px !important;
+  }
+  nav a, #mobile-nav-links a {
+    font-size: 1.08rem !important;
+  }
   #nav-links {
     display: none !important;
   }
@@ -395,6 +401,12 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
   }
 }
 @media (max-width: 480px) {
+  html {
+    font-size: 17px !important;
+  }
+  nav a, #mobile-nav-links a {
+    font-size: 1.1rem !important;
+  }
   .container,
   #expertise .grid,
   #experience .grid,
@@ -407,6 +419,9 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
   }
 }
 @media (max-width: 400px) {
+  html {
+    font-size: 16px !important;
+  }
   .nav-title { font-size: 1.15rem !important; }
   nav a { font-size: 1.05rem !important; }
 }
