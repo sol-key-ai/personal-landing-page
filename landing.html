@@ -13,11 +13,11 @@
     <nav class="w-full py-4 bg-slate-900 shadow-md fixed top-0 left-0 z-50">
         <div class="container flex flex-row justify-between items-center relative">
             <!-- Logo -->
-            <div class="flex items-center flex-shrink-0 w-auto sm:w-auto">
+            <div class="flex items-center flex-shrink-0 w-auto">
                 <span class="block nav-title text-xl font-bold electric-ombre-text">solkey.ai</span>
             </div>
-            <!-- Navigation links (center on desktop, hidden on mobile) -->
-            <div id="nav-links" class="hidden sm:flex flex-wrap items-center justify-center space-x-4 sm:space-x-6 text-base mx-4">
+            <!-- Navigation links -->
+            <div id="nav-links" class="hidden flex-wrap items-center justify-center space-x-4 text-base mx-4">
                 <a href="#about" class="text-slate-300 hover:text-sky-400">About</a>
                 <a href="#expertise" class="text-slate-300 hover:text-sky-400">Expertise</a>
                 <a href="#experience" class="text-slate-300 hover:text-sky-400">Experience</a>
@@ -28,13 +28,13 @@
             <div class="flex items-center space-x-2 flex-shrink-0 ml-auto">
                 <a href="mailto:sol.key@gmail.com" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <!-- Hamburger button (mobile only) -->
-                <button id="mobile-menu-btn" class="sm:hidden text-slate-300 hover:text-sky-400 text-2xl focus:outline-none ml-2" aria-label="Open menu">
+                <!-- Hamburger button -->
+                <button id="mobile-menu-btn" class="text-slate-300 hover:text-sky-400 text-2xl focus:outline-none ml-2" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <!-- Mobile nav links dropdown -->
-            <div id="mobile-nav-links" class="sm:hidden absolute left-0 top-full w-full bg-slate-900 bg-opacity-95 shadow-lg z-50 flex-col items-center text-base" style="display:none;">
+            <div id="mobile-nav-links" class="absolute left-0 top-full w-full bg-slate-900 bg-opacity-95 shadow-lg z-50 flex-col items-center text-base" style="display:none;">
                 <a href="#about" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">About</a>
                 <a href="#expertise" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Expertise</a>
                 <a href="#experience" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Experience</a>
@@ -128,7 +128,7 @@
         <div class="container">
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">About</h2>
             <div class="accent"></div>
-            <div class="card mx-auto p-4 md:p-6 text-slate-200 text-lg mt-2 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+            <div class="card mx-auto p-4 text-slate-200 text-lg mt-2">
                 <div class="mt-2">
                     <p class="text-slate-200 text-lg mb-4">Hi, I’m Solomon —  a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
                     <p class="text-slate-200 text-lg mb-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
@@ -143,36 +143,36 @@
         <div class="container">
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Expertise</h2>
             <div class="accent"></div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+            <div class="grid gap-6">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#0ea5e9"><i class="fas fa-cloud"></i></span><b>Cloud Data Architecture (AWS)</b>
                     <div class="text-slate-400 text-base mt-2">Expertise in AWS (Glue, S3, Athena, Redshift, Lambda) for secure, scalable, high-performance data lakes & platforms. Designing for cost-optimization and resilience.</div>
                 </div>
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#38bdf8"><i class="fas fa-project-diagram"></i></span><b>Data Engineering & Pipelines</b>
                     <div class="text-slate-400 text-base mt-2">Mastery in designing and implementing robust ETL/ELT processes, complex data integration, automation, SQL, Python, and Snowflake. Focus on data lineage and observability.</div>
                 </div>
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#8b5cf6"><i class="fas fa-chart-line"></i></span><b>BI & Advanced Analytics</b>
                     <div class="text-slate-400 text-base mt-2">Tableau, PowerBI, AWS Quicksight expert. Crafting compelling dashboards, enabling self-service analytics, and translating data into strategic business intelligence.</div>
                 </div>
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#f59e42"><i class="fas fa-database"></i></span><b>Data Modeling & Warehousing</b>
                     <div class="text-slate-400 text-base mt-2">Proficient in conceptual, logical, and physical data modeling (dimensional, relational). Building and optimizing data warehouses (e.g., Redshift) for analytical workloads.</div>
                 </div>
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#ef4444"><i class="fas fa-shield-alt"></i></span><b>Data Governance & Security</b>
                     <div class="text-slate-400 text-base mt-2">Implementing comprehensive data governance frameworks, ensuring data quality, S3 security, managing sensitive data (HIPAA/Medicaid contexts), and robust metadata management.</div>
                 </div>
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#ec4899"><i class="fas fa-robot"></i></span><b>AI/ML & Emerging Tech</b>
                     <div class="text-slate-400 text-base mt-2">Exploring and applying AI/LLMs (Amazon Bedrock, SageMaker), developing innovative data solutions, and committed to continuous learning in cutting-edge technologies like GenAI.</div>
                 </div>
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#22d3ee"><i class="fas fa-users-cog"></i></span><b>Stakeholder & Technical Leadership</b>
                     <div class="text-slate-400 text-base mt-2">Excels in requirements elicitation, cross-functional team leadership, clear technical documentation, and building strong partnerships to drive complex project success.</div>
                 </div>
-                <div class="card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+                <div class="card mx-auto p-4">
                     <span class="icon" style="color:#10b981"><i class="fas fa-layer-group"></i></span><b>Full-Stack & System Design</b>
                     <div class="text-slate-400 text-base mt-2">Experience with front-end (HTML, CSS, JS) and application development (Visual Studio), providing a holistic view for designing end-to-end data-driven applications.</div>
                 </div>
@@ -184,20 +184,19 @@
         <div class="container">
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Experience Highlights</h2>
             <div class="accent"></div>
-            <div class="grid md:grid-cols-[160px_1fr] gap-2 relative">
-                <!-- Timeline vertical line: visible on md+, mobile version always left-0 -->
-                <div class="hidden md:block absolute left-[160px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-500 via-fuchsia-500 via-[#8b5cf6] via-sky-400 to-emerald-400 opacity-60 z-0"></div>
-                <div class="block md:hidden absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-500 via-fuchsia-500 via-[#8b5cf6] via-sky-400 to-emerald-400 opacity-60 z-0"></div>
+            <div class="grid experience-timeline-grid" style="grid-template-columns:160px 1fr;gap:2rem;">
+                <!-- Timeline vertical line -->
+                <div class="absolute left-[160px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-rose-500 via-fuchsia-500 via-[#8b5cf6] via-sky-400 to-emerald-400 opacity-60 z-0"></div>
                 <!-- Timeline items -->
                 <!-- 2022–Current -->
-                <div class="flex flex-col md:items-end items-start md:pr-4 pr-0 md:pl-0 pl-0 md:text-right text-left relative md:col-span-1 col-span-2">
-                    <div class="flex items-center md:block">
-                        <span class="text-rose-400 text-2xl mb-1 md:ml-0 ml-2"><i class="fas fa-database"></i></span>
-                        <span class="font-bold text-rose-400 md:text-right text-left break-words leading-tight md:ml-0 ml-2" style="max-width:120px;">Data Architect</span>
-                        <span class="text-slate-300 font-semibold ml-2 md:ml-0 md:block inline">2022–Current</span>
+                <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
+                    <div class="flex flex-col items-end">
+                        <span class="text-rose-400 text-2xl mb-1"><i class="fas fa-database"></i></span>
+                        <span class="font-bold text-rose-400 text-right break-words leading-tight" style="max-width:120px;">Data Architect</span>
+                        <span class="text-slate-300 font-semibold mt-1">2022–Current</span>
                     </div>
                 </div>
-                <div class="flex flex-col md:pl-8 pl-8 z-10 md:col-span-1 col-span-2">
+                <div class="flex flex-col pl-8 z-10">
                     <div class="text-xl font-bold text-slate-100">Georgia Data Analytics Center</div>
                     <div class="text-base text-slate-400 font-medium italic mb-1">Governor's Office of Planning and Budget</div>
                     <ul class="list-disc pl-5 text-slate-300 text-base">
@@ -208,14 +207,14 @@
                     </ul>
                 </div>
                 <!-- 2010–2022 -->
-                <div class="flex flex-col md:items-end items-start md:pr-4 pr-0 md:pl-0 pl-0 md:text-right text-left relative md:col-span-1 col-span-2">
-                    <div class="flex items-center md:block">
-                        <span class="text-[#8b5cf6] text-2xl mb-1 md:ml-0 ml-2"><i class="fas fa-chart-line"></i></span>
-                        <span class="font-bold text-[#8b5cf6] md:text-right text-left break-words leading-tight md:ml-0 ml-2" style="max-width:120px;">Business Intelligence Architect</span>
-                        <span class="text-slate-300 font-semibold ml-2 md:ml-0 md:block inline">2010–2022</span>
+                <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
+                    <div class="flex flex-col items-end">
+                        <span class="text-[#8b5cf6] text-2xl mb-1"><i class="fas fa-chart-line"></i></span>
+                        <span class="font-bold text-[#8b5cf6] text-right break-words leading-tight" style="max-width:120px;">Business Intelligence Architect</span>
+                        <span class="text-slate-300 font-semibold mt-1">2010–2022</span>
                     </div>
                 </div>
-                <div class="flex flex-col md:pl-8 pl-8 z-10 md:col-span-1 col-span-2">
+                <div class="flex flex-col pl-8 z-10">
                     <div class="text-xl font-bold text-slate-100">Information Technology Services</div>
                     <div class="text-base text-slate-400 font-medium italic mb-1">University System of Georgia</div>
                     <ul class="list-disc pl-5 text-slate-300 text-base">
@@ -226,14 +225,14 @@
                     </ul>
                 </div>
                 <!-- 2004–2010 -->
-                <div class="flex flex-col md:items-end items-start md:pr-4 pr-0 md:pl-0 pl-0 md:text-right text-left relative md:col-span-1 col-span-2">
-                    <div class="flex items-center md:block">
-                        <span class="text-sky-400 text-2xl mb-1 md:ml-0 ml-2"><i class="fas fa-cogs"></i></span>
-                        <span class="font-bold text-sky-400 md:text-right text-left break-words leading-tight md:ml-0 ml-2" style="max-width:120px;">Systems Analyst</span>
-                        <span class="text-slate-300 font-semibold ml-2 md:ml-0 md:block inline">2004–2010</span>
+                <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
+                    <div class="flex flex-col items-end">
+                        <span class="text-sky-400 text-2xl mb-1"><i class="fas fa-cogs"></i></span>
+                        <span class="font-bold text-sky-400 text-right break-words leading-tight" style="max-width:120px;">Systems Analyst</span>
+                        <span class="text-slate-300 font-semibold mt-1">2004–2010</span>
                     </div>
                 </div>
-                <div class="flex flex-col md:pl-8 pl-8 z-10 md:col-span-1 col-span-2">
+                <div class="flex flex-col pl-8 z-10">
                     <div class="text-xl font-bold text-slate-100">Data Services</div>
                     <div class="text-base text-slate-400 font-medium italic mb-1">University System of Georgia</div>
                     <ul class="list-disc pl-5 text-slate-300 text-base">
@@ -243,14 +242,14 @@
                     </ul>
                 </div>
                 <!-- 2002–2006 -->
-                <div class="flex flex-col md:items-end items-start md:pr-4 pr-0 md:pl-0 pl-0 md:text-right text-left relative md:col-span-1 col-span-2">
-                    <div class="flex items-center md:block">
-                        <span class="text-emerald-400 text-2xl mb-1 md:ml-0 ml-2"><i class="fas fa-graduation-cap"></i></span>
-                        <span class="font-bold text-emerald-400 md:text-right text-left break-words leading-tight md:ml-0 ml-2" style="max-width:120px;">B.S. Computer Science</span>
-                        <span class="text-slate-300 font-semibold ml-2 md:ml-0 md:block inline">2002–2006</span>
+                <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
+                    <div class="flex flex-col items-end">
+                        <span class="text-emerald-400 text-2xl mb-1"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="font-bold text-emerald-400 text-right break-words leading-tight" style="max-width:120px;">B.S. Computer Science</span>
+                        <span class="text-slate-300 font-semibold mt-1">2006</span>
                     </div>
                 </div>
-                <div class="flex flex-col md:pl-8 pl-8 z-10 md:col-span-1 col-span-2">
+                <div class="flex flex-col pl-8 z-10">
                     <div class="text-xl font-bold text-slate-100">University of Georgia</div>
                     <div class="text-base text-slate-400 font-medium italic mb-1">Bachelor of Science in Computer Science</div>
                     <ul class="list-disc pl-5 text-slate-300 text-base">
@@ -260,51 +259,23 @@
                     </ul>
                 </div>
             </div>
-            <style>
-            /* Responsive timeline fixes */
-            @media (max-width: 900px) {
-                #experience .grid {
-                    grid-template-columns: 1fr !important;
-                }
-                #experience .flex.md\:items-end {
-                    align-items: flex-start !important;
-                    text-align: left !important;
-                    padding-right: 0 !important;
-                    padding-left: 0 !important;
-                }
-                #experience .flex.md\:pl-8 {
-                    padding-left: 2rem !important;
-                }
-                #experience .absolute.left-\[160px\] {
-                    display: none !important;
-                }
-                #experience .block.md\:hidden.absolute.left-4 {
-                    display: block !important;
-                }
-            }
-            @media (max-width: 639px) {
-                #experience .flex.md\:pl-8 {
-                    padding-left: 1.25rem !important;
-                }
-            }
-            </style>
         </div>
     </section>
 
-    <section class="section" id="journey">
+    <section class="section" id="journey"></section>
         <div class="container">
-             <div class="card journey-card mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+             <div class="card journey-card mx-auto p-4 text-lg">
                 <h3 class="text-center text-2xl font-extrabold electric-ombre-text mb-6 tracking-wide drop-shadow-lg" style="letter-spacing:0.04em;">A Journey Begins: Curiosity, Ethics, and AI</h3>
-                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
-                    <div class="w-full md:w-1/3 flex-shrink-0 flex flex-col items-center">
+                <div class="flex flex-col items-center gap-8">
+                    <div class="w-full flex-shrink-0 flex flex-col items-center">
                         <a href="img/4th-grade.jpeg" target="_blank" title="Click to view full image">
                             <img src="img/4th-grade.jpeg" alt="4th grade AI project photo" class="rounded-lg shadow-lg mb-2 w-full object-cover" style="max-width:260px; cursor: zoom-in;" />
                         </a>
                         <div class="text-xs text-slate-400 text-center mt-1">A proud moment - Celibrated in peak 90's fashion</div>
                     </div>
                     <div class="flex-1">
-                        <p class="text-slate-400 text-lg md:text-base leading-relaxed">This is me, in 1995, standing proudly in front of my 4th grade social scient project  "How Should Artificial Intelligence Be Used to Enhance Our Society?" Complete with dot-matrix printed visualizations (created in Lotus notes on Windows 3.1). A desktop computer glowing at the center, physically plugged into a hand drawn computer brain. A little metaphor for the project's main theme "Brain power comes first."</p>
-                        <p class="text-slate-400 text-lg md:text-base leading-relaxed mt-3">This project explored how technology and human intelligence might work together to benefit society, exploring the ethics, impact, and dangers. I couldn't have dreamed how relevant this topic would be 30 years later.</p>
+                        <p class="text-slate-400 text-lg leading-relaxed">This is me, in 1995, standing proudly in front of my 4th grade social scient project  "How Should Artificial Intelligence Be Used to Enhance Our Society?" Complete with dot-matrix printed visualizations (created in Lotus notes on Windows 3.1). A desktop computer glowing at the center, physically plugged into a hand drawn computer brain. A little metaphor for the project's main theme "Brain power comes first."</p>
+                        <p class="text-slate-400 text-lg leading-relaxed mt-3">This project explored how technology and human intelligence might work together to benefit society, exploring the ethics, impact, and dangers. I couldn't have dreamed how relevant this topic would be 30 years later.</p>
                     </div>
                 </div>
             </div>
@@ -315,35 +286,35 @@
         <div class="container">
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Current Projects</h2>
             <div class="accent"></div>
-            <div class="card flex flex-col sm:flex-row items-start gap-4 mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+            <div class="card flex flex-col items-start gap-4 mx-auto p-4">
                 <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-sky-400 text-2xl flex-shrink-0" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
                 <div class="flex-1">
                     <b>Accountability Dashboard (SCSC)</b>
                     <div class="text-slate-400 text-base mb-2">Digital performance framework for Georgia's State Charter Schools Commission.</div>
                     <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 sm:justify-start !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                        <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
                     </div>
                     <span class="tag">Tableau</span><span class="tag">Education</span><span class="tag">Data Visualization</span>
                 </div>
             </div>
-            <div class="card flex flex-col sm:flex-row items-start gap-4 mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+            <div class="card flex flex-col items-start gap-4 mx-auto p-4">
                 <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="mt-1 text-emerald-400 text-2xl flex-shrink-0" title="Healthcare Analytics Dashboard"><i class="fas fa-user-md"></i></a>
                 <div class="flex-1">
                     <b>Healthcare Workforce Dashboard</b>
                     <div class="text-slate-400 text-base mb-2">Consolidated view of Georgia's licensed healthcare workforce.</div>
                     <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-sky-400 underline flex items-center gap-2 sm:justify-start !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
                     </div>
                     <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Workforce</span>
                 </div>
             </div>
-            <div class="card flex flex-col sm:flex-row items-start gap-4 mx-auto p-4 md:p-6 lg:max-w-3xl md:max-w-2xl sm:max-w-xl">
+            <div class="card flex flex-col items-start gap-4 mx-auto p-4">
                 <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3AisGuestRedirectFromVizportal=y" target="_blank" class="mt-1 text-fuchsia-400 text-2xl flex-shrink-0" title="GME Analytics Dashboard"><i class="fas fa-user-graduate"></i></a>
                 <div class="flex-1">
                     <b>Graduate Medical Education Match Results</b>
                     <div class="text-slate-400 text-base mb-2">Summarizes GME and medical student graduate match results for Georgia.</div>
                     <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 sm:justify-start !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
+                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
                     </div>
                     <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Analytics</span>
                 </div>
@@ -362,8 +333,8 @@
     </section>
 
     <footer class="w-full bg-slate-900 bg-opacity-80 py-6 mt-10 border-t border-slate-800 text-center text-slate-400 text-sm relative z-20">
-        <div class="container flex flex-col md:flex-row items-center justify-between mx-auto px-4">
-            <div class="mb-2 md:mb-0">
+        <div class="container flex flex-col items-center justify-between mx-auto px-4">
+            <div class="mb-2">
                 &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
                 <span class="ml-2 text-xs text-slate-500">v2025.05.12.4</span>
             </div>

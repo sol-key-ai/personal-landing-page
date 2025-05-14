@@ -7,6 +7,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: #0a1120; /* Updated to match the darkest edge of top-bg.jpg */
   color: #e2e8f0;
+  overflow-x: hidden;
 }
 body::before {
   content: '';
@@ -54,6 +55,7 @@ body::after {
 }
 html {
   scroll-padding-top: 6.5rem;
+  overflow-x: hidden;
 }
 .section, .card {
   position: relative;
@@ -68,10 +70,10 @@ html {
   padding: 2.5rem 1.5rem;
 }
 .card {
-  background: rgba(10,18,32,0.18); /* Lighter glass */
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  box-shadow: 0 8px 32px 0 rgba(14,165,233,0.22), 0 2px 16px 0 rgba(0,0,0,0.18); /* More depth */
+  background: rgba(40,56,90,0.38) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: 0 8px 32px 0 rgba(14,165,233,0.22), 0 2px 16px 0 rgba(0,0,0,0.18);
   border-radius: 1rem;
   border: 1.5px solid rgba(255,255,255,0.10);
   transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
@@ -82,9 +84,9 @@ html {
   transform: scale(1.018);
 }
 #main-content.unlocked .card {
-  background: rgba(10,18,32,0.18);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(40,56,90,0.38) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
   box-shadow: 0 8px 32px 0 rgba(14,165,233,0.22), 0 2px 16px 0 rgba(0,0,0,0.18);
   border-radius: 1rem;
   border: 1.5px solid rgba(255,255,255,0.10);
@@ -97,6 +99,11 @@ html {
 }
 #about .card, #expertise .card {
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
+}
+#expertise .card {
+  background: rgba(60,80,130,0.32) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
 }
 #experience.section,
 #contact.section {
@@ -135,37 +142,20 @@ header.section .container {
 .max-w-3xl {
   position: relative;
   background: rgba(15,23,42,0.22);
-  box-shadow: 0 12px 40px 0 rgba(0,0,0,0.22), 0 1.5px 8px 0 rgba(14,165,233,0.10);
+  box-shadow: 0 32px 64px 0 rgba(0,0,0,0.55);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   padding: 3.5rem 2.5rem;
   max-width: 980px;
   margin: 0 auto;
-  border-radius: 1.2rem;
-  border: 2px solid transparent;
+  border: none;
   z-index: 2;
 }
 .max-w-3xl::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 1.2rem;
-  z-index: 3;
-  pointer-events: none;
-  border: 1.5px solid transparent;
-  box-sizing: border-box;
-  background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%);
-  background-size: 200% 200%;
-  animation: electric-border 8s linear infinite;
-  opacity: 0.45;
-  mask:
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
+  display: none !important;
+}
+.max-w-3xl * {
+  text-shadow: none !important;
 }
 @keyframes electric-border {
   0% { background-position: 0% 50%; }
@@ -273,10 +263,14 @@ nav .container {
   text-shadow: 0 2px 8px rgba(14,165,233,0.08);
   letter-spacing: 0.5px;
   font-weight: 600;
+  font-size: 1.05rem !important;
 }
 @keyframes shimmer {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
+}
+.text-base {
+  font-size: 1.32rem !important;
 }
 header.section.text-center.bg-slate-900.relative.overflow-hidden {
   min-height: 640px;
@@ -305,146 +299,16 @@ nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
   margin-right: auto;
   width: 100%;
 }
-/* Responsive overrides */
-@media (max-width: 900px) {
-  html {
-    font-size: 19px !important;
-  }
-  .container,
-  nav .container,
-  header.section .container,
-  #expertise .grid,
-  #experience .grid {
-    max-width: 98vw;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-  header.section.text-center.bg-slate-900.relative.overflow-hidden {
-    min-height: 400px;
-  }
+/* --- Experience Timeline Responsive Fixes --- */
+#experience .grid {
+  display: grid;
+  grid-template-columns: 160px 1fr !important;
+  gap: 2rem !important;
+  position: relative;
+  flex-wrap: nowrap !important;
+  width: 100vw;
+  overflow-x: auto;
 }
-@media (max-width: 768px) {
-  html {
-    font-size: 18px !important;
-  }
-  nav .container {
-    flex-direction: row !important;
-    align-items: center !important;
-  }
-  nav .container > .flex.items-center.w-full {
-    flex-direction: row !important;
-    width: 100%;
-  }
-  nav .container > .flex.items-center.w-full .ml-auto {
-    margin-left: auto !important;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  nav .container > .flex.items-center.w-full .nav-title {
-    margin-bottom: 0 !important;
-  }
-  .container,
-  #expertise .grid,
-  #experience .grid {
-    max-width: 100vw !important;
-    width: 100vw !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-  }
-  .card {
-    max-width: 100vw !important;
-    width: 100vw !important;
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-  }
-  .section {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-  }
-}
-@media (max-width: 639px) {
-  html {
-    font-size: 17px !important;
-  }
-  nav a, #mobile-nav-links a {
-    font-size: 1.08rem !important;
-  }
-  #nav-links {
-    display: none !important;
-  }
-  #mobile-menu-btn {
-    display: inline-block !important;
-  }
-  #mobile-nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-  }
-  nav .container {
-    flex-direction: row !important;
-    align-items: center !important;
-  }
-  nav .container > .flex.items-center.flex-shrink-0 {
-    justify-content: flex-start !important;
-    flex: 1 1 0%;
-  }
-  nav .container > .flex.items-center.space-x-2.flex-shrink-0.ml-auto {
-    justify-content: flex-end !important;
-    flex: 1 1 0%;
-  }
-  html {
-    font-size: 16px !important;
-  }
-  nav a, #mobile-nav-links a {
-    font-size: 1rem !important;
-  }
-  #experience .flex.md\:pl-8 {
-    padding-left: 1.25rem !important;
-  }
-}
-@media (max-width: 480px) {
-  html {
-    font-size: 16px !important;
-  }
-  nav a, #mobile-nav-links a {
-    font-size: 1.1rem !important;
-  }
-  .container,
-  #expertise .grid,
-  #experience .grid,
-  .card,
-  .section {
-    max-width: 100vw !important;
-    width: 100vw !important;
-    padding-left: 0.25rem !important;
-    padding-right: 0.25rem !important;
-  }
-}
-@media (max-width: 400px) {
-  html {
-    font-size: 16px !important;
-  }
-  .nav-title { font-size: 1.15rem !important; }
-  nav a { font-size: 1.05rem !important; }
-}
-@media (max-width: 900px) {
-  #experience .grid {
-    grid-template-columns: 1fr !important;
-  }
-  #experience .flex.md\:items-end {
-    align-items: flex-start !important;
-    text-align: left !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
-  #experience .flex.md\:pl-8 {
-    padding-left: 2rem !important;
-  }
-  #experience .absolute.left-\[160px\] {
-    display: none !important;
-  }
-  #experience .block.md\:hidden.absolute.left-4 {
-    display: block !important;
-  }
+#experience .grid > * {
+  min-width: 0;
 }
