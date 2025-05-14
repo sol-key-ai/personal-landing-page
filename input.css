@@ -157,6 +157,12 @@ header.section .container {
 .max-w-3xl * {
   text-shadow: none !important;
 }
+.max-w-3xl .sub-subtitle {
+  font-size: 1.02rem !important;
+  color: #94a3b8 !important;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
 @keyframes electric-border {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
@@ -255,60 +261,33 @@ nav .container {
   text-shadow: 0 2px 8px rgba(14,165,233,0.10);
 }
 .subtitle-finesse {
-  background: linear-gradient(90deg, #38bdf8 0%, #8b5cf6 60%, #ec4899 100%);
+  font-size: 2.6rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #38bdf8 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
-  text-shadow: 0 2px 8px rgba(14,165,233,0.08);
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  font-size: 1.05rem !important;
+  margin-bottom: 0.2em;
 }
-@keyframes shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+
+.experience-timeline-grid .font-bold {
+  font-size: 1.18rem;
 }
-.text-base {
-  font-size: 1.32rem !important;
-}
-header.section.text-center.bg-slate-900.relative.overflow-hidden {
-  min-height: 640px;
-  height: auto;
-}
-nav.w-full.py-4.bg-slate-900.shadow-md.fixed.top-0.left-0.z-50 {
-  background: rgba(15,23,42,0.55) !important;
-  backdrop-filter: blur(8px) !important;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
-  border-bottom-left-radius: 1.2rem;
-  border-bottom-right-radius: 1.2rem;
-}
-#projects .card + .card {
-  margin-top: 2rem;
-}
-#projects .card {
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
-}
-#journey .card, .journey-card {
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
-}
-#expertise .grid,
-#experience .grid {
-  max-width: 980px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-/* --- Experience Timeline Responsive Fixes --- */
-#experience .grid {
-  display: grid;
-  grid-template-columns: 160px 1fr !important;
-  gap: 2rem !important;
+
+.grid.experience-timeline-grid {
   position: relative;
-  flex-wrap: nowrap !important;
-  width: 100vw;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2rem;
 }
-#experience .grid > * {
-  min-width: 0;
+.grid.experience-timeline-grid > .timeline-vertical-bar {
+  position: absolute;
+  left: 155px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #f43f5e, #a21caf, #8b5cf6, #38bdf8, #10b981);
+  opacity: 0.6;
+  z-index: 0;
+  border-radius: 8px;
 }
