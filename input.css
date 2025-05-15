@@ -69,41 +69,46 @@ html {
   margin-bottom: 2.5rem;
   padding: 2.5rem 1.5rem;
 }
-.card {
-  background: rgba(40,56,90,0.38) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: 0 8px 32px 0 rgba(14,165,233,0.22), 0 2px 16px 0 rgba(0,0,0,0.18);
+.card,
+#about .card,
+#expertise .card,
+#projects .card,
+#journey .card,
+.journey-card {
+  background: rgba(30,41,59,0.33) !important;
+  backdrop-filter: blur(48px) !important;
+  -webkit-backdrop-filter: blur(48px) !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
   border-radius: 1rem;
   border: 1.5px solid rgba(255,255,255,0.10);
   transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
   max-width: 980px;
 }
 .card:hover, .card:focus-within {
-  box-shadow: 0 4px 40px 0 rgba(14,165,233,0.28), 0 1.5px 8px 0 rgba(236,72,153,0.10);
+  box-shadow: 0 12px 48px 0 rgba(0,0,0,0.28);
   transform: scale(1.018);
 }
 #main-content.unlocked .card {
-  background: rgba(40,56,90,0.38) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: 0 8px 32px 0 rgba(14,165,233,0.22), 0 2px 16px 0 rgba(0,0,0,0.18);
+  background: rgba(30,41,59,0.33) !important;
+  backdrop-filter: blur(48px) !important;
+  -webkit-backdrop-filter: blur(48px) !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
   border-radius: 1rem;
   border: 1.5px solid rgba(255,255,255,0.10);
   transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
   max-width: 980px;
 }
 #main-content.unlocked .card:hover, #main-content.unlocked .card:focus-within {
-  box-shadow: 0 4px 40px 0 rgba(14,165,233,0.28), 0 1.5px 8px 0 rgba(236,72,153,0.10);
+  box-shadow: 0 12px 48px 0 rgba(0,0,0,0.28);
   transform: scale(1.018);
 }
-#about .card, #expertise .card {
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.25) !important;
+#about .card, #expertise .card, #projects .card, #journey .card, .journey-card {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
 }
 #expertise .card {
-  background: rgba(60,80,130,0.32) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
+  background: rgba(30,41,59,0.33) !important;
+  backdrop-filter: blur(48px) !important;
+  -webkit-backdrop-filter: blur(48px) !important;
 }
 #experience.section,
 #contact.section {
@@ -113,13 +118,19 @@ html {
   border-radius: 1.2rem !important;
   padding: 2.5rem 1.5rem !important;
 }
+#experience.section {
+  margin-bottom: 0 !important;
+}
+#journey {
+  margin-top: 0 !important;
+}
 #experience .container,
 #contact .container {
   padding: 0 !important;
 }
 .card[style*="background:transparent"] {
-  background: rgba(30,41,59,0.85) !important;
-  box-shadow: 0 2px 16px 0 rgba(14,165,233,0.12) !important;
+  background: rgba(30,41,59,0.33) !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
 }
 header.section {
   background: none;
@@ -199,6 +210,8 @@ nav .container {
   transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
   border: none;
   box-shadow: 0 1px 8px 0 rgba(14,165,233,0.10);
+  max-width: 100%;
+  white-space: nowrap;
 }
 .btn:hover, .btn:focus {
   background: #8b5cf6;
@@ -290,4 +303,34 @@ nav .container {
   opacity: 0.6;
   z-index: 0;
   border-radius: 8px;
+}
+
+.electric-gradient-border {
+  position: relative;
+  background: rgba(30,41,59,0.2);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  z-index: 1;
+  padding: 16px; /* Increased padding for a more spacious card-like appearance */
+}
+
+/* Double border approach - more reliable */
+.electric-gradient-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  border-radius: 0.75rem;
+  pointer-events: none;
+  z-index: 2;
 }
