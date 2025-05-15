@@ -1291,12 +1291,6 @@ video {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.backdrop-blur-3xl {
-  --tw-backdrop-blur: blur(64px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
 .backdrop-filter {
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -1382,13 +1376,13 @@ html {
 #journey .card,
 .journey-card {
   background: rgba(30,41,59,0.33) !important;
-  backdrop-filter: blur(48px) !important;
-  -webkit-backdrop-filter: blur(48px) !important;
+  backdrop-filter: blur(60px) !important;
+  -webkit-backdrop-filter: blur(60px) !important;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
-  border-radius: 1rem;
-  border: 1.5px solid rgba(255,255,255,0.10);
-  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
-  max-width: 980px;
+  border-radius: 1rem !important;
+  border: 1.5px solid rgba(255,255,255,0.10) !important;
+  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1) !important;
+  max-width: 980px !important;
 }
 
 .card:hover, .card:focus-within {
@@ -1398,13 +1392,13 @@ html {
 
 #main-content.unlocked .card {
   background: rgba(30,41,59,0.33) !important;
-  backdrop-filter: blur(48px) !important;
-  -webkit-backdrop-filter: blur(48px) !important;
+  backdrop-filter: blur(60px) !important;
+  -webkit-backdrop-filter: blur(60px) !important;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
-  border-radius: 1rem;
-  border: 1.5px solid rgba(255,255,255,0.10);
-  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
-  max-width: 980px;
+  border-radius: 1rem !important;
+  border: 1.5px solid rgba(255,255,255,0.10) !important;
+  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1) !important;
+  max-width: 980px !important;
 }
 
 #main-content.unlocked .card:hover, #main-content.unlocked .card:focus-within {
@@ -1418,15 +1412,15 @@ html {
 
 #expertise .card {
   background: rgba(30,41,59,0.33) !important;
-  backdrop-filter: blur(48px) !important;
-  -webkit-backdrop-filter: blur(48px) !important;
+  backdrop-filter: blur(60px) !important;
+  -webkit-backdrop-filter: blur(60px) !important;
 }
 
 #experience.section,
 #contact.section {
-  background: rgba(15,23,42,0.32) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-          backdrop-filter: blur(4px) !important;
+  background: rgba(15,23,42,0.22) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
   border-radius: 1.2rem !important;
   padding: 2.5rem 1.5rem !important;
@@ -1515,6 +1509,15 @@ header.section .container {
   margin-left: auto;
   margin-right: auto;
   padding: 0 1.5rem;
+}
+
+nav {
+  background: rgba(15,23,42,0.5) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
 }
 
 nav .container {
@@ -1660,9 +1663,9 @@ nav .container {
 
 .electric-gradient-border {
   position: relative;
-  background: rgba(30,41,59,0.2);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+  background: rgba(15,23,42,0.22);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 0.75rem;
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   z-index: 1;

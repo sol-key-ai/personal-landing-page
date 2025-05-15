@@ -8,20 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>    <div id="main-content">
-    <nav class="w-full py-4 fixed top-0 left-0 z-50">
-        <div class="container flex flex-row items-center relative"><!-- Logo -->
+<body>
+    <div id="main-content">
+    <nav class="w-full py-4 bg-slate-900 shadow-md fixed top-0 left-0 z-50">
+        <div class="container flex flex-row justify-between items-center relative">
+            <!-- Logo -->
             <div class="flex items-center flex-shrink-0 w-auto">
-                <a href="#" class="block nav-title text-xl font-bold electric-ombre-text">solkey.ai</a>
-            </div>            <!-- Navigation links -->
-            <div id="nav-links" class="hidden flex-wrap items-center justify-end space-x-5 text-lg mx-4 ml-auto">
-                <a href="#about" class="text-slate-300 hover:text-sky-400 py-2">About</a>
-                <a href="#expertise" class="text-slate-300 hover:text-sky-400 py-2">Expertise</a>
-                <a href="#experience" class="text-slate-300 hover:text-sky-400 py-2">Experience</a>
-                <a href="#projects" class="text-slate-300 hover:text-sky-400 py-2">Projects</a>
-                <a href="#contact" class="text-slate-300 hover:text-sky-400 py-2">Contact</a>
-            </div>            <!-- Contact icons and hamburger -->
-            <div class="flex items-center space-x-3 flex-shrink-0 ml-4">
+                <span class="block nav-title text-xl font-bold electric-ombre-text">solkey.ai</span>
+            </div>
+            <!-- Navigation links -->
+            <div id="nav-links" class="hidden flex-wrap items-center justify-center space-x-4 text-base mx-4">
+                <a href="#about" class="text-slate-300 hover:text-sky-400">About</a>
+                <a href="#expertise" class="text-slate-300 hover:text-sky-400">Expertise</a>
+                <a href="#experience" class="text-slate-300 hover:text-sky-400">Experience</a>
+                <a href="#projects" class="text-slate-300 hover:text-sky-400">Projects</a>
+                <a href="#contact" class="text-slate-300 hover:text-sky-400">Contact</a>
+            </div>
+            <!-- Contact icons and hamburger -->
+            <div class="flex items-center space-x-2 flex-shrink-0 ml-auto">
                 <a href="mailto:sol.key@gmail.com" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <!-- Hamburger button -->
@@ -85,8 +89,9 @@
             }
             html {
                 font-size: 16px !important;
-            }            nav a, #mobile-nav-links a {
-                font-size: 1.125rem !important;
+            }
+            nav a, #mobile-nav-links a {
+                font-size: 1rem !important;
             }
         }
         @media (min-width: 640px) {
@@ -107,7 +112,18 @@
                 <h1 class="text-4xl md:text-5xl font-bold mb-3 text-slate-50 drop-shadow-xl">Solomon Key</h1>
                 <div class="subtitle-finesse text-base mt-2" style="font-size:1.6rem;">Data Architect &amp; AI Innovator</div>
                 <div class="sub-subtitle"> Data Architecture | UX Design | Analytics | AI Innovation </div>                <a href="#contact" class="btn flex items-center justify-center gap-3 my-6">
-                    <i class="fas fa-unlock text-xl"></i>
+                    <span class="w-5 h-5 relative">
+                        <!-- Locked padlock icon - shown by default -->
+                        <svg class="locked-icon w-5 h-5 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <!-- Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path fill="currentColor" d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/>
+                        </svg>
+                        <!-- Unlocked padlock icon - shown on hover -->
+                        <svg class="unlocked-icon w-5 h-5 absolute top-0 left-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <!-- Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path fill="currentColor" d="M352 144c0-44.2 35.8-80 80-80s80 35.8 80 80v48c0 17.7 14.3 32 32 32s32-14.3 32-32V144C576 64.5 511.5 0 432 0S288 64.5 288 144v48H64c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H352V144z"/>
+                        </svg>
+                    </span>
                     <span>Unlock your data's potential</span>
                 </a>
             </div>
