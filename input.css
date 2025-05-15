@@ -62,25 +62,21 @@ html {
   z-index: 2;
 }
 .section {
-  background: rgba(15,23,42,0.22); /* Lighter glass */
-  backdrop-filter: blur(5px);
+  background: transparent; /* or a subtle color, but no blur */
   box-shadow: 0 12px 40px 0 rgba(0,0,0,0.22), 0 1.5px 8px 0 rgba(14,165,233,0.10); /* More depth */
   border-radius: 1.2rem;
   margin-bottom: 2.5rem;
   padding: 2.5rem 1.5rem;
 }
-.card,
-#about .card,
-#expertise .card,
-#projects .card,
-#journey .card,
-.journey-card {
-  background: rgba(30,41,59,0.33) !important;
-  backdrop-filter: blur(48px) !important;
-  -webkit-backdrop-filter: blur(48px) !important;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
-  border-radius: 1rem;
-  border: 1.5px solid rgba(255,255,255,0.10);
+
+/* --- UNIFIED CARD STYLE FOR ALL CARDS --- */
+.card {
+  background: rgba(15,23,42,0.22) !important;
+  backdrop-filter: blur(7px) !important;
+  -webkit-backdrop-filter: blur(7px) !important;
+  border: 1.5px solid rgba(255,255,255,0.13);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  border-radius: 1.25rem;
   transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
   max-width: 980px;
 }
@@ -88,6 +84,7 @@ html {
   box-shadow: 0 12px 48px 0 rgba(0,0,0,0.28);
   transform: scale(1.018);
 }
+
 #main-content.unlocked .card {
   background: rgba(30,41,59,0.33) !important;
   backdrop-filter: blur(48px) !important;
@@ -102,18 +99,9 @@ html {
   box-shadow: 0 12px 48px 0 rgba(0,0,0,0.28);
   transform: scale(1.018);
 }
-#about .card, #expertise .card, #projects .card, #journey .card, .journey-card {
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
-}
-#expertise .card {
-  background: rgba(30,41,59,0.33) !important;
-  backdrop-filter: blur(48px) !important;
-  -webkit-backdrop-filter: blur(48px) !important;
-}
 #experience.section,
 #contact.section {
-  background: rgba(15,23,42,0.32) !important;
-  backdrop-filter: blur(4px) !important;
+  background: transparent !important;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18) !important;
   border-radius: 1.2rem !important;
   padding: 2.5rem 1.5rem !important;
@@ -303,6 +291,11 @@ nav .container {
   margin-bottom: 0.2em;
 }
 
+/* Section headers: strong drop shadow for visibility */
+h1, h2, .text-4xl, .text-3xl, .text-2xl, .electric-ombre-text {
+  text-shadow: 0 4px 24px rgba(0,0,0,0.55), 0 1.5px 8px rgba(14,165,233,0.13);
+}
+
 .experience-timeline-grid .font-bold {
   font-size: 1.18rem;
 }
@@ -353,4 +346,56 @@ nav .container {
   border-radius: 0.75rem;
   pointer-events: none;
   z-index: 2;
+}
+
+/* --- MOBILE IMPROVEMENTS --- */
+@media (max-width: 639px) {
+  html {
+    font-size: 19px !important;
+  }
+  body {
+    background: #0a1120 !important;
+  }
+  body::before {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image: url('img/top-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    transform: none;
+    filter: brightness(1.18) contrast(1.22) saturate(1.1);
+  }
+  .section, .card {
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    background: rgba(15,23,42,0.62) !important;
+  }
+  .max-w-3xl, .electric-gradient-border {
+    backdrop-filter: blur(7px) !important;
+    -webkit-backdrop-filter: blur(7px) !important;
+    background: rgba(30,41,59,0.22) !important;
+  }
+  h1, .text-4xl, .text-3xl, .text-2xl {
+    font-size: 2.1rem !important;
+  }
+  h2, .text-xl, .text-lg, .subtitle-finesse {
+    font-size: 1.35rem !important;
+  }
+  .text-base, body, .sub-subtitle {
+    font-size: 1.12rem !important;
+  }
+  .btn {
+    font-size: 1.1rem !important;
+    padding: 1rem 2.2rem !important;
+  }
+  /* Hide unlock icon on mobile, always show locked */
+  .unlocked-icon { display: none !important; }
+  .locked-icon { display: inline-block !important; }
 }
