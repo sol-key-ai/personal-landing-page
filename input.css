@@ -60,30 +60,79 @@ html {
 .section, .card {
   position: relative;
   z-index: 2;
-}
-.section {
-  background: transparent; /* or a subtle color, but no blur */
-  box-shadow: 0 12px 40px 0 rgba(0,0,0,0.22), 0 1.5px 8px 0 rgba(14,165,233,0.10); /* More depth */
-  border-radius: 1.2rem;
-  margin-bottom: 2.5rem;
-  padding: 2.5rem 1.5rem;
+  transition: none !important;
 }
 
-/* --- UNIFIED CARD STYLE FOR ALL CARDS --- */
-.card {
+/* --- SECTION GLASS EFFECT & GRADIENT BORDERS --- */
+.section {
   background: rgba(15,23,42,0.22) !important;
   backdrop-filter: blur(7px) !important;
   -webkit-backdrop-filter: blur(7px) !important;
-  border: 1.5px solid rgba(255,255,255,0.13);
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  border-radius: 1.2rem;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 12px 40px 0 rgba(0,0,0,0.22), 0 1.5px 8px 0 rgba(14,165,233,0.10);
+  border-top: none;
+  border-bottom: none;
+  position: relative;
+}
+.section::before, .section::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%);
+  border-radius: 1px;
+  pointer-events: none;
+}
+.section::before { top: 0; }
+.section::after { bottom: 0; }
+
+/* --- REMOVE GLASS FROM CARDS (except header card) --- */
+.card {
+  background: rgba(15,23,42,0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: none;
+  /* Realistic shadow, not glow */
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.32), 0 2px 8px 0 rgba(0,0,0,0.18);
   border-radius: 1.25rem;
-  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
+  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1);
   max-width: 980px;
 }
 .card:hover, .card:focus-within {
-  box-shadow: 0 12px 48px 0 rgba(0,0,0,0.28);
-  transform: scale(1.018);
+  box-shadow: 0 12px 48px 0 rgba(0,0,0,0.18);
+  transform: none;
 }
+
+/* --- HEADER CARD (top) retains glass effect --- */
+.electric-gradient-border {
+  position: relative;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  z-index: 1;
+  padding: 24px 16px;
+}
+.electric-gradient-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  border-radius: 0.75rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* --- REMOVE SECTION DIVIDERS --- */
+.accent { display: none !important; }
 
 #main-content.unlocked .card {
   background: rgba(30,41,59,0.33) !important;
@@ -92,12 +141,12 @@ html {
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
   border-radius: 1rem;
   border: 1.5px solid rgba(255,255,255,0.10);
-  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s cubic-bezier(.4,0,.2,1);
+  transition: box-shadow 0.22s cubic-bezier(.4,0,.2,1);
   max-width: 980px;
 }
 #main-content.unlocked .card:hover, #main-content.unlocked .card:focus-within {
   box-shadow: 0 12px 48px 0 rgba(0,0,0,0.28);
-  transform: scale(1.018);
+  transform: none;
 }
 #experience.section,
 #contact.section {
@@ -121,9 +170,6 @@ html {
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.22) !important;
 }
 header.section {
-  background: none;
-  backdrop-filter: none;
-  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,16 +184,13 @@ header.section .container {
   margin-right: auto;
   padding: 0 1.5rem;
 }
+header .container {
+  padding: 0 1.5rem;
+}
 .max-w-3xl {
-  position: relative;
-  background: rgba(15,23,42,0.22);
-  box-shadow: 0 32px 64px 0 rgba(0,0,0,0.55);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   padding: 3.5rem 2.5rem;
   max-width: 980px;
   margin: 0 auto;
-  border: none;
   z-index: 2;
 }
 .max-w-3xl::before {
@@ -157,7 +200,7 @@ header.section .container {
   text-shadow: none !important;
 }
 .max-w-3xl .sub-subtitle {
-  font-size: 1.02rem !important;
+  /* font-size: 1.02rem !important; */
   color: #94a3b8 !important;
   font-weight: 500;
   margin-top: 0.25rem;
@@ -178,14 +221,11 @@ nav .container {
   margin-right: auto;
   padding: 0 1.5rem;
 }
-.accent {
-  background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%);
-  height: 1px;
-  width: 100%;
-  max-width: 720px;
-  border-radius: 1px;
-  margin: 1.5rem auto 2.5rem auto;
-  display: block;
+nav {
+  background: rgba(15,23,42,0.22) !important;
+  backdrop-filter: blur(7px) !important;
+  -webkit-backdrop-filter: blur(7px) !important;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
 }
 .btn {
   display: inline-block;
@@ -282,18 +322,23 @@ nav .container {
   text-shadow: 0 2px 8px rgba(14,165,233,0.10);
 }
 .subtitle-finesse {
-  font-size: 2.6rem;
-  font-weight: 700;
+  font-size: 2rem !important;
   background: linear-gradient(90deg, #38bdf8 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.2em;
+  margin-bottom: 1.5rem;
 }
 
 /* Section headers: strong drop shadow for visibility */
 h1, h2, .text-4xl, .text-3xl, .text-2xl, .electric-ombre-text {
   text-shadow: 0 4px 24px rgba(0,0,0,0.55), 0 1.5px 8px rgba(14,165,233,0.13);
+}
+h1 {
+  font-size: 2.5rem !important;
+}
+h2 {
+  padding-bottom: 2rem;
 }
 
 .experience-timeline-grid .font-bold {
@@ -318,37 +363,8 @@ h1, h2, .text-4xl, .text-3xl, .text-2xl, .electric-ombre-text {
   border-radius: 8px;
 }
 
-.electric-gradient-border {
-  position: relative;
-  background: rgba(30,41,59,0.2);
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  z-index: 1;
-  padding: 24px 16px; /* Increased vertical padding for a more spacious card-like appearance */
-}
-
-/* Double border approach - more reliable */
-.electric-gradient-border::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 1px solid transparent;
-  background: linear-gradient(90deg, #0ea5e9 0%, #8b5cf6 40%, #ec4899 100%) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  border-radius: 0.75rem;
-  pointer-events: none;
-  z-index: 2;
-}
-
 /* --- MOBILE IMPROVEMENTS --- */
+/* REMOVE ALL MOBILE OVERRIDES FOR SECTION AND CARD BACKGROUNDS */
 @media (max-width: 639px) {
   html {
     font-size: 19px !important;
@@ -372,30 +388,20 @@ h1, h2, .text-4xl, .text-3xl, .text-2xl, .electric-ombre-text {
     transform: none;
     filter: brightness(1.18) contrast(1.22) saturate(1.1);
   }
-  .section, .card {
-    backdrop-filter: blur(18px) !important;
-    -webkit-backdrop-filter: blur(18px) !important;
-    background: rgba(15,23,42,0.62) !important;
-  }
-  .max-w-3xl, .electric-gradient-border {
-    backdrop-filter: blur(7px) !important;
-    -webkit-backdrop-filter: blur(7px) !important;
-    background: rgba(30,41,59,0.22) !important;
-  }
-  h1, .text-4xl, .text-3xl, .text-2xl {
-    font-size: 2.1rem !important;
-  }
-  h2, .text-xl, .text-lg, .subtitle-finesse {
-    font-size: 1.35rem !important;
-  }
-  .text-base, body, .sub-subtitle {
-    font-size: 1.12rem !important;
-  }
   .btn {
-    font-size: 1.1rem !important;
+    /* font-size: 1.1rem !important; */
     padding: 1rem 2.2rem !important;
   }
   /* Hide unlock icon on mobile, always show locked */
   .unlocked-icon { display: none !important; }
   .locked-icon { display: inline-block !important; }
+}
+
+header .max-w-lg {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.pb-24 {
+  padding-bottom: 5rem !important;
 }

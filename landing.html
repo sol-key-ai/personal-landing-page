@@ -10,31 +10,28 @@
 </head>
 <body>
     <div id="main-content">
-    <nav class="w-full py-4 bg-slate-900 shadow-md fixed top-0 left-0 z-50">
-        <div class="container flex flex-row justify-between items-center relative">
-            <!-- Logo -->
-            <div class="flex items-center flex-shrink-0 w-auto">
-                <span class="block nav-title text-xl font-bold electric-ombre-text">solkey.ai</span>
-            </div>
-            <!-- Navigation links -->
-            <div id="nav-links" class="hidden flex-wrap items-center justify-center space-x-4 text-base mx-4">
+    <nav class="w-full py-4 bg-slate-900/60 backdrop-blur-md shadow-md fixed top-0 left-0 z-50">
+        <div class="container flex flex-row justify-between items-center w-full">
+            <a href="#top" class="flex items-center flex-shrink-0 w-auto">
+                <span class="block nav-title font-bold electric-ombre-text text-xl sm:text-2xl md:text-3xl">solkey.ai</span>
+            </a>
+            <div id="nav-links" class="flex flex-wrap items-center justify-end space-x-6 text-base sm:text-lg md:text-xl mx-4">
                 <a href="#about" class="text-slate-300 hover:text-sky-400">About</a>
                 <a href="#expertise" class="text-slate-300 hover:text-sky-400">Expertise</a>
                 <a href="#experience" class="text-slate-300 hover:text-sky-400">Experience</a>
                 <a href="#projects" class="text-slate-300 hover:text-sky-400">Projects</a>
                 <a href="#contact" class="text-slate-300 hover:text-sky-400">Contact</a>
             </div>
-            <!-- Contact icons and hamburger -->
-            <div class="flex items-center space-x-2 flex-shrink-0 ml-auto">
+            <div class="flex items-center space-x-2 flex-shrink-0 ml-4">
                 <a href="mailto:sol.key@gmail.com" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <!-- Hamburger button -->
-                <button id="mobile-menu-btn" class="text-slate-300 hover:text-sky-400 text-2xl focus:outline-none ml-2" aria-label="Open menu">
+                <!-- Hamburger button (mobile only) -->
+                <button id="mobile-menu-btn" class="sm:hidden text-slate-300 hover:text-sky-400 text-2xl focus:outline-none ml-2" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <!-- Mobile nav links dropdown -->
-            <div id="mobile-nav-links" class="absolute left-0 top-full w-full bg-slate-900 bg-opacity-95 shadow-lg z-50 flex-col items-center text-base" style="display:none;">
+            <div id="mobile-nav-links" class="sm:hidden absolute left-0 top-full w-full bg-slate-900 bg-opacity-95 shadow-lg z-50 flex-col items-center text-base" style="display:none; pointer-events:none;">
                 <a href="#about" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">About</a>
                 <a href="#expertise" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Expertise</a>
                 <a href="#experience" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Experience</a>
@@ -50,8 +47,10 @@
             menuBtn.addEventListener('click', function() {
                 if (mobileNavLinks.style.display === 'flex') {
                     mobileNavLinks.style.display = 'none';
+                    mobileNavLinks.style.pointerEvents = 'none';
                 } else {
                     mobileNavLinks.style.display = 'flex';
+                    mobileNavLinks.style.pointerEvents = 'auto';
                 }
             });
         }
@@ -59,70 +58,52 @@
         window.addEventListener('resize', function() {
             if (window.innerWidth >= 640) {
                 mobileNavLinks.style.display = 'none';
+                mobileNavLinks.style.pointerEvents = 'none';
             }
+        });
+        // Always hide mobile nav on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            mobileNavLinks.style.display = 'none';
+            mobileNavLinks.style.pointerEvents = 'none';
         });
         </script>
         <style>
-        @media (max-width: 639px) {
-            #nav-links {
-                display: none !important;
-            }
-            #mobile-menu-btn {
-                display: inline-block !important;
-            }
-            #mobile-nav-links {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-            }
-            nav .container {
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            nav .container > .flex.items-center.flex-shrink-0 {
-                justify-content: flex-start !important;
-                flex: 1 1 0%;
-            }
-            nav .container > .flex.items-center.space-x-2.flex-shrink-0.ml-auto {
-                justify-content: flex-end !important;
-                flex: 1 1 0%;
-            }
-            html {
-                font-size: 16px !important;
-            }
-            nav a, #mobile-nav-links a {
-                font-size: 1rem !important;
-            }
+        /* Remove all media queries and responsive overrides for nav and html font-size */
+        /* Consistent nav and link styling regardless of width */
+        #nav-links {
+            display: flex !important;
         }
-        @media (min-width: 640px) {
-            #nav-links {
-                display: flex !important;
-            }
-            #mobile-menu-btn {
-                display: none !important;
-            }
-            #mobile-nav-links {
-                display: none !important;
-            }
+        #mobile-menu-btn {
+            display: none !important;
+        }
+        #mobile-nav-links {
+            display: none !important;
+        }
+        html {
+            font-size: 16px !important;
+        }
+        nav a, #mobile-nav-links a {
+            font-size: 1rem !important;
         }
         </style>
     </nav>
-    <div style="height:5.5rem;"></div> <header class="section text-center bg-slate-900 relative overflow-hidden">        <div class="container relative z-10">
-             <div class="electric-gradient-border max-w-3xl mx-auto px-3 py-3">
-                <h1 class="text-4xl md:text-5xl font-bold mb-3 text-slate-50 drop-shadow-xl">Solomon Key</h1>
-                <div class="subtitle-finesse text-base mt-2" style="font-size:1.6rem;">Data Architect &amp; AI Innovator</div>
-                <div class="sub-subtitle"> Data Architecture | UX Design | Analytics | AI Innovation </div>                <a href="#contact" class="btn flex items-center justify-center gap-3 my-6">
-                    <span>Unlock your data's potential</span>
-                </a>
-            </div>
+    <div style="height:5.5rem;"></div>
+    <header class="text-center relative overflow-hidden pt-12 pb-8 w-full z-10">
+        <div class="max-w-lg mx-auto px-4 py-4 electric-gradient-border bg-slate-900/10 backdrop-blur-sm rounded-lg">
+            <h1 class="text-3xl font-bold mb-3 text-slate-50 drop-shadow-xl">Solomon Key</h1>
+            <div class="subtitle-finesse text-xl font-semibold mt-2">Data Architect &amp; AI Innovator</div>
+            <div class="sub-subtitle text-base font-normal"> Data Architecture | UX Design | Analytics | AI Innovation </div>
+            <a href="#contact" class="btn flex items-center justify-center gap-3 my-6 rounded-md">
+                <span>Unlock your data's potential</span>
+            </a>
         </div>
     </header>
+    <div class="pb-24"></div>
 
     <section class="section" id="about">
-        <div class="container">
+        <div class="container"></div>
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">About</h2>
-            <div class="accent"></div>
-            <div class="card mx-auto p-4 shadow-xl text-slate-200 text-lg mt-2">
+            <div class="card mx-auto p-4 shadow-xl text-slate-200 text-lg mt-2 bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                 <div class="mt-2">
                     <p class="text-slate-200 text-lg mb-4">Hi, I’m Solomon —  a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
                     <p class="text-slate-200 text-lg mb-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
@@ -136,37 +117,36 @@
     <section class="section" id="expertise">
         <div class="container">
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Expertise</h2>
-            <div class="accent"></div>
             <div class="grid gap-6 md:grid-cols-2">
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#0ea5e9"><i class="fas fa-cloud"></i></span><b>Cloud Data Architecture (AWS)</b>
                     <div class="text-slate-400 text-base mt-2">Expertise in AWS (Glue, S3, Athena, Redshift, Lambda) for secure, scalable, high-performance data lakes & platforms. Designing for cost-optimization and resilience.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#38bdf8"><i class="fas fa-project-diagram"></i></span><b>Data Engineering & Pipelines</b>
                     <div class="text-slate-400 text-base mt-2">Mastery in designing and implementing robust ETL/ELT processes, complex data integration, automation, SQL, Python, and Snowflake. Focus on data lineage and observability.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#8b5cf6"><i class="fas fa-chart-line"></i></span><b>BI & Advanced Analytics</b>
                     <div class="text-slate-400 text-base mt-2">Tableau, PowerBI, AWS Quicksight expert. Crafting compelling dashboards, enabling self-service analytics, and translating data into strategic business intelligence.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#f59e42"><i class="fas fa-database"></i></span><b>Data Modeling & Warehousing</b>
                     <div class="text-slate-400 text-base mt-2">Proficient in conceptual, logical, and physical data modeling (dimensional, relational). Building and optimizing data warehouses (e.g., Redshift) for analytical workloads.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#ef4444"><i class="fas fa-shield-alt"></i></span><b>Data Governance & Security</b>
                     <div class="text-slate-400 text-base mt-2">Implementing comprehensive data governance frameworks, ensuring data quality, S3 security, managing sensitive data (HIPAA/Medicaid contexts), and robust metadata management.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#ec4899"><i class="fas fa-robot"></i></span><b>AI/ML & Emerging Tech</b>
                     <div class="text-slate-400 text-base mt-2">Exploring and applying AI/LLMs (Amazon Bedrock, SageMaker), developing innovative data solutions, and committed to continuous learning in cutting-edge technologies like GenAI.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#22d3ee"><i class="fas fa-users-cog"></i></span><b>Stakeholder & Technical Leadership</b>
                     <div class="text-slate-400 text-base mt-2">Excels in requirements elicitation, cross-functional team leadership, clear technical documentation, and building strong partnerships to drive complex project success.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl">
+                <div class="card mx-auto p-4 shadow-xl bg-slate-100/10 backdrop-blur-lg rounded-2xl">
                     <span class="icon" style="color:#10b981"><i class="fas fa-layer-group"></i></span><b>Full-Stack & System Design</b>
                     <div class="text-slate-400 text-base mt-2">Experience with front-end (HTML, CSS, JS) and application development (Visual Studio), providing a holistic view for designing end-to-end data-driven applications.</div>
                 </div>
@@ -176,8 +156,7 @@
 
     <section class="section bg-slate-800" id="experience">
         <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Experience Highlights</h2>
-            <div class="accent"></div>
+            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em; padding-bottom:1.5rem;">Experience Highlights</h2>
             <div class="grid experience-timeline-grid" style="position: relative; grid-template-columns: 160px 1fr; gap: 2rem;">
                 <div class="timeline-vertical-bar" style="position: absolute; left: 160px; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #f43f5e, #a21caf, #8b5cf6, #38bdf8, #10b981); opacity: 0.6; z-index: 0; border-radius: 8px;"></div>
                 <!-- Timeline items -->
@@ -252,12 +231,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="section" id="journey"></section>
-        <div class="container">
-             <div class="card journey-card mx-auto p-4 shadow-xl text-lg">
+            <div class="card journey-card mx-auto p-4 shadow-xl text-lg mt-8">
                 <h3 class="text-center text-2xl font-extrabold electric-ombre-text mb-6 tracking-wide drop-shadow-lg" style="letter-spacing:0.04em;">A Journey Begins: Curiosity, Ethics, and AI</h3>
                 <div class="flex flex-col items-center gap-8">
                     <div class="w-full flex-shrink-0 flex flex-col items-center">
@@ -278,7 +252,6 @@
     <section class="section" id="projects">
         <div class="container">
             <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Current Projects</h2>
-            <div class="accent"></div>
             <div class="card flex flex-row items-start gap-4 mx-auto p-4 shadow-xl mt-6">
                 <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 text-2xl flex-shrink-0 flex items-center mr-3" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
                 <div class="flex-1">
@@ -318,16 +291,15 @@
     <section class="section bg-slate-800" id="contact">
         <div class="container text-center">
             <h2 class="text-3xl font-extrabold electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Let's Connect</h2>
-            <div class="accent"></div>
             <p class="text-lg text-slate-300 mb-6">Interested in collaborating, discussing data challenges, or learning more? Reach out via email or LinkedIn.</p>
-            <a href="mailto:sol.key@gmail.com" class="btn mr-4"><i class="fas fa-envelope mr-2"></i>Email</a>
-            <a href="https://www.linkedin.com/in/skey" target="_blank" class="btn bg-slate-700 hover:bg-slate-600"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
+            <a href="mailto:sol.key@gmail.com" class="btn mr-4 rounded-md"><i class="fas fa-envelope mr-2"></i>Email</a>
+            <a href="https://www.linkedin.com/in/skey" target="_blank" class="btn bg-slate-700 hover:bg-slate-600 rounded-md"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
         </div>
     </section>
 
     <footer class="w-full bg-slate-900 bg-opacity-80 py-6 mt-10 border-t border-slate-800 text-center text-slate-400 text-sm relative z-20">
         <div class="container flex flex-col items-center justify-between mx-auto px-4">
-            <div class="mb-2">
+            <div class="mb-2"></div>
                 &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
                 <span class="ml-2 text-xs text-slate-500">v2025.05.12.4</span>
             </div>
