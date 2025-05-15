@@ -336,6 +336,7 @@ h1, h2, .text-4xl, .text-3xl, .text-2xl, .electric-ombre-text {
 }
 h1 {
   font-size: 2.5rem !important;
+  margin-bottom: 2.2rem !important; /* Add more padding under "Solomon Key" */
 }
 h2 {
   padding-bottom: 2rem;
@@ -401,8 +402,9 @@ header .max-w-lg {
   margin-top: 5rem;
   margin-bottom: 4.5rem;
   padding-top: 2.5rem;
+  max-width: 700px !important; /* Make title card slightly wider */
 }
 
-.pb-24 {
-  padding-bottom: 7rem !important;
+header .container, header.section .container {
+  max-width: 1120px !important; /* Was 980px, now wider */
 }
