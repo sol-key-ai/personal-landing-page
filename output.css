@@ -674,6 +674,11 @@ video {
   margin-right: auto;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -696,6 +701,10 @@ video {
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .ml-auto {
@@ -730,10 +739,6 @@ video {
   margin-top: 0.75rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -766,10 +771,6 @@ video {
   height: 0.5rem;
 }
 
-.h-5 {
-  height: 1.25rem;
-}
-
 .w-0 {
   width: 0px;
 }
@@ -780,10 +781,6 @@ video {
 
 .w-2 {
   width: 0.5rem;
-}
-
-.w-5 {
-  width: 1.25rem;
 }
 
 .w-\[160px\] {
@@ -872,6 +869,10 @@ video {
   justify-content: flex-start !important;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -906,10 +907,22 @@ video {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
@@ -1033,6 +1046,11 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .py-3 {
@@ -1311,41 +1329,19 @@ body {
 body::before {
   content: '';
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   background-image: url('img/top-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  width: 100vw;
-  height: 100vh;
-  max-width: 1920px;
-  max-height: 1080px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  background-position: center center;
+  background-attachment: fixed;
   filter: brightness(1.18) contrast(1.22) saturate(1.1);
-}
-
-@media (max-width: 1200px) {
-  body::before {
-    max-width: 100vw;
-    max-height: 100vh;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    transform: none;
-  }
-}
-
-@media (min-width: 1920px) {
-  body::before {
-    max-width: 1920px;
-    left: 50%;
-    transform: translateX(-50%);
-    /* Removed margin-left/right to keep image centered */
-  }
+  min-width: 100%;
+  min-height: 100%;
 }
 
 body::after {
@@ -1559,6 +1555,10 @@ nav .container {
   transform: translateY(-2px) scale(1.04);
 }
 
+/* Hide the unlocked icon by default */
+
+/* Button icon styles - simplified */
+
 .icon {
   color: #8b5cf6;
   margin-right: 0.5rem;
@@ -1666,8 +1666,8 @@ nav .container {
   border-radius: 0.75rem;
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   z-index: 1;
-  padding: 16px;
-  /* Increased padding for a more spacious card-like appearance */
+  padding: 24px 16px;
+  /* Increased vertical padding for a more spacious card-like appearance */
 }
 
 /* Double border approach - more reliable */
