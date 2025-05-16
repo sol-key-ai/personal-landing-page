@@ -22,11 +22,8 @@
                 <a href="#projects" class="text-slate-300 hover:text-sky-400">Projects</a>
                 <a href="#contact" class="text-slate-300 hover:text-sky-400">Contact</a>
             </div>
-            <div class="flex items-center space-x-2 flex-shrink-0 ml-4">
-                <a href="mailto:sol.key@gmail.com" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <!-- Hamburger button (mobile only) -->
-                <button id="mobile-menu-btn" class="sm:hidden text-slate-300 hover:text-sky-400 text-2xl focus:outline-none ml-2" aria-label="Open menu">
+            <div class="mobile-hamburger" style="display:none; position: absolute; right: 1.5rem; top: 1.25rem;">
+                <button id="mobile-menu-btn" class="text-slate-300 hover:text-sky-400 text-2xl focus:outline-none" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -36,7 +33,12 @@
                 <a href="#expertise" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Expertise</a>
                 <a href="#experience" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Experience</a>
                 <a href="#projects" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Projects</a>
-                <a href="#contact" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3">Contact</a>
+                <a href="#contact" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800 flex items-center justify-between">Contact
+                  <span class="flex gap-4 ml-2">
+                    <a href="mailto:sol.key@gmail.com" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/skey" target="_blank" class="text-slate-400 hover:text-sky-400 text-xl align-middle" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                  </span>
+                </a>
             </div>
         </div>
         <script>
@@ -74,7 +76,7 @@
             display: flex !important;
         }
         #mobile-menu-btn {
-            display: none !important;
+            display: inline-flex !important;
         }
         #mobile-nav-links {
             display: none !important;
@@ -85,6 +87,22 @@
         @media (max-width: 600px) {
             html {
                 font-size: 18px !important;
+            }
+            nav .container {
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+            #nav-links {
+                display: none !important;
+            }
+            .desktop-contact-icons {
+                display: none !important;
+            }
+            .mobile-hamburger {
+                display: flex !important;
+                align-items: center;
+                gap: 1rem;
+                margin-left: auto;
             }
         }
         nav a, #mobile-nav-links a {
