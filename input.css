@@ -244,6 +244,7 @@ nav {
   backdrop-filter: blur(6px) !important;
   -webkit-backdrop-filter: blur(6px) !important;
   opacity: 1;
+  font-size: 1rem !important;
 }
 .btn:hover, .btn:focus {
   background: linear-gradient(90deg, rgba(139,92,246,0.22) 0%, rgba(56,189,248,0.22) 100%) !important;
@@ -281,7 +282,7 @@ nav {
   display: inline-block;
   background: #1e293b;
   color: #38bdf8;
-  font-size: 0.85rem;
+  font-size: 0.85rem !important;
   border-radius: 0.5rem;
   padding: 0.25rem 0.75rem;
   margin: 0.25rem 0.25rem 0 0;
@@ -327,9 +328,10 @@ nav {
   color: transparent;
   animation: shimmer 4s linear infinite;
   text-shadow: 0 2px 8px rgba(14,165,233,0.10);
+  font-size: 1.25rem !important;
 }
 .subtitle-finesse {
-  font-size: 2.1rem !important;
+  font-size: 1.5rem !important;
   letter-spacing: 0.04em;
   line-height: 1.12;
   margin-bottom: 1.2rem;
@@ -351,11 +353,12 @@ h1 {
   margin-bottom: 2.2rem !important; /* Add more padding under "Solomon Key" */
 }
 h2 {
+  font-size: 2rem !important;
   padding-bottom: 2rem;
 }
 
 .experience-timeline-grid .font-bold {
-  font-size: 1.18rem;
+  font-size: 1.18rem !important;
 }
 
 .grid.experience-timeline-grid {
