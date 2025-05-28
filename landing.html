@@ -18,25 +18,25 @@
 </head>
 <body>
     <div id="main-content">
-    <nav class="w-full py-4 bg-slate-900/90 backdrop-blur-md fixed top-0 left-0 z-50" style="box-shadow: 0 10px 40px 0 rgba(0,0,0,0.85), 0 2px 8px 0 rgba(0,0,0,0.45);">
+    <nav class="w-full py-4 bg-slate-900/90 backdrop-blur-md fixed top-0 left-0 z-50 nav-shadow">
         <div class="container flex flex-row justify-between items-center w-full">
             <a href="#top" class="flex items-center flex-shrink-0 w-auto">
-                <span class="block nav-title font-bold electric-ombre-text text-xl sm:text-2xl md:text-3xl" style="background: linear-gradient(90deg, #38bdf8, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent;">solkey.ai</span>
+                <span class="block nav-title font-bold electric-ombre-text text-xl sm:text-2xl md:text-3xl gradient-text">solkey.ai</span>
             </a>
-            <div id="nav-links" class="flex flex-wrap items-center justify-end space-x-6 text-base sm:text-lg md:text-xl mx-4 ml-auto">
+            <div id="nav-links" class="hidden md:flex flex-wrap items-center justify-end space-x-6 text-base sm:text-lg md:text-xl mx-4 ml-auto">
                 <a href="#about" class="text-slate-300 hover:text-sky-400">About</a>
                 <a href="#expertise" class="text-slate-300 hover:text-sky-400">Expertise</a>
                 <a href="#experience" class="text-slate-300 hover:text-sky-400">Experience</a>
                 <a href="#projects" class="text-slate-300 hover:text-sky-400">Projects</a>
                 <a href="#contact" class="text-slate-300 hover:text-sky-400">Contact</a>
             </div>
-            <div class="mobile-hamburger" style="display:none; position: absolute; right: 1.5rem; top: 1.25rem;">
+            <div class="md:hidden mobile-hamburger">
                 <button id="mobile-menu-btn" class="text-slate-300 hover:text-sky-400 text-2xl focus:outline-none" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <!-- Mobile nav links dropdown -->
-            <div id="mobile-nav-links" class="sm:hidden absolute left-0 top-full w-full bg-slate-900 bg-opacity-95 shadow-lg z-50 flex-col items-center text-base" style="display:none; pointer-events:none;">
+            <div id="mobile-nav-links" class="hidden pointer-events-none sm:hidden absolute left-0 top-full w-full bg-slate-900 bg-opacity-95 shadow-lg z-50 flex-col items-center text-base">
                 <a href="#about" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">About</a>
                 <a href="#expertise" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Expertise</a>
                 <a href="#experience" class="block w-full text-slate-300 hover:text-sky-400 px-6 py-3 border-b border-slate-800">Experience</a>
@@ -183,10 +183,12 @@
         }
         </style>
     </nav>
-    <div style="height:8.5rem;"></div>
-    <section class="section" id="intro" style="margin-top:2.5rem;">
-  <div class="container">
-    <h1 class="text-3xl font-bold mb-3 text-slate-50 drop-shadow-xl">Solomon Key</h1>
+    
+    <!-- Spacer to push intro down below nav -->
+<div style="height:7rem;"></div>
+<section class="section flex flex-col" id="intro">
+  <div class="container mx-auto flex flex-col items-start justify-center pt-12 pb-12">
+    <h1 class="text-6xl md:text-8xl font-bold text-left">Solomon Key</h1>
     <div class="subtitle-finesse text-2xl font-semibold mt-2">Data Architect &amp; AI Innovator</div>
     <div class="sub-subtitle text-base font-normal"> Data | Analytics | UX | Architecture | AI Innovation </div>
     <a href="#contact" class="btn flex items-center justify-center gap-3 my-6 rounded-md px-4 py-2">
@@ -194,79 +196,78 @@
     </a>
   </div>
 </section>
-<div class="pb-24"></div>
 
-    <section class="section" id="about" style="margin-bottom:6rem;">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">About</h2>
-            <div class="mt-2">
-                <p class="text-slate-300 text-sm md:text-base font-light mb-4">Hi, I’m Solomon —  a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
-                <p class="text-slate-300 text-sm md:text-base font-light mb-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
-                <p class="text-slate-300 text-sm md:text-base font-light mb-4">Outside of work, I’m a father, a builder of things both digital and physical, and a lifelong learner who’s just as curious about gardening and human behavior as I am about metadata standards and machine learning. I believe that clarity, adaptability, and compassion are as important in technical work as they are in life.</p>
-                <p class="text-slate-300 text-sm md:text-base font-light">Whether I’m designing a data product, exploring a new technology, or mentoring a junior analyst, I bring a grounded, collaborative mindset to everything I do.</p>
-            </div>
-        </div>
-    </section>
+    <section class="section pt-16" id="about">
+  <div class="container pb-12">
+    <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2 tracking-wide">About</h2>
+    <div class="mt-2">
+      <p class="text-slate-300 text-base sm:text-lg lg:text-xl font-light mb-4">Hi, I’m Solomon —  a data architect and analytics expert with 20+ years of experience helping organizations unlock the value of their data. I bring a thoughtful, systems-oriented approach to every problem, balancing technical rigor with a sharp eye for usability and clarity.</p>
+      <p class="text-slate-300 text-base sm:text-lg lg:text-xl font-light mb-4">With a background in computer science and deep roots in SQL, business intelligence, and data visualization, I’ve led the development of scalable pipelines, intuitive dashboards, and lightweight documentation frameworks that make data more accessible to everyone — not just analysts.</p>
+      <p class="text-slate-300 text-base sm:text-lg lg:text-xl font-light mb-4">Outside of work, I’m a father, a builder of things both digital and physical, and a lifelong learner who’s just as curious about gardening and human behavior as I am about metadata standards and machine learning. I believe that clarity, adaptability, and compassion are as important in technical work as they are in life.</p>
+      <p class="text-slate-300 text-base sm:text-lg lg:text-xl font-light">Whether I’m designing a data product, exploring a new technology, or mentoring a junior analyst, I bring a grounded, collaborative mindset to everything I do.</p>
+    </div>
+  </div>
+</section>
 
-    <section class="section" id="expertise" style="margin-bottom:6rem;">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Expertise</h2>
-            <div class="grid gap-6 md:grid-cols-2">
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#ec4899"><i class="fas fa-robot"></i></span><b>AI/ML & Emerging Tech</b>
+    <section class="section pt-16" id="expertise">
+  <div class="container pb-12">
+    <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2 tracking-wide">Expertise</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-pink"><i class="fas fa-robot"></i></span><b>AI/ML & Emerging Tech</b>
                     <div class="text-slate-400 text-base mt-2">Exploring and applying AI/LLMs (Amazon Bedrock, SageMaker), developing innovative data solutions, and committed to continuous learning in cutting-edge technologies like GenAI.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#38bdf8"><i class="fas fa-project-diagram"></i></span><b>Data Engineering & Pipelines</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-sky"><i class="fas fa-project-diagram"></i></span><b>Data Engineering & Pipelines</b>
                     <div class="text-slate-400 text-base mt-2">Mastery in designing and implementing robust ETL/ELT processes, complex data integration, automation, SQL, Python, and Snowflake. Focus on data lineage and observability.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#8b5cf6"><i class="fas fa-chart-line"></i></span><b>BI & Advanced Analytics</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-purple"><i class="fas fa-chart-line"></i></span><b>BI & Advanced Analytics</b>
                     <div class="text-slate-400 text-base mt-2">Tableau, PowerBI, AWS Quicksight expert. Crafting compelling dashboards, enabling self-service analytics, and translating data into strategic business intelligence.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#f59e42"><i class="fas fa-database"></i></span><b>Data Modeling & Warehousing</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-orange"><i class="fas fa-database"></i></span><b>Data Modeling & Warehousing</b>
                     <div class="text-slate-400 text-base mt-2">Proficient in conceptual, logical, and physical data modeling (dimensional, relational). Building and optimizing data warehouses (e.g., Redshift) for analytical workloads.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#0ea5e9"><i class="fas fa-cloud"></i></span><b>Cloud Data Architecture</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-blue"><i class="fas fa-cloud"></i></span><b>Cloud Data Architecture</b>
                     <div class="text-slate-400 text-base mt-2">Expertise in AWS (Glue, S3, Athena, Redshift, Lambda) for secure, scalable, high-performance data lakes & platforms. Designing for cost-optimization and resilience.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#ef4444"><i class="fas fa-shield-alt"></i></span><b>Data Governance & Security</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-red"><i class="fas fa-shield-alt"></i></span><b>Data Governance & Security</b>
                     <div class="text-slate-400 text-base mt-2">Implementing comprehensive data governance frameworks, ensuring data quality, S3 security, managing sensitive data (HIPAA/Medicaid contexts), and robust metadata management.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#f472b6"><i class="fas fa-pencil-ruler"></i></span><b>UX & UI Design</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-rose"><i class="fas fa-pencil-ruler"></i></span><b>UX & UI Design</b>
                     <div class="text-slate-400 text-base mt-2">Designing intuitive, accessible, and visually engaging user experiences. Skilled in wireframing, prototyping, and applying UX best practices to data products and dashboards.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#10b981"><i class="fas fa-layer-group"></i></span><b>Full-Stack & System Design</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-green"><i class="fas fa-layer-group"></i></span><b>Full-Stack & System Design</b>
                     <div class="text-slate-400 text-base mt-2">Experience with front-end (HTML, CSS, JS) and application development (Visual Studio), providing a holistic view for designing end-to-end data-driven applications.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#22d3ee"><i class="fas fa-users-cog"></i></span><b>Stakeholder & Technical Leadership</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-teal"><i class="fas fa-users-cog"></i></span><b>Stakeholder & Technical Leadership</b>
                     <div class="text-slate-400 text-base mt-2">Excels in requirements elicitation, cross-functional team leadership, clear technical documentation, and building strong partnerships to drive complex project success.</div>
                 </div>
-                <div class="card mx-auto p-4 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
-                    <span class="icon" style="color:#fde68a"><i class="fas fa-balance-scale"></i></span><b>Data & AI Ethics</b>
+                <div class="card mx-auto p-6 shadow-xl bg-slate-100/5 backdrop-blur-lg rounded-2xl">
+                    <span class="icon icon-yellow"><i class="fas fa-balance-scale"></i></span><b>Data & AI Ethics</b>
                     <div class="text-slate-400 text-base mt-2">Committed to ethical data practices, privacy, and responsible AI. Advocates for transparency, fairness, and human-centered technology in all analytics and AI work.</div>
                 </div>
             </div>
-        </div>
-    </section>
+  </div>
+</section>
 
-    <section class="section bg-slate-800" id="experience" style="margin-bottom:6rem;">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em; padding-bottom:1.5rem;">Experience Highlights</h2>
-            <div class="grid experience-timeline-grid" style="position: relative; grid-template-columns: 160px 1fr; gap: 2rem;">
-                <div class="timeline-vertical-bar" style="position: absolute; left: 160px; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom, #f43f5e, #a21caf, #8b5cf6, #38bdf8, #10b981); opacity: 0.6; z-index: 0; border-radius: 8px;"></div>
+    <section class="section pt-16" id="experience">
+  <div class="container pb-12">
+    <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2 tracking-wide pb-6">Experience Highlights</h2>
+    <div class="grid experience-timeline-grid relative gap-8">
+                <div class="timeline-vertical-bar absolute left-40 top-0 bottom-0 w-1 bg-gradient-to-b from-rose-500 via-purple-600 to-teal-500 opacity-60 rounded-lg"></div>
                 <!-- Timeline items -->
                 <!-- 2022–Current -->
                 <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
                     <div class="flex flex-col items-end">
                         <span class="text-rose-400 text-2xl mb-1"><i class="fas fa-database"></i></span>
-                        <span class="font-bold text-rose-400 text-right break-words leading-tight" style="max-width:120px;">Data Architect</span>
+                        <span class="font-bold text-rose-400 text-right break-words leading-tight timeline-role-width">Data Architect</span>
                         <span class="text-slate-300 font-semibold mt-1">2022–Current</span>
                     </div>
                 </div>
@@ -284,7 +285,7 @@
                 <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
                     <div class="flex flex-col items-end">
                         <span class="text-[#8b5cf6] text-2xl mb-1"><i class="fas fa-chart-line"></i></span>
-                        <span class="font-bold text-[#8b5cf6] text-right break-words leading-tight" style="max-width:120px;">Business Intelligence Architect</span>
+                        <span class="font-bold text-purple-500 text-right break-words leading-tight timeline-role-width">Business Intelligence Architect</span>
                         <span class="text-slate-300 font-semibold mt-1">2010–2022</span>
                     </div>
                 </div>
@@ -302,7 +303,7 @@
                 <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
                     <div class="flex flex-col items-end">
                         <span class="text-sky-400 text-2xl mb-1"><i class="fas fa-cogs"></i></span>
-                        <span class="font-bold text-sky-400 text-right break-words leading-tight" style="max-width:120px;">Systems Analyst</span>
+                        <span class="font-bold text-sky-400 text-right break-words leading-tight timeline-role-width">Systems Analyst</span>
                         <span class="text-slate-300 font-semibold mt-1">2004–2010</span>
                     </div>
                 </div>
@@ -319,7 +320,7 @@
                 <div class="flex flex-col items-end pr-4 pl-0 text-right relative">
                     <div class="flex flex-col items-end">
                         <span class="text-emerald-400 text-2xl mb-1"><i class="fas fa-graduation-cap"></i></span>
-                        <span class="font-bold text-emerald-400 text-right break-words leading-tight" style="max-width:120px;">B.S. Computer Science</span>
+                        <span class="font-bold text-emerald-400 text-right break-words leading-tight timeline-role-width">B.S. Computer Science</span>
                         <span class="text-slate-300 font-semibold mt-1">2006</span>
                     </div>
                 </div>
@@ -333,12 +334,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="card journey-card mx-auto p-4 shadow-xl text-lg mt-8">
-                <h3 class="text-center text-2xl font-extrabold electric-ombre-text mb-6 tracking-wide drop-shadow-lg" style="letter-spacing:0.04em;">A Journey Begins: Curiosity, Ethics, and AI</h3>
+            <div class="card journey-card mx-auto p-6 shadow-xl text-lg mt-8">
+                <h3 class="text-center text-2xl font-extrabold electric-ombre-text mb-6 tracking-wide drop-shadow-lg">A Journey Begins: Curiosity, Ethics, and AI</h3>
                 <div class="flex flex-col items-center gap-8">
                     <div class="w-full flex-shrink-0 flex flex-col items-center">
                         <a href="img/4th-grade.jpeg" target="_blank" title="Click to view full image">
-                            <img src="img/4th-grade.jpeg" alt="4th grade AI project photo" class="rounded-lg shadow-lg mb-2 w-full object-cover" style="max-width:260px; cursor: zoom-in;" />
+                            <img src="img/4th-grade.jpeg" alt="4th grade AI project photo" class="rounded-lg shadow-lg mb-2 w-full object-cover image-max-width cursor-zoom-in" />
                         </a>
                         <div class="text-xs text-slate-400 text-center mt-1">A proud moment - Celibrated in peak 90's fashion</div>
                     </div>
@@ -351,53 +352,53 @@
         </div>
     </section>
 
-    <section class="section" id="projects" style="margin-bottom:16rem;">
-        <div class="container">
-            <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Projects</h2>
-            <div class="mt-10">
-          <h3 class="text-xl font-bold text-slate-200 mb-4 tracking-wide uppercase">Professional Projects</h3>
-          <div class="grid md:grid-cols-2 gap-8">
+    <section class="section pt-16" id="projects">
+  <div class="container pb-12">
+    <h2 class="text-3xl font-extrabold text-center electric-ombre-text drop-shadow-lg mb-2 tracking-wide">Projects</h2>
+    <div class="mt-10">
+      <h3 class="text-xl font-bold text-slate-200 mb-4 tracking-wide uppercase">Professional Projects</h3>
+      <div class="grid md:grid-cols-2 gap-8">
             <!-- Professional Project Cards -->
-            <div class="card flex flex-row items-start gap-4 mx-auto p-4 shadow-xl">
-                <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 text-2xl flex-shrink-0 flex items-center mr-3" title="Analytics Dashboard"><i class="fas fa-chart-bar"></i></a>
+            <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="card flex flex-row items-start gap-4 mx-auto p-6 shadow-xl transition-all duration-200 group hover:no-underline" title="Analytics Dashboard">
+                <span class="text-sky-400 text-2xl flex-shrink-0 flex items-center mr-3"><i class="fas fa-chart-bar"></i></span>
                 <div class="flex-1">
-                    <b>Accountability Dashboard (SCSC)</b>
-                    <div class="text-slate-400 text-base mb-2">Digital performance framework for Georgia's State Charter Schools Commission.</div>
-                    <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateCharterSchoolsCommission/DB-AllSchools?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
-                    </div>
-                    <span class="tag">Tableau</span><span class="tag">Education</span><span class="tag">Data Visualization</span>
+                  <b>Accountability Dashboard (SCSC)</b>
+                  <div class="text-slate-400 text-base mb-2">Digital performance framework for Georgia's State Charter Schools Commission.</div>
+                  <div class="mb-2 text-left">
+                    <span class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</span>
+                  </div>
+                  <span class="tag">Tableau</span><span class="tag">Education</span><span class="tag">Data Visualization</span>
                 </div>
-            </div>
-            <div class="card flex flex-row items-start gap-4 mx-auto p-4 shadow-xl">
-                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-emerald-400 text-2xl flex-shrink-0 flex items-center mr-3" title="Healthcare Analytics Dashboard"><i class="fas fa-user-md"></i></a>
+            </a>
+            <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="card flex flex-row items-start gap-4 mx-auto p-6 shadow-xl transition-all duration-200 group hover:no-underline" title="Healthcare Analytics Dashboard">
+                <span class="text-emerald-400 text-2xl flex-shrink-0 flex items-center mr-3"><i class="fas fa-user-md"></i></span>
                 <div class="flex-1">
-                    <b>Healthcare Workforce Dashboard</b>
-                    <div class="text-slate-400 text-base mb-2">Consolidated view of Georgia's licensed healthcare workforce.</div>
-                    <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaConsolidateHealthcareWorkforce/Summary" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
-                    </div>
-                    <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Workforce</span>
+                  <b>Healthcare Workforce Dashboard</b>
+                  <div class="text-slate-400 text-base mb-2">Consolidated view of Georgia's licensed healthcare workforce.</div>
+                  <div class="mb-2 text-left">
+                    <span class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</span>
+                  </div>
+                  <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Workforce</span>
                 </div>
-            </div>
-            <div class="card flex flex-row items-start gap-4 mx-auto p-4 shadow-xl">
-                <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-fuchsia-400 text-2xl flex-shrink-0 flex items-center mr-3" title="GME Analytics Dashboard"><i class="fas fa-user-graduate"></i></a>
+            </a>
+            <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="card flex flex-row items-start gap-4 mx-auto p-6 shadow-xl transition-all duration-200 group hover:no-underline" title="GME Analytics Dashboard">
+                <span class="text-fuchsia-400 text-2xl flex-shrink-0 flex items-center mr-3"><i class="fas fa-user-graduate"></i></span>
                 <div class="flex-1">
-                    <b>Graduate Medical Education Match Results</b>
-                    <div class="text-slate-400 text-base mb-2">Summarizes GME and medical student graduate match results for Georgia.</div>
-                    <div class="mb-2 text-left">
-                        <a href="https://prod.insights.georgia.gov/views/StateofGeorgiaGraduateMedicalEducationandMedicalStudentGraduate/MatchResultsSummary?%3Aembed=y&%3Aiid=1&%3AisGuestRedirectFromVizportal=y" target="_blank" class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</a>
-                    </div>
-                    <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Analytics</span>
+                  <b>Graduate Medical Education Match Results</b>
+                  <div class="text-slate-400 text-base mb-2">Summarizes GME and medical student graduate match results for Georgia.</div>
+                  <div class="mb-2 text-left">
+                    <span class="text-sky-400 underline flex items-center gap-2 !justify-start"><i class="fas fa-external-link-alt"></i>View Dashboard</span>
+                  </div>
+                  <span class="tag">Tableau</span><span class="tag">Healthcare</span><span class="tag">Analytics</span>
                 </div>
-            </div>
+            </a>
           </div>
         </div>
         <div class="mt-14">
           <h3 class="text-xl font-bold text-slate-200 mb-4 tracking-wide uppercase">Personal & Experimental Projects</h3>
           <div class="grid md:grid-cols-2 gap-8">
             <!-- Halluciweb 99 Card -->
-            <div class="card bg-slate-900/80 rounded-2xl shadow-xl overflow-hidden flex flex-col border border-slate-700">
+            <a href="#" class="card bg-slate-900/80 rounded-2xl shadow-xl overflow-hidden flex flex-col border border-slate-700 md:col-span-full p-6 transition-all duration-200 group hover:no-underline" title="Halluciweb 99">
               <img src="img/halluciweb-99.png" alt="Halluciweb 99 Cover Art" class="w-full h-56 object-cover object-center bg-slate-800" />
               <div class="flex-1 p-6 flex flex-col justify-between">
                 <div>
@@ -409,35 +410,39 @@
                   <span class="inline-block bg-fuchsia-700 text-xs text-white font-bold px-3 py-1 rounded-full shadow">Coming Soon!</span>
                 </div>
               </div>
-            </div>
+            </a>
             <!-- Add more personal/experimental project cards here as needed -->
           </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section bg-slate-800" id="contact" style="margin-top:8rem; margin-bottom:4rem;">
-        <div class="container text-center">
-            <h2 class="text-3xl font-extrabold electric-ombre-text drop-shadow-lg mb-2" style="letter-spacing:0.04em;">Let's Connect</h2>
-            <p class="text-lg text-slate-300 mb-6">Interested in collaborating, discussing data challenges, or learning more? Reach out via email or LinkedIn.</p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto">
-                <a href="mailto:sol.key@gmail.com" class="btn w-full sm:w-auto mr-0 sm:mr-4 rounded-md flex items-center justify-center"><i class="fas fa-envelope mr-2"></i>Email</a>
-                <a href="https://www.linkedin.com/in/skey" target="_blank" class="btn w-full sm:w-auto bg-slate-700 hover:bg-slate-600 rounded-md flex items-center justify-center"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
-            </div>
-        </div>
-    </section>
-    <div style="height:4rem;"></div>
-    <footer class="w-full bg-slate-900 bg-opacity-80 py-6 mt-10 border-t border-slate-800 text-center text-slate-400 text-sm relative z-20">
-        <div class="container flex flex-col items-center justify-between mx-auto px-4">
-            <div class="mb-2"></div>
-                &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
-        <span class="ml-2 text-xs text-slate-500">v2025.05.15.16</span>
+<section class="section pt-16 bg-slate-800" id="contact">
+  <div class="container text-center pt-12 pb-12">
+    <h2 class="text-3xl font-extrabold electric-ombre-text drop-shadow-lg mb-2 tracking-wide">Let's Connect</h2>
+    <p class="text-lg text-slate-300 mb-6">Interested in collaborating, discussing data challenges, or learning more? Reach out via email or LinkedIn.</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto">
+      <a href="mailto:sol.key@gmail.com" class="btn w-full sm:w-auto mr-0 sm:mr-4 rounded-md flex items-center justify-center">
+        <i class="fas fa-envelope mr-2"></i>Email
+      </a>
+      <a href="https://www.linkedin.com/in/skey" target="_blank" class="btn w-full sm:w-auto bg-slate-700 hover:bg-slate-600 rounded-md flex items-center justify-center">
+        <i class="fab fa-linkedin mr-2"></i>LinkedIn
+      </a>
     </div>
-    <div class="flex items-center justify-center space-x-4">
-        <a href="mailto:sol.key@gmail.com" class="hover:text-sky-400" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/skey" target="_blank" class="hover:text-sky-400" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#about" class="hover:text-sky-400" title="About">About</a>
-        <a href="#projects" class="hover:text-sky-400" title="Projects">Projects</a>
-    </div>
+  </div>
+</section>
+<div style="height:4rem;"></div>
+<footer class="w-full bg-slate-900 bg-opacity-80 py-6 mt-10 border-t border-slate-800 text-center text-slate-400 text-sm relative z-20">
+    <div class="container flex flex-col items-center justify-between mx-auto px-4">
+        <div class="mb-2"></div>
+            &copy; 2025 Solomon Key &mdash; Data Architect & AI Innovator
+    <span class="ml-2 text-xs text-slate-500">v2025.05.15.16</span>
+</div>
+<div class="flex items-center justify-center space-x-4">
+    <a href="mailto:sol.key@gmail.com" class="hover:text-sky-400" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/skey" target="_blank" class="hover:text-sky-400" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="#about" class="hover:text-sky-400" title="About">About</a>
+    <a href="#projects" class="hover:text-sky-400" title="Projects">Projects</a>
 </div>
     </footer>
     </div>
