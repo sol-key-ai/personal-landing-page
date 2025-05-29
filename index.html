@@ -30,15 +30,74 @@
             background: rgba(15,23,42,0.32);
         }
         #unlock-instruction {
-            font-size: 2.2rem !important;
+            font-size: 2rem !important;
             font-weight: 800 !important;
             letter-spacing: 0.03em;
             text-shadow: 0 2px 16px #0ea5e9, 0 1px 2px #000;
+            border-radius: 0 !important;
+            width: 100% !important;
+            background: rgba(30,41,59,0.40) !important;
         }
         @media (max-width: 600px) {
             #unlock-instruction {
-                font-size: 1.35rem !important;
+                font-size: 1.3rem !important;
             }
+        }
+        .gradient-logo-text {
+          background: linear-gradient(90deg, #0ea5e9 0%, #ec4899 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+        }
+        .electric-border {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(90deg, #0ea5e9 0%, #ec4899 100%);
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          z-index: 2;
+          pointer-events: none;
+          animation: electric-move 2.5s linear infinite;
+        }
+        @keyframes electric-move {
+          0% { filter: brightness(1.2); }
+          50% { filter: brightness(1.5); }
+          100% { filter: brightness(1.2); }
+        }
+        .solkey-logo {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          letter-spacing: 0.01em;
+          text-transform: uppercase;
+          font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+          background: none;
+          padding: 0 0.5rem;
+        }
+        .solkey-logo .logo-main {
+          background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 60%, #ec4899 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+          font-weight: 900;
+          letter-spacing: 0.01em;
+        }
+        .solkey-logo .logo-dot {
+          color: #ec4899;
+          font-weight: 900;
+          margin: 0 0.05em;
+          font-size: 0.95em;
+        }
+        .solkey-logo .logo-ai {
+          color: #0ea5e9;
+          font-weight: 900;
+          letter-spacing: 0.01em;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -52,8 +111,11 @@
 </head>
 <body>
     <!-- Unlock overlay: covers everything except background -->
-    <div id="unlock-overlay" class="fixed inset-0 z-[10000] bg-transparent flex items-center justify-center cursor-pointer transition-all duration-600">
-      <span id="unlock-instruction" class="btn bg-slate-900/80 hover:bg-slate-800 text-sky-300 border border-sky-500/40 shadow-xl text-xl md:text-3xl font-extrabold tracking-wide rounded-xl mt-[220px] select-none pointer-events-none cursor-default transition-all duration-300 flex items-center justify-center mx-auto px-5 py-3 md:px-14 md:py-6 text-center">Unlock Your Data’s Potential.</span>
+    <div id="unlock-overlay" class="fixed inset-0 z-[10000] bg-transparent flex flex-col items-center justify-start cursor-pointer transition-all duration-600">
+      <span id="unlock-instruction" class="btn w-full bg-slate-900/40 hover:bg-slate-800/60 border border-sky-500/40 shadow-xl text-2xl md:text-4xl font-extrabold tracking-wide select-none pointer-events-none cursor-default transition-all duration-300 flex items-center justify-center mx-auto px-0 py-1 md:px-0 md:py-2 text-center rounded-none relative mt-0" style="margin-top:0; min-height:48px;">
+        <span class="electric-border"></span>
+        <span class="text-white text-2xl md:text-4xl font-extrabold tracking-wide text-center select-none drop-shadow-lg" style="text-shadow: 0 2px 8px rgba(0,0,0,0.32);">Unlock your data's potential.</span>
+      </span>
       <span id="ripple-effect" class="absolute pointer-events-none"></span>
     </div>
     <script>

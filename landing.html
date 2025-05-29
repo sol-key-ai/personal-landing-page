@@ -181,7 +181,33 @@
             font-family: 'Inter', 'sans-serif';
             /* Keep color and font-size as before */
         }
-        </style>
+        .section {
+  margin-top: 5.5rem !important;
+  margin-bottom: 5.5rem !important;
+}
+@media (max-width: 600px) {
+  .section {
+    margin-top: 3.2rem !important;
+    margin-bottom: 3.2rem !important;
+  }
+}
+        .card {
+  /* ...existing code... */
+  -webkit-font-smoothing: auto !important;
+  -moz-osx-font-smoothing: auto !important;
+  font-smooth: auto !important;
+}
+.card * {
+  -webkit-font-smoothing: auto !important;
+  -moz-osx-font-smoothing: auto !important;
+  font-smooth: auto !important;
+}
+.card:hover, .card:focus, .card:active {
+  -webkit-font-smoothing: auto !important;
+  -moz-osx-font-smoothing: auto !important;
+  font-smooth: auto !important;
+}
+    </style>
     </nav>
     
     <!-- Spacer to push intro down below nav -->
@@ -196,6 +222,7 @@
     </a>
   </div>
 </section>
+<div style="height:4rem;"></div>
 
     <section class="section pt-16" id="about">
   <div class="container pb-12">
