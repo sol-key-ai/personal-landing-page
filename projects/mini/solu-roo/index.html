@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoLu Roo Food & Drink list</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f9ff; /* bg-sky-50 */
+            color: #334155; /* text-slate-700 */
+        }
+        .font-handwriting {
+            font-family: 'Gochi Hand', cursive;
+        }
+        .rainbow-text {
+            background: linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #3b82f6, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .rainbow-bg {
+             background: linear-gradient(to right, #a855f7, #3b82f6, #22c55e, #eab308, #f97316, #ef4444);
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #a855f7; /* text-purple-500 */
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(240, 249, 255, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 20;
+        }
+        .sticky-progress {
+            position: sticky;
+            /* Height of nav (~60px) + a small gap */
+            top: 68px;
+            z-index: 10;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .grocery-item {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0.75rem 0.5rem;
+            border-radius: 8px;
+        }
+        .grocery-item:hover {
+            background-color: #faf5ff; /* purple-50 */
+        }
+        .grocery-item.completed span {
+            text-decoration: line-through;
+            color: #94A3B8; /* text-slate-400 */
+        }
+        .grocery-item .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #a855f7; /* border-purple-500 */
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        .grocery-item.completed .checkbox {
+            background-color: #a855f7; /* bg-purple-500 */
+            border-color: #a855f7; /* border-purple-500 */
+        }
+        .grocery-item.completed .checkbox::after {
+            content: '✔';
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container mx-auto max-w-4xl p-4 md:p-8">
+        
+        <header class="text-center mb-8">
+            <h1 class="font-handwriting text-5xl md:text-6xl rainbow-text">SoLu Roo Food & Drink list</h1>
+            <p class="text-slate-500 text-lg mt-2">Sol and Lu's Go-to festy eats</p>
+        </header>
+
+        <nav class="sticky-nav flex justify-center border-b-2 border-slate-200 py-4 mb-8 space-x-8">
+            <a href="#meal-vibes-section" class="nav-link text-lg font-bold">✨ Meal Vibes</a>
+            <a href="#grocery-list-section" class="nav-link text-lg font-bold">🛒 Grocery List</a>
+        </nav>
+
+        <section id="meal-vibes-section">
+            <div id="meal-vibes-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card">
+                    <h2 class="font-bold text-2xl mb-4 text-red-500">🍳 Breakfast</h2>
+                    <ul class="space-y-3">
+                        <li class="font-semibold">Toast Bar:</li>
+                        <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li>Avocado Toast</li>
+                            <li>Whipped Cream Cheese & Smoked Salmon</li>
+                            <li>Peanut/Almond Butter & Banana</li>
+                        </ul>
+                        <li class="font-semibold mt-3">Yogurt Bowls:</li>
+                         <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li>Greek yogurt with fruit & granola</li>
+                        </ul>
+                    </ul>
+                </div>
+                 <div class="card">
+                    <h2 class="font-bold text-2xl mb-4 text-orange-500">🥪 Lunch & Snacks</h2>
+                    <ul class="space-y-3">
+                        <li class="font-semibold">Sammies:</li>
+                        <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li>Turkey & cheese w/ all the fixins'</li>
+                        </ul>
+                        <li class="font-semibold mt-3">Snack Plates:</li>
+                         <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li>Veggies & Hummus</li>
+                             <li>Apples & Peanut/Almond Butter</li>
+                        </ul>
+                         <li class="font-semibold mt-3">More Snacks:</li>
+                         <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li>Chips, Dried Fruit, Nuts, etc.</li>
+                        </ul>
+                    </ul>
+                </div>
+                 <div class="card">
+                    <h2 class="font-bold text-2xl mb-4 text-green-500">🌮 Dinner</h2>
+                    <ul class="space-y-3">
+                        <li class="font-semibold">Taco / Burrito / Bowl Night:</li>
+                        <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li><span class="font-semibold">Protein:</span> Beef Tinga (pre-made)</li>
+                            <li><span class="font-semibold">Base:</span> Microwavable Rice & Beans, Tortillas</li>
+                            <li><span class="font-semibold">Toppings:</span> Avocado, Greens, Greek Yogurt, Cheese, Limes</li>
+                        </ul>
+                    </ul>
+                </div>
+                 <div class="card">
+                    <h2 class="font-bold text-2xl mb-4 text-blue-500">🍹 Booze</h2>
+                    <ul class="space-y-3">
+                        <li class="font-semibold">Cocktails:</li>
+                        <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li>Picklebacks (Claussen juice + whiskey)</li>
+                            <li>Tito's & Tequila drinks (w/ limes!)</li>
+                        </ul>
+                        <li class="font-semibold mt-3">Cans & Seltzers:</li>
+                         <ul class="list-disc list-inside ml-4 text-slate-600 space-y-1">
+                            <li>Truly Lemonade Seltzers</li>
+                            <li>Twisted Tea Light</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="grocery-list-section" class="pt-12">
+             <div class="card mb-6 sticky-progress">
+                <div class="flex justify-between items-center mb-2">
+                    <h2 class="font-bold text-xl text-purple-600">List Progress</h2>
+                    <span id="progress-text" class="font-semibold text-slate-600">0%</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-4">
+                    <div id="progress-bar" class="rainbow-bg h-4 rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div id="grocery-list-container" class="space-y-6"></div>
+
+            <div class="text-center mt-8">
+                <button id="reset-button" class="bg-slate-600 hover:bg-slate-700 text-white font-bold py-2 px-6 rounded-full transition-colors">Reset List</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const groceryData = [
+            {
+                category: "Produce 🍎",
+                items: [
+                    { name: "Avocados (for toast and dinner)", completed: false },
+                    { name: "Bananas", completed: false },
+                    { name: "Assorted Fruit (for yogurt)", completed: false },
+                    { name: "Limes (lots!)", completed: false },
+                    { name: "Lettuce/Greens/Cabbage mix", completed: false },
+                    { name: "Carrots", completed: false },
+                    { name: "Celery", completed: false },
+                    { name: "Apples", completed: false },
+                ],
+            },
+            {
+                category: "Dairy & Refrigerated 🧀",
+                items: [
+                    { name: "Whipped Cream Cheese", completed: false },
+                    { name: "Plain Greek Yogurt (large container)", completed: false },
+                    { name: "Shredded Cheese (Mexican blend or cheddar)", completed: false },
+                    { name: "Claussen Pickles (for juice)", completed: false },
+                ],
+            },
+            {
+                category: "Meat & Seafood 🥩",
+                items: [
+                    { name: "Smoked Salmon", completed: false },
+                    { name: "Sliced Turkey", completed: false },
+                ],
+            },
+            {
+                category: "Pantry & Dry Goods 🍞",
+                items: [
+                    { name: "Bread", completed: false },
+                    { name: "Granola", completed: false },
+                    { name: "Peanut Butter and/or Almond Butter", completed: false },
+                    { name: "Mayonnaise", completed: false },
+                    { name: "Mustard", completed: false },
+                    { name: "Hummus", completed: false },
+                    { name: "Chips", completed: false },
+                    { name: "Dried Fruit", completed: false },
+                    { name: "Nuts", completed: false },
+                    { name: "Assorted Bagged Snacks", completed: false },
+                    { name: "Tortillas (flour or corn)", completed: false },
+                    { name: "Microwavable Rice Pouches", completed: false },
+                    { name: "Microwavable Bean Pouches (black or pinto)", completed: false },
+                ],
+            },
+            {
+                category: "Frozen 🍦",
+                items: [{ name: "Beef Tinga (pre-made)", completed: false }],
+            },
+             {
+                category: "Alcohol 🍹",
+                items: [
+                    { name: "Whiskey", completed: false },
+                    { name: "Seltzers", completed: false },
+                    { name: "Twisted Tea Light", completed: false },
+                    { name: "Tito's", completed: false },
+                    { name: "Tequila", completed: false },
+                ],
+            },
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const groceryListContainer = document.getElementById('grocery-list-container');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            const resetButton = document.getElementById('reset-button');
+            const categoryColors = ['text-red-500', 'text-orange-500', 'text-yellow-500', 'text-green-500', 'text-blue-500', 'text-indigo-500', 'text-purple-500'];
+            let totalItems = 0;
+            
+            function updateProgress() {
+                const completedItems = groceryData.flatMap(cat => cat.items).filter(item => item.completed).length;
+                const percentage = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+                progressBar.style.width = `${percentage}%`;
+                progressText.textContent = `${percentage}%`;
+            }
+
+            function renderGroceryList() {
+                groceryListContainer.innerHTML = '';
+                totalItems = 0;
+                groceryData.forEach((category, catIndex) => {
+                    const categoryCard = document.createElement('div');
+                    categoryCard.className = 'card';
+                    
+                    const categoryTitle = document.createElement('h3');
+                    const colorClass = categoryColors[catIndex % categoryColors.length];
+                    categoryTitle.className = `font-bold text-xl mb-3 ${colorClass}`;
+                    categoryTitle.textContent = category.category;
+                    categoryCard.appendChild(categoryTitle);
+
+                    const itemsList = document.createElement('div');
+                    itemsList.className = 'space-y-1';
+                    
+                    category.items.forEach((item, itemIndex) => {
+                        totalItems++;
+                        const itemEl = document.createElement('div');
+                        itemEl.className = 'grocery-item flex items-center';
+                        if (item.completed) {
+                            itemEl.classList.add('completed');
+                        }
+                        itemEl.dataset.catIndex = catIndex;
+                        itemEl.dataset.itemIndex = itemIndex;
+
+                        itemEl.innerHTML = `
+                            <div class="checkbox"></div>
+                            <span class="flex-grow">${item.name}</span>
+                        `;
+                        itemsList.appendChild(itemEl);
+                    });
+                    
+                    categoryCard.appendChild(itemsList);
+                    groceryListContainer.appendChild(categoryCard);
+                });
+                 updateProgress();
+            }
+
+            groceryListContainer.addEventListener('click', (e) => {
+                const itemEl = e.target.closest('.grocery-item');
+                if (itemEl) {
+                    const catIndex = itemEl.dataset.catIndex;
+                    const itemIndex = itemEl.dataset.itemIndex;
+                    const item = groceryData[catIndex].items[itemIndex];
+                    item.completed = !item.completed;
+                    itemEl.classList.toggle('completed');
+                    updateProgress();
+                }
+            });
+            
+            resetButton.addEventListener('click', () => {
+                groceryData.forEach(cat => cat.items.forEach(item => item.completed = false));
+                renderGroceryList();
+            });
+            
+            document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const nav = document.querySelector('.sticky-nav');
+                    const navHeight = nav ? nav.offsetHeight : 0;
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+            
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+
+            renderGroceryList();
+        });
+
+    </script>
+</body>
+</html>
