@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craft Night - Build Learn Share</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet"> 
+    
+    <style>
+        /* Color Palette inspired by the image (Rainbow Splash) - DARK THEME (v2) */
+        :root {
+            --bg-dark: #1f2937; /* Dark Slate background */
+            --card-bg-dark: #374151; /* Slightly lighter Slate for cards/sections */
+            --text-light: #f3f4f6; /* Light Gray for body text */
+            --text-medium: #9ca3af; /* Medium Gray for subtitles */
+            --text-orange-red: #f87171; /* Adjusted Red for pop on dark */
+            --accent-yellow: #facc15; /* Rich Yellow */
+            --accent-teal-bright: #2dd4bf; /* Brighter Teal */
+            --accent-blue-bright: #38bdf8; /* Brighter Sky Blue */
+            --accent-orange: #fb923c; /* Brighter Orange */
+            --border-color-dark: #4b5563; /* Darker border color */
+            --shadow-color-glow-blue: rgba(56, 189, 248, 0.2); 
+            --shadow-color-glow-red: rgba(248, 113, 113, 0.15); 
+            --shadow-dark-soft: rgba(0, 0, 0, 0.3); /* Softer shadow for dark theme */
+            --shadow-dark-medium: rgba(0, 0, 0, 0.4);
+        }
+
+        html {
+             scroll-padding-top: 80px; 
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--bg-dark); 
+            color: var(--text-light); 
+        }
+
+        /* --- Font Styles --- */
+        .font-kalam { font-family: 'Kalam', cursive; }
+        .font-nunito { font-family: 'Nunito Sans', sans-serif; }
+
+        /* --- Hero Section --- */
+        .hero-bg-flat {
+            background-color: var(--bg-dark);
+            padding-top: 4rem; 
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color-dark); 
+            position: relative;
+            overflow: hidden; 
+        }
+         .hero-bg-flat::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/><%2Fg%3E%3C/svg%3E");
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-content { position: relative; z-index: 1; } 
+
+        .hero-image-container {
+            max-width: 500px; 
+            margin: 0 auto 2.5rem; 
+            background-color: var(--card-bg-dark); 
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 20px var(--shadow-dark-soft); 
+            border: 1px solid var(--border-color-dark);
+        }
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0.5rem;
+        }
+        .hero-tagline-flat {
+            font-weight: 700;
+            color: var(--text-light); 
+            font-size: 1.5rem; 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap; 
+            margin-top: 1rem;
+            letter-spacing: 0.5px;
+        }
+        .hero-tagline-flat .tagline-segment { 
+            display: inline-flex;
+            align-items: center;
+            margin: 0 0.25rem; 
+        }
+        .hero-tagline-flat .build-word { color: var(--accent-blue-bright); text-shadow: 0 0 5px var(--accent-blue-bright);} 
+        .hero-tagline-flat .learn-word { color: var(--accent-yellow); text-shadow: 0 0 5px var(--accent-yellow);} 
+        .hero-tagline-flat .share-word { color: var(--text-orange-red); text-shadow: 0 0 5px var(--text-orange-red);} 
+        .hero-tagline-flat .divider { color: var(--text-medium); opacity: 0.8; margin: 0 0.4em; } 
+        .hero-subtitle-flat { color: var(--text-medium); opacity: 0.9; font-size: 1.1rem; }
+
+
+        /* --- Navigation --- */
+        .nav-flat {
+            background-color: rgba(31, 41, 55, 0.85); 
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color-dark); 
+        }
+        .nav-logo-container-flat {
+            display: flex;
+            align-items: center; 
+            gap: 0.5rem; 
+        }
+        .nav-logo-main-flat {
+            font-size: 1.5rem; 
+            line-height: 1;
+            font-weight: 800; 
+            color: var(--text-orange-red);
+        }
+        .nav-logo-main-flat .night-word-nav {
+             color: var(--accent-teal-bright); 
+        }
+        .nav-logo-subtitle-flat {
+            font-size: 0.7rem; 
+            font-weight: 600;
+            color: var(--text-medium); 
+            letter-spacing: 0.5px;
+            display: flex; 
+            align-items: center;
+            flex-wrap: wrap;
+            line-height: 1;
+            padding-top: 2px; 
+        }
+        .nav-logo-subtitle-flat .subtitle-segment { 
+            display: inline-flex;
+            align-items: center;
+        }
+        .nav-logo-subtitle-flat .build-plus { color: var(--accent-blue-bright); } 
+        .nav-logo-subtitle-flat .learn-plus { color: var(--accent-yellow); } 
+        .nav-logo-subtitle-flat .share-plus { color: var(--text-orange-red); } 
+        .nav-logo-subtitle-flat .divider-nav { 
+            color: var(--text-medium); opacity: 0.6;
+            margin: 0 0.25em; 
+        }
+
+        .nav-link-flat {
+            color: var(--text-medium); 
+            transition: color 0.3s ease;
+            padding-bottom: 4px; 
+            font-weight: 700; 
+        }
+        .nav-link-flat:hover {
+            color: var(--accent-yellow); 
+        }
+
+        /* Icon Styles (Shared & Simplified) */
+        .icon-svg {
+            display: inline-block;
+            width: 1em; 
+            height: 1em;
+            vertical-align: -0.125em; 
+            margin-right: 0.3em; 
+            stroke-width: 2; 
+        }
+        .nav-logo-subtitle-flat .icon-svg { 
+             width: 0.8em; 
+             height: 0.8em;
+             margin-right: 0.15em;
+             vertical-align: -0.1em;
+        }
+        .icon-build-color { color: var(--accent-blue-bright); } 
+        .icon-learn-color { color: var(--accent-yellow); } 
+        .icon-share-color { color: var(--text-orange-red); } 
+
+
+        /* --- Section Styles --- */
+        .section-title-flat {
+            font-weight: 800; 
+            color: var(--text-orange-red); 
+            margin-bottom: 2.5rem; 
+            font-size: 2.25rem; 
+            letter-spacing: 0.5px; 
+        }
+        .section-bg-darker { 
+            background-color: #111827; 
+            box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.2), inset 0 -5px 10px -5px rgba(0,0,0,0.2);
+            padding-top: 4rem; padding-bottom: 4rem; 
+        }
+        .section-bg-base { 
+             padding-top: 4rem; padding-bottom: 4rem;
+        }
+
+
+        /* --- Card Styles --- */
+        .card-flat {
+            background-color: var(--card-bg-dark); 
+            border-radius: 0.75rem; 
+            padding: 2rem; 
+            box-shadow: 0 8px 25px var(--shadow-dark-soft); 
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
+            border: 1px solid var(--border-color-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 260px; 
+        }
+        .card-flat:hover {
+            transform: translateY(-6px) rotate(-0.75deg); 
+            box-shadow: 0 15px 35px var(--shadow-dark-medium); 
+        }
+        .card-flat h3 {
+            font-weight: 700; 
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem; 
+        }
+        .card-flat.title-craft h3 { color: var(--text-orange-red); }
+        .card-flat.title-tech h3 { color: var(--accent-blue-bright); }
+        .card-flat.title-learn h3 { color: var(--accent-teal-bright); }
+
+        .card-flat p { 
+            color: var(--text-light); 
+            opacity: 0.9;
+            flex-grow: 1; 
+            line-height: 1.6; 
+        }
+        
+        /* --- Buttons --- */
+        .btn-flat {
+            padding: 0.75rem 1.75rem; border-radius: 0.5rem; 
+            font-weight: 700; 
+            transition: all 0.3s ease; 
+            letter-spacing: 0.5px; 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.25); 
+            border: none;
+            text-transform: uppercase; 
+            font-size: 0.9rem; 
+        }
+        .btn-flat.primary {
+             background-color: var(--text-orange-red);
+             color: white;
+        }
+        .btn-flat.primary:hover {
+            background-color: #f97a7a; 
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            transform: translateY(-2px); 
+        }
+        .btn-flat.secondary {
+            background-color: var(--accent-teal-bright); 
+            color: var(--bg-dark); 
+        }
+        .btn-flat.secondary:hover {
+            background-color: #5eead4; 
+            color: #000; 
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transform: translateY(-2px); 
+        }
+        .btn-flat .icon-svg { 
+            width: 1.1em; height: 1.1em; margin-right: 0.5em; stroke-width: 2; 
+        }
+        
+        /* "What We Offer" Section - Resource Items */
+        .resource-item-flat {
+            background-color: var(--card-bg-dark); 
+            border-left: 5px solid; 
+            padding: 1rem 1.25rem;
+            border-radius: 0.375rem; 
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; align-items: center; gap: 0.75rem; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+            border: 1px solid var(--border-color-dark);
+            border-left-width: 5px; 
+            color: var(--text-light); 
+        }
+        .resource-item-flat:hover {
+            background-color: #4b5563; 
+            transform: translateX(4px) scale(1.01); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
+        }
+        .resource-item-flat .svg-icon { width: 1.75em; height: 1.75em; flex-shrink: 0; }
+        .resource-item-flat.paint-accent { border-left-color: var(--text-orange-red); }
+        .resource-item-flat.stitch-accent { border-left-color: var(--accent-yellow); }
+        .resource-item-flat.code-accent { border-left-color: var(--accent-blue-bright); }
+        .resource-item-flat.build-accent { border-left-color: var(--accent-orange); } 
+        .resource-item-flat.garden-accent { border-left-color: #a3e635; } 
+        .resource-item-flat.display-accent { border-left-color: var(--accent-teal-bright); }
+
+        /* Footer */
+        .footer-flat {
+            background-color: #111827; 
+            border-top: 1px solid var(--border-color-dark); 
+            padding: 2rem 0;
+            color: var(--text-medium); 
+        }
+        .footer-flat p { font-family: 'Nunito Sans', sans-serif; font-size: 0.9rem; }
+        .footer-flat .kalam-accent { font-family: 'Kalam', cursive; color: var(--text-orange-red); } 
+
+        /* QR Code Image Styling */
+        #qrCodeImageFlat { 
+            border: 1px solid var(--border-color-dark); 
+            padding: 6px; 
+            background-color: var(--bg-cream); 
+            border-radius: 0.5rem; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        #qrCodeImageFlat + p { color: var(--text-medium); } 
+
+        /* Text selection style */
+        ::selection { background-color: var(--accent-yellow); color: var(--bg-dark); } 
+    </style>
+</head>
+<body class="bg-dark text-light"> 
+
+    <nav class="nav-flat sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="nav-logo-container-flat">
+                <div class="nav-logo-main-flat">
+                    <span class="font-kalam text-amber-500">Craft</span> <span class="night-word-nav">Night</span> </div>
+                <div class="nav-logo-subtitle-flat">
+                    <!-- Build Icon (Wrench) -->
+                    <span class="subtitle-segment">
+                        <svg class="icon-svg icon-build-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        <span class="build-plus">Build</span>
+                    </span>
+                    <span class="divider-nav">:</span>
+                    <!-- Learn Icon (Book Open) - REPLACED -->
+                    <span class="subtitle-segment">
+                         <svg class="icon-svg icon-learn-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        <span class="learn-plus">Learn</span>
+                    </span>
+                    <span class="divider-nav">:</span>
+                    <!-- Share Icon (Users) -->
+                    <span class="subtitle-segment">
+                         <svg class="icon-svg icon-share-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span class="share-plus">Share</span>
+                    </span>
+                </div>
+            </a>
+            <div class="space-x-4 md:space-x-6">
+                <a href="#about" class="nav-link-flat text-sm md:text-base">About</a>
+                <a href="#creations" class="nav-link-flat text-sm md:text-base">Creations</a>
+                <a href="#resources" class="nav-link-flat text-sm md:text-base">Resources</a>
+                <a href="#join-us" class="nav-link-flat text-sm md:text-base">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg-flat">
+        <div class="container mx-auto px-6 text-center hero-content"> 
+            <div class="hero-image-container">
+                <img src="YOUR_IMAGE_URL_HERE" alt="Craft Night - Build Learn Share Logo" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/500x300/1f2937/f87171?text=Craft+Night+Logo';"> 
+            </div>
+
+            <p class="text-xl md:text-2xl hero-tagline-flat mb-8">
+                <span class="tagline-segment">
+                     <svg class="icon-svg icon-build-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                     <span class="build-word">Build</span>
+                </span>
+                <span class="divider">:</span>
+                <span class="tagline-segment">
+                    <svg class="icon-svg icon-learn-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    <span class="learn-word">Learn</span>
+                </span>
+                <span class="divider">:</span>
+                <span class="tagline-segment">
+                    <svg class="icon-svg icon-share-color" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span class="share-word">Share</span>
+                </span>
+            </p>
+            <p class="text-lg md:text-xl hero-subtitle-flat mb-10 max-w-3xl mx-auto">
+                A fun, informal evening bringing together friends and family to build cool things, learn new skills, and share creative passions.
+            </p>
+            <a href="#join-us" class="btn-flat primary text-lg">
+                 <!-- Updated "Ready to make" button icon -->
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM14.25 12l1.036.259a3.375 3.375 0 002.455 2.456L18 15.75l-.259 1.035a3.375 3.375 0 00-2.456 2.456L14.25 21.75l-1.035-.259a3.375 3.375 0 00-2.456-2.456L9.75 18l1.035-.259a3.375 3.375 0 002.456-2.456L14.25 12z" /></svg>
+                Ready to make something?
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 md:py-24">
+
+        <section id="first-gathering" class="mb-20 md:mb-32 scroll-mt-20 section-bg-darker rounded-xl shadow-lg p-8 md:p-12 border border-slate-700"> 
+            <div class="container mx-auto">
+                <h2 class="section-title-flat text-center">Our First Gathering!</h2>
+                <div class="max-w-2xl mx-auto text-center text-lg leading-relaxed">
+                    <p class="mb-4 text-slate-300">
+                        We're excited to kick off our first Craft Night at:
+                    </p>
+                    <p class="font-kalam text-2xl text-amber-400 mb-6">Lucy and Solomon's House</p> <p class="text-slate-400 text-md">
+                        (Date & Time: [To Be Announced - Keep an eye on updates!])
+                    </p>
+                    <p class="mt-6 text-slate-400 text-sm">
+                        Interested in hosting a future Craft Night at your place? We'd love to hear from you! Reach out via the contact info below.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-20 md:mb-32 scroll-mt-20 section-bg-base"> 
+            <h2 class="section-title-flat text-center">The Core Concept</h2>
+            <div class="max-w-3xl mx-auto text-center text-lg leading-relaxed">
+                <p class="mb-6 text-slate-300">
+                    This is an informal, vibrant evening dedicated to <strong class="text-yellow-400 font-kalam text-xl">active creation</strong> in all its forms. We're bringing together friends and family to dive into projects, learn from each other, and spark new ideas. 
+                </p>
+                 <p class="mb-6 p-6 border border-dashed border-sky-600 rounded-lg bg-sky-900/20 text-slate-300">
+                    <strong class="text-sky-400">Mission:</strong> To build, write, design, paint, sketch, code, tinker, and experiment in a shared, inspiring space. <br>
+                    <strong class="text-sky-400">Focus:</strong> Hands-on making. Less passive consumption, more active participation! Think journaling, learning new crafts, coding a utility, sketching a character, building a robot, or even performing a piece.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-20 md:mb-32 section-bg-darker py-16 md:py-20 rounded-xl"> 
+            <div class="container mx-auto px-6">
+                <h2 class="section-title-flat text-center">Who Should Join?</h2>
+                <div class="flex flex-col md:flex-row justify-around items-start text-center gap-10">
+                    <div class="md:w-1/2 p-6">
+                        <div class="text-5xl mb-4 text-amber-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 inline-block"><path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM15.75 9.75a3 3 0 116 0 3 3 0 01-6 0zM2.25 9.75a3 3 0 116 0 3 3 0 01-6 0zM6.31 15.117A6.745 6.745 0 0112 12a6.745 6.745 0 015.69 3.117L12 21.75l-5.69-6.633z" clip-rule="evenodd" /></svg> </div>
+                        <h3 class="font-semibold text-2xl mb-3 text-slate-100">Parents, Kids, Friends - All Creators!</h3>
+                        <p class="text-lg text-slate-300">If you love to make, tinker, learn, or just want a fun, productive evening with great company, you're in!</p>
+                    </div>
+                    <div class="md:w-1/2 p-6">
+                         <div class="text-5xl mb-4 text-emerald-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 inline-block"><path fill-rule="evenodd" d="M15.97 2.47a.75.75 0 011.06 0l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 11-1.06-1.06l3.22-3.22H7.5a.75.75 0 010-1.5h11.69l-3.22-3.22a.75.75 0 010-1.06zm-7.94 9a.75.75 0 010 1.06l-3.22 3.22H16.5a.75.75 0 010 1.5H4.81l3.22 3.22a.75.75 0 11-1.06 1.06l-4.5-4.5a.75.75 0 010-1.06l4.5-4.5a.75.75 0 011.06 0z" clip-rule="evenodd" /></svg> </div>
+                        <h3 class="font-semibold text-2xl mb-3 text-slate-100">No Experience? No Problem!</h3>
+                        <p class="text-lg text-slate-300">Beginners, dabblers, and seasoned pros are all welcome. The vibe is about trying, sharing, and having fun.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="creations" class="mb-20 md:mb-32 scroll-mt-20 section-bg-base"> 
+            <h2 class="section-title-flat text-center">What Can You Create?</h2>
+            <p class="text-center text-lg mb-12 max-w-3xl mx-auto text-slate-300">
+                Anything where you're actively making, building, or designing! Let your imagination run wild across the physical and digital spectrum:
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-flat title-craft"> <h3>Physical Arts & Crafts</h3>
+                    <p>Painting, sketching, drawing, <span class="font-kalam text-amber-500">crayon masterpieces</span>, scrapbooking, card making, <span class="font-kalam text-amber-500">stitching & embroidery</span>, knitting, LEGO sculptures, jewelry, model kits, origami, papercrafts, collage.</p>
+                </div>
+                <div class="card-flat title-tech"> <h3>Tech, Code & Electronics</h3>
+                     <p>Coding projects (<span class="font-roboto-mono text-emerald-400">Python, JS</span>, etc.), game development (design & logic), robotics, Arduino/Raspberry Pi tinkering, 3D modeling, <span class="font-roboto-mono text-emerald-400">AI explorations</span>, app development, digital art & animation, <span class="font-roboto-mono text-emerald-400">electronic music production</span>.</p>
+                </div>
+                <div class="card-flat title-learn"> <h3>Writing, Learning & More</h3>
+                    <p>Journaling, creative writing, poetry, learning a new skill (online tutorial), <span class="font-semibold text-violet-400">playing an instrument</span>, <span class="font-semibold text-violet-400">performance art practice</span>, collaborative brainstorming, planning your next big project.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="mb-20 md:mb-32 section-bg-darker py-16 md:py-20 rounded-xl scroll-mt-20"> 
+             <div class="container mx-auto px-6">
+                <h2 class="section-title-flat text-center">Our Creator Toolkit</h2>
+                <p class="text-center text-lg mb-12 max-w-3xl mx-auto text-slate-300">
+                    To help spark your genius, we'll have these resources available:
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-slate-200"> 
+                    <div class="resource-item-flat paint-accent">
+                         <svg class="svg-icon text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path></svg> 
+                         Maker Stations & Craft Corner: Tables, scrapbooking gear, watercolors, <strong class="font-kalam text-red-400">paints & crayons</strong>, LEGOs.
+                    </div>
+                    <div class="resource-item-flat stitch-accent">
+                         <svg class="svg-icon text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> 
+                         Textile Tools: Basic <strong class="font-kalam text-amber-400">sewing/stitching supplies</strong> for small projects.
+                    </div>
+                    <div class="resource-item-flat code-accent">
+                         <svg class="svg-icon text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> 
+                         Digital Foundry: Tablets (digital art), extra monitors, workstations.
+                    </div>
+                    <div class="resource-item-flat build-accent">
+                        <svg class="svg-icon text-violet-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20v-6m0 0V4m0 6h4m-4 0H6m6 0l2-2m-2 2l-2-2m10-4h2M3 10h2M7 3v2M7 19v2"/></svg> 
+                         Tech Lab: VR headsets, Roku devices for app dev.
+                    </div>
+                    <div class="resource-item-flat garden-accent">
+                         <svg class="svg-icon text-lime-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> 
+                         Build & Garden Zone: Basic tools, garden access (weather permitting).
+                    </div>
+                    <div class="resource-item-flat display-accent">
+                         <svg class="svg-icon text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg> 
+                         Showcase Hub: Projectors and TVs for sharing your work.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20 md:mb-32 section-bg-base"> 
+            <h2 class="section-title-flat text-center">Your Creator Kit</h2>
+            <div class="max-w-3xl mx-auto text-lg space-y-6 text-center text-slate-300"> <p class="p-5 bg-amber-900/20 border border-amber-700/50 rounded-lg shadow-sm"> <span class="font-semibold text-amber-400 font-kalam text-xl">Your Project Essentials:</span> Any specialized materials, unique tools (our toolkit is here to supplement!).</p>
+                <p class="p-5 bg-emerald-900/20 border border-emerald-700/50 rounded-lg shadow-sm"> <span class="font-semibold text-emerald-400">Your Spark:</span> Curiosity, enthusiasm, and a willingness to explore and learn!</p>
+                <p class="p-5 bg-slate-700/50 border border-slate-600/50 rounded-lg shadow-sm"> <span class="font-semibold text-slate-400">(Optional) Fuel:</span> Snacks or drinks to share are always welcome, but not required.</p>
+            </div>
+        </section>
+
+        <section class="mb-20 md:mb-32 section-bg-darker py-16 md:py-20 rounded-xl"> 
+            <div class="container mx-auto px-6">
+                <h2 class="section-title-flat text-center">Why Join Us?</h2>
+                <div class="grid md:grid-cols-2 gap-8 text-lg">
+                    <div class="card-flat title-craft"> <h3>Dedicated Creative Flow</h3>
+                        <p>A focused time and supportive space to dive into your passions, away from daily distractions. Perfect for sketching, crafting, or quiet writing.</p>
+                    </div>
+                    <div class="card-flat title-learn"> <h3 >Connect, Share, Collaborate</h3>
+                        <p>Meet fellow creators, exchange skills on the latest tech or timeless crafts, learn new techniques, and maybe even spark a collaborative project—physical or digital!</p>
+                    </div>
+                    <div class="card-flat title-tech md:col-span-2"> <h3>Relaxed & Inspiring Vibe</h3>
+                        <p>It's all about the joy of making, the thrill of problem-solving, and the magic of bringing ideas to life in a friendly, encouraging atmosphere. Whether you're debugging code or choosing the right color paint, find your flow here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="join-us" class="mb-16 md:mb-24 text-center scroll-mt-20 section-bg-base"> 
+             <h2 class="section-title-flat">Get In Touch & Join Us!</h2>
+            <p class="text-xl mb-6 max-w-2xl mx-auto text-slate-300">
+                Event Date & Time for the first Craft Night: [To Be Announced - Stay Tuned!]
+            </p>
+            <p class="text-lg mb-8 max-w-2xl mx-auto text-slate-400">
+                Have questions about the first gathering at Lucy and Solomon's House? Interested in attending, sharing an idea, or potentially hosting a future night? Send us an email!
+            </p>
+            
+            <a href="mailto:solkey+craftnight@gmail.com?subject=Craft%20Night%20Interest%20/%20Question" class="btn-flat secondary text-lg">
+                 <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Email Us
+            </a>
+
+            <div class="mt-20">
+                <h3 class="text-xl font-semibold mb-6 text-slate-300">Scan for Instant Access to this Page</h3>
+                <img src="https://placehold.co/220x220/fdf6e3/005f73?text=Your+QR+Code" alt="QR Code Placeholder" class="mx-auto rounded-lg" id="qrCodeImageFlat"> <p class="mt-4 text-sm text-slate-400">// Generate a QR code linking to this page and update the src.</p>
+            </div>
+        </section>
+
+        <section class="py-12 text-center border-t border-slate-700"> <p class="text-md text-slate-400">This "Craft Night" is a <span class="font-kalam text-amber-400">heartfelt community initiative</span> by <span class="text-indigo-400">[Your Name(s)]</span>.</p>
+            <p class="text-sm text-slate-400 font-roboto-mono">// Driven by a passion to: <span class="text-amber-400">Build();</span> <span class="text-violet-400">Learn();</span> <span class="text-emerald-400">Share();</span></p>
+        </section>
+    </main>
+
+    <footer class="footer-flat text-center"> <p>&copy; <span id="currentYearModern"></span> [Your Name(s)]. <span class="kalam-accent">Happy Creating!</span></p>
+        <p class="text-xs mt-1">// Version 6.5 - Email Button Fix</p> 
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYearModern').textContent = new Date().getFullYear();
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId.length > 1) { 
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navHeight = document.querySelector('.nav-flat')?.offsetHeight || 60; 
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - navHeight - 20; 
+                        
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                } else if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+        
+    </script>
+
+</body>
+</html>
